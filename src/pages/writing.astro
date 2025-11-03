@@ -1,5 +1,6 @@
 ---
-
+import Navigation from "../components/navigation.astro";
+import Footer from "../components/footer.astro";
 ---
 
 <!doctype html>
@@ -12,18 +13,8 @@
         <title>Writing</title>
     </head>
     <body>
-        <header>
-            <p>Logo</p>
-            <p>Menu</p>
-            <nav>
-                <ul>
-                    <li><a href="/">Homepage</a></li>
-                    <li><a href="/about">About Me</a></li>
-                    <li><a href="/projects">Projects</a></li>
-                    <li><a href="/writing">Writing</a></li>
-                </ul>
-            </nav>
-        </header>
+        <Navigation />
+
         <main class="writing-page">
             <section class="intro">
                 <h1>My Writing</h1>
@@ -107,20 +98,7 @@
                 </article>
             </section>
         </main>
-        <footer>
-            <h2>ftjorven</h2>
-            <p>Find me elsewhere!</p>
-            <ul class="socials">
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">YouTube</a></li>
-            </ul>
-
-            <p>Contact me</p>
-            <a href="mailto:florintjorven@gmail.com">florintjorven@gmail.com</a>
-            <p>© ftjorven 2025</p>
-        </footer>
+        
+        <Footer />
     </body>
 </html>

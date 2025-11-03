@@ -1,0 +1,49 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (href: string): boolean => pathname === href;
+---
+
+<header>
+    <p>Logo</p>
+
+    <button id="menu-btn" aria-expanded="false" aria-controls="primary-nav">
+        Menu
+    </button>
+
+    <nav id="primary-nav" hidden>
+        <ul>
+            <li>
+                <a href="/" class={isActive("/") ? "active" : ""}>Homepage</a>
+            </li>
+            <li>
+                <a href="/about" class={isActive("/about") ? "active" : ""}
+                    >About Me</a>
+            </li>
+            <li>
+                <a
+                    href="/projects"
+                    class={isActive("/projects") ? "active" : ""}>Projects</a>
+            </li>
+            <li>
+                <a href="/writing" class={isActive("/writing") ? "active" : ""}
+                    >Writing</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<script is:inline>
+    const btn = document.getElementById("menu-btn");
+    const nav = document.getElementById("primary-nav");
+
+    btn?.addEventListener("click", () => {
+        const isOpen = !nav.hasAttribute("hidden");
+        if (isOpen) {
+            nav.setAttribute("hidden", "");
+            btn.setAttribute("aria-expanded", "false");
+        } else {
+            nav.removeAttribute("hidden");
+            btn.setAttribute("aria-expanded", "true");
+        }
+    });
+</script>
