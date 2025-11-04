@@ -1,6 +1,7 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import Playlist from "../components/Playlist.astro";
 
 const pageTitle = "about me";
 const name = "Tjorven Florin";
@@ -80,29 +81,29 @@ const skills = [
             <section class="playlists">
                 <h3>working playlists</h3>
 
-                <article class="playlist">
-                    <h4>KR23 <span>#1</span></h4>
-                    <p>
-                        This is my playlist of ambient or piano music, whenever
-                        I really have to focus, this one gets put on.
-                    </p>
-                </article>
+                <Playlist
+                    title="KR23"
+                    number="1"
+                    description="This is my playlist of ambient or piano music. Whenever I really have to focus, this one gets put on."
+                    image="playlist-1.jpg"
+                    link="https://open.spotify.com/playlist/5S2axhaeEZgCzFmHcA5AY3?si=0e95d2406e114191"
+                />
 
-                <article class="playlist">
-                    <h4>JRJRJR <span>#2</span></h4>
-                    <p>
-                        This is a collection of all the music of John Roseboro,
-                        really relaxing and one of my favourite artists!
-                    </p>
-                </article>
+                <Playlist
+                    title="JRJRJR"
+                    number="2"
+                    description="This is a collection of all the music of John Roseboro — really relaxing and one of my favourite artists!"
+                    image="playlist-2.jpg"
+                    link="https://open.spotify.com/playlist/2czaRGtqpTXGtN4iNSkpBE?si=23fafe6178f94a9b"
+                />
 
-                <article class="playlist">
-                    <h4>2025 <span>#3</span></h4>
-                    <p>
-                        These are all the songs I’ve listened to over the past
-                        year and liked enough to want to listen to again!
-                    </p>
-                </article>
+                <Playlist
+                    title="2025"
+                    number="3"
+                    description="These are all the songs I’ve listened to over the past year and liked enough to want to listen to again!"
+                    image="playlist-3.jpg"
+                    link="https://open.spotify.com/playlist/2rQ0ltmJ9PBAsemqgDsyYu?si=0f383be8e0f246b5"
+                />
             </section>
 
             <section class="outro">

@@ -1,0 +1,18 @@
+---
+const { title, number, description, image, link } = Astro.props;
+---
+
+<article class="playlist">
+    <a href={link} target="_blank" rel="noopener noreferrer">
+        <img
+            src={`/images/${image}`}
+            alt={`Playlist ${title}`}
+            class="playlist-image"
+        />
+    </a>
+    <h4>
+        {title}
+        <span>#{number}</span>
+    </h4>
+    <p>{description}</p>
+</article>
