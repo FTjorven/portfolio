@@ -1,6 +1,22 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+
+const pageTitle = "about me";
+const name = "Tjorven Florin";
+const occupation = "Web Design student at Devine, Howest Kortrijk";
+const hobbies = [
+    "Music and live shows",
+    "Writing about music",
+    "Exploring local creative scenes",
+    "Combining code and design",
+];
+const skills = [
+    "Visual design",
+    "Creative coding (p5.js, JavaScript)",
+    "UX thinking",
+    "Storytelling through design",
+];
 ---
 
 <html lang="en">
@@ -9,8 +25,9 @@ import Footer from "../components/Footer.astro";
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>FTJORVEN</title>
+        <title>{pageTitle}</title>
     </head>
+
     <body>
         <Navigation />
 
@@ -18,12 +35,12 @@ import Footer from "../components/Footer.astro";
             <section class="intro">
                 <h1>Logo</h1>
                 <h2>ftjorven</h2>
-                <h2>about me</h2>
+                <h2>{pageTitle}</h2>
                 <p>
-                    My name is Tjorven Florin. I’m currently studying web design
-                    at Devine. I have a passion for visual and auditory arts but
-                    I also love the coding and UX parts of the process. On this
-                    page I’d just like to show who I am a little better.
+                    My name is {name}. I’m currently studying {occupation}. I
+                    have a passion for visual and auditory arts but I also love
+                    the coding and UX parts of the process. On this page I’d
+                    just like to show who I am a little better.
                 </p>
             </section>
 
@@ -37,15 +54,26 @@ import Footer from "../components/Footer.astro";
             </section>
 
             <section class="more">
+                <h3>occupation</h3>
+                <p>{occupation}</p>
+
+                <h3>hobbies</h3>
+                <ul>
+                    {hobbies.map((hobby) => <li>{hobby}</li>)}
+                </ul>
+
+                <h3>skills</h3>
+                <ul>
+                    {skills.map((skill) => <li>{skill}</li>)}
+                </ul>
+
                 <h3>more to come...?</h3>
                 <p>
-                    Besides my work in Web Design, I&#39;m very passionate about
-                    music and liveshows. I&#39;m currently working on getting
-                    more into my local music scene. I work at a concert venue in
-                    my local city of Kortrijk. I also often write about music
-                    (which you can find in the writing section of my page).
-                    Whenever I&#39;m working on the things you see in this
-                    portfolio, I&#39;m listening to one of these playlists!
+                    Besides my work in Web Design, I’m very passionate about
+                    music and liveshows. I’m currently working on getting more
+                    into my local music scene. I work at a concert venue in
+                    Kortrijk and often write about music, which you can find in
+                    the writing section of my page.
                 </p>
             </section>
 
@@ -71,8 +99,8 @@ import Footer from "../components/Footer.astro";
                 <article class="playlist">
                     <h4>2025 <span>#3</span></h4>
                     <p>
-                        These are all the songs I&#39;ve listened to over the
-                        past year and liked enough to want to listen to again!
+                        These are all the songs I’ve listened to over the past
+                        year and liked enough to want to listen to again!
                     </p>
                 </article>
             </section>

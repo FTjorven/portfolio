@@ -1,6 +1,8 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+
+const pageTitle = "FTJORVEN";
 ---
 
 <html lang="en">
@@ -9,13 +11,13 @@ import Footer from "../components/Footer.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>FTJORVEN</title>
+		<title>{pageTitle}</title>
 	</head>
 	<body>
 		<Navigation />
 
 		<main class="homepage">
-			<h1 class="vertical-title">FTJORVEN</h1>
+			<h1 class="vertical-title">{pageTitle}</h1>
 
 			<section class="intro-section">
 				<img src="/images/img-1.jpg" alt="img-1" class="main-image" />
