@@ -1,8 +1,14 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "How Sound Becomes Story"
-date: 2025-09-15
+pubDate: 2025-09-15
 lang: "en"
+description: "Exploring the narrative potential of melody and rhythm — how music tells stories without words."
+author: "ftjorven"
 tags: ["music", "analysis", "english"]
+image:
+  url: "/images/music-story.jpg"
+  alt: "Soft light over vinyl records and sound waves"
 ---
 
 Every melody has a way of speaking.  

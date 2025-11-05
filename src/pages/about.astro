@@ -1,11 +1,13 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import Playlist from "../components/Playlist.astro";
 
 import "../styles/global.css";
 
 const pageTitle = "about me";
+const description =
+    "A short introduction to who I am, what I do, and what inspires me — ftjorven, Web Design student at Devine.";
+
 const name = "Tjorven Florin";
 const occupation = "Web Design student at Devine, Howest Kortrijk";
 const hobbies = [
@@ -22,102 +24,88 @@ const skills = [
 ];
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
+<BaseLayout title={pageTitle} description={description}>
+    <main>
+        <section class="intro">
+            <h2>ftjorven</h2>
+            <h2>{pageTitle}</h2>
+            <p>
+                My name is {name}. I’m currently studying {occupation}. I have a
+                passion for visual and auditory arts but I also love the coding
+                and UX parts of the process. On this page I’d just like to show
+                who I am a little better.
+            </p>
+        </section>
 
-    <body>
-        <Navigation />
+        <section class="education">
+            <h3>education history</h3>
+            <h4>Devine</h4>
+            <p>
+                I’m currently in my second year of a Digital Design and
+                Development course at Howest Kortrijk.
+            </p>
+        </section>
 
-        <main>
-            <section class="intro">
-                <h2>ftjorven</h2>
-                <h2>{pageTitle}</h2>
-                <p>
-                    My name is {name}. I’m currently studying {occupation}. I
-                    have a passion for visual and auditory arts but I also love
-                    the coding and UX parts of the process. On this page I’d
-                    just like to show who I am a little better.
-                </p>
-            </section>
+        <section class="more">
+            <h3>occupation</h3>
+            <p>{occupation}</p>
 
-            <section class="education">
-                <h3>education history</h3>
-                <h4>Devine</h4>
-                <p>
-                    I’m currently in my second year of a Digital Design and
-                    Development course at Howest Kortrijk.
-                </p>
-            </section>
+            <h3>hobbies</h3>
+            <ul>
+                {hobbies.map((hobby) => <li>{hobby}</li>)}
+            </ul>
 
-            <section class="more">
-                <h3>occupation</h3>
-                <p>{occupation}</p>
+            <h3>skills</h3>
+            <ul>
+                {skills.map((skill) => <li>{skill}</li>)}
+            </ul>
 
-                <h3>hobbies</h3>
-                <ul>
-                    {hobbies.map((hobby) => <li>{hobby}</li>)}
-                </ul>
+            <h3>more to come...?</h3>
+            <p>
+                Besides my work in Web Design, I’m very passionate about music
+                and live shows. I’m currently working on getting more into my
+                local music scene. I work at a concert venue in Kortrijk and
+                often write about music, which you can find in the writing
+                section of my page.
+            </p>
+        </section>
 
-                <h3>skills</h3>
-                <ul>
-                    {skills.map((skill) => <li>{skill}</li>)}
-                </ul>
+        <section class="playlists">
+            <h3>working playlists</h3>
 
-                <h3>more to come...?</h3>
-                <p>
-                    Besides my work in Web Design, I’m very passionate about
-                    music and liveshows. I’m currently working on getting more
-                    into my local music scene. I work at a concert venue in
-                    Kortrijk and often write about music, which you can find in
-                    the writing section of my page.
-                </p>
-            </section>
+            <Playlist
+                title="KR23"
+                number="1"
+                description="This is my playlist of ambient or piano music. Whenever I really have to focus, this one gets put on."
+                image="playlist-1.webp"
+                link="https://open.spotify.com/playlist/5S2axhaeEZgCzFmHcA5AY3?si=0e95d2406e114191"
+            />
 
-            <section class="playlists">
-                <h3>working playlists</h3>
+            <Playlist
+                title="JRJRJR"
+                number="2"
+                description="This is a collection of all the music of John Roseboro — really relaxing and one of my favourite artists!"
+                image="playlist-2.webp"
+                link="https://open.spotify.com/playlist/2czaRGtqpTXGtN4iNSkpBE?si=23fafe6178f94a9b"
+            />
 
-                <Playlist
-                    title="KR23"
-                    number="1"
-                    description="This is my playlist of ambient or piano music. Whenever I really have to focus, this one gets put on."
-                    image="playlist-1.webp"
-                    link="https://open.spotify.com/playlist/5S2axhaeEZgCzFmHcA5AY3?si=0e95d2406e114191"
-                />
+            <Playlist
+                title="2025"
+                number="3"
+                description="These are all the songs I’ve listened to over the past year and liked enough to want to listen to again!"
+                image="playlist-3.webp"
+                link="https://open.spotify.com/playlist/2rQ0ltmJ9PBAsemqgDsyYu?si=0f383be8e0f246b5"
+            />
+        </section>
 
-                <Playlist
-                    title="JRJRJR"
-                    number="2"
-                    description="This is a collection of all the music of John Roseboro — really relaxing and one of my favourite artists!"
-                    image="playlist-2.webp"
-                    link="https://open.spotify.com/playlist/2czaRGtqpTXGtN4iNSkpBE?si=23fafe6178f94a9b"
-                />
-
-                <Playlist
-                    title="2025"
-                    number="3"
-                    description="These are all the songs I’ve listened to over the past year and liked enough to want to listen to again!"
-                    image="playlist-3.webp"
-                    link="https://open.spotify.com/playlist/2rQ0ltmJ9PBAsemqgDsyYu?si=0f383be8e0f246b5"
-                />
-            </section>
-
-            <section class="outro">
-                <p>
-                    I hope you know me a little better now. You can always
-                    contact me at
-                    <a href="mailto:florintjorven@gmail.com"
-                        >florintjorven@gmail.com</a
-                    >.
-                </p>
-            </section>
-        </main>
-
-        <Footer />
-    </body>
-</html>
+        <section class="outro">
+            <p>
+                I hope you know me a little better now. You can always contact
+                me at
+                <a href="mailto:florintjorven@gmail.com"
+                    >florintjorven@gmail.com</a
+                >.
+            </p>
+        </section>
+    </main>
+</BaseLayout>

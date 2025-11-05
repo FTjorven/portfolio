@@ -1,7 +1,13 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "The House Always Remembers"
-date: 2025-05-20
+pubDate: 2025-05-20
+description: "A retro storytelling website reimagining playing cards as creative, reusable objects for a speakeasy-inspired house party experience."
+author: "ftjorven"
 tags: ["integration", "storytelling", "web design", "reuse", "playing cards"]
+image:
+  url: "/images/the-house-always-remembers.jpg"
+  alt: "Vintage-inspired website design with playing cards and warm tones"
 link: "https://ftjorven.be/integration2/"
 ---
 

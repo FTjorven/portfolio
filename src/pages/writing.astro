@@ -1,106 +1,92 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const pageTitle = "My writing";
+const description =
+    "A collection of my blog posts and music writing — exploring creativity, sound, and reflection in both English and Dutch.";
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
-    <body>
-        <Navigation />
+<BaseLayout title={pageTitle} description={description}>
+    <main class="writing-page">
+        <section class="intro">
+            <h1>{pageTitle}</h1>
+            <p>
+                Welcome to my writing archive. Here you&#39;ll find both general
+                blog posts and pieces about music writing.
+            </p>
 
-        <main class="writing-page">
-            <section class="intro">
-                <h1>{pageTitle}</h1>
-                <p>
-                    Welcome to my writing archive. Here you&#39;ll find both
-                    general blog posts and pieces about music writing.
+            <div class="language-filter">
+                <button class="filter-btn active" data-lang="en">English</button
+                >
+                <button class="filter-btn" data-lang="nl">Dutch</button>
+            </div>
+        </section>
+
+        <section class="blog-posts">
+            <h2>Blog Posts</h2>
+
+            <article class="writing-item" data-lang="en">
+                <h3>Creative Routine in Autumn</h3>
+                <p class="date">October 2025</p>
+                <p class="excerpt">
+                    Reflections on how the change of season shapes creativity
+                    and focus.
                 </p>
+                <ul class="tags">
+                    <li>#english</li>
+                    <li>#reflection</li>
+                    <li>#routine</li>
+                </ul>
+                <a href="/writing/blog-autumn">Read more →</a>
+            </article>
 
-                <div class="language-filter">
-                    <button class="filter-btn active" data-lang="en">
-                        English
-                    </button>
-                    <button class="filter-btn" data-lang="nl">Dutch</button>
-                </div>
-            </section>
+            <article class="writing-item" data-lang="nl">
+                <h3>Herfstgedachten over inspiratie</h3>
+                <p class="date">Oktober 2025</p>
+                <p class="excerpt">
+                    Een korte overdenking over hoe het seizoen invloed heeft op
+                    creatief werk.
+                </p>
+                <ul class="tags">
+                    <li>#dutch</li>
+                    <li>#inspiratie</li>
+                    <li>#reflectie</li>
+                </ul>
+                <a href="/writing/blog-herfst">Lees meer →</a>
+            </article>
+        </section>
 
-            <section class="blog-posts">
-                <h2>Blog Posts</h2>
+        <section class="music-posts">
+            <h2>Music Writing</h2>
 
-                <article class="writing-item" data-lang="en">
-                    <h3>Creative Routine in Autumn</h3>
-                    <p class="date">October 2025</p>
-                    <p class="excerpt">
-                        Reflections on how the change of season shapes
-                        creativity and focus.
-                    </p>
-                    <ul class="tags">
-                        <li>#english</li>
-                        <li>#reflection</li>
-                        <li>#routine</li>
-                    </ul>
-                    <a href="/writing/blog-autumn">Read more →</a>
-                </article>
+            <article class="writing-item" data-lang="en">
+                <h3>How Sound Becomes Story</h3>
+                <p class="date">September 2025</p>
+                <p class="excerpt">
+                    Exploring the narrative potential of melody and rhythm.
+                </p>
+                <ul class="tags">
+                    <li>#english</li>
+                    <li>#music</li>
+                    <li>#analysis</li>
+                </ul>
+                <a href="/writing/music-sound-story">Read more →</a>
+            </article>
 
-                <article class="writing-item" data-lang="nl">
-                    <h3>Herfstgedachten over inspiratie</h3>
-                    <p class="date">Oktober 2025</p>
-                    <p class="excerpt">
-                        Een korte overdenking over hoe het seizoen invloed heeft
-                        op creatief werk.
-                    </p>
-                    <ul class="tags">
-                        <li>#dutch</li>
-                        <li>#inspiratie</li>
-                        <li>#reflectie</li>
-                    </ul>
-                    <a href="/writing/blog-herfst">Lees meer →</a>
-                </article>
-            </section>
-
-            <section class="music-posts">
-                <h2>Music Writing</h2>
-
-                <article class="writing-item" data-lang="en">
-                    <h3>How Sound Becomes Story</h3>
-                    <p class="date">September 2025</p>
-                    <p class="excerpt">
-                        Exploring the narrative potential of melody and rhythm.
-                    </p>
-                    <ul class="tags">
-                        <li>#english</li>
-                        <li>#music</li>
-                        <li>#analysis</li>
-                    </ul>
-                    <a href="/writing/music-sound-story">Read more →</a>
-                </article>
-
-                <article class="writing-item" data-lang="nl">
-                    <h3>Wanneer geluid een verhaal wordt</h3>
-                    <p class="date">September 2025</p>
-                    <p class="excerpt">
-                        Over de manier waarop muziek emoties en verhalen kan
-                        oproepen.
-                    </p>
-                    <ul class="tags">
-                        <li>#dutch</li>
-                        <li>#muziek</li>
-                        <li>#interview</li>
-                    </ul>
-                    <a href="/writing/muziek-verhaal">Lees meer →</a>
-                </article>
-            </section>
-        </main>
-
-        <Footer />
-    </body>
-</html>
+            <article class="writing-item" data-lang="nl">
+                <h3>Wanneer geluid een verhaal wordt</h3>
+                <p class="date">September 2025</p>
+                <p class="excerpt">
+                    Over de manier waarop muziek emoties en verhalen kan
+                    oproepen.
+                </p>
+                <ul class="tags">
+                    <li>#dutch</li>
+                    <li>#muziek</li>
+                    <li>#interview</li>
+                </ul>
+                <a href="/writing/muziek-verhaal">Lees meer →</a>
+            </article>
+        </section>
+    </main>
+</BaseLayout>

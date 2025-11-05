@@ -1,8 +1,14 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "Creative Routine in Autumn"
-date: 2025-10-12
+pubDate: 2025-10-12
 lang: "en"
+description: "Reflections on how the change of season shapes creativity and focus."
+author: "ftjorven"
 tags: ["reflection", "routine", "english"]
+image:
+  url: "/images/autumn.jpg"
+  alt: "Warm autumn leaves with soft light"
 ---
 
 As the air cools and the light shifts, my creative rhythm does too.  

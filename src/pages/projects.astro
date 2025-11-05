@@ -1,110 +1,56 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import Footer from "../components/Footer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 
 const pageTitle = "Book of little things";
+const description =
+    "A collection of my design, code, and creative projects — small works that shaped how I think about design and development.";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
-    <body>
-        <Navigation />
+<BaseLayout title={pageTitle} description={description}>
+    <main class="projects-page">
+        <section class="intro">
+            <h2><em>Book of</em> little things</h2>
+            <p>
+                On this page, I’d like to show you some of my work — small
+                projects, creative experiments, and assignments that helped
+                shape how I think about design and code. I’m presenting them
+                chronologically.
+            </p>
+        </section>
 
-        <main class="projects-page">
-            <section class="intro">
-                <h2><em>Book of</em> little things</h2>
-                <p>
-                    On this page, I’d like to show you some of my work — small
-                    projects, creative experiments, and assignments that helped
-                    shape how I think about design and code. I’m presenting them
-                    chronologically.
-                </p>
-            </section>
+        <section class="project-list">
+            <ProjectCard
+                index="01"
+                title="Land of Lost Files"
+                year="2024"
+                href="/projects/land-of-lost-files"
+                description="My first visual design assignment, imagining a digital world filled with forgotten data — old files, obsolete formats, and memories from the early internet. A world of decay, nostalgia, and rediscovery."
+            />
 
-            <section class="project-list">
-                <article class="project">
-                    <h3>
-                        <a href="/projects/land-of-lost-files"
-                            >01 / Land of Lost Files</a
-                        >
-                    </h3>
-                    <p class="year">2024</p>
-                    <p class="description">
-                        My first visual design assignment, imagining a digital
-                        world filled with forgotten data — old files, obsolete
-                        formats, and memories from the early internet. A world
-                        of decay, nostalgia, and rediscovery.
-                    </p>
-                </article>
+            <ProjectCard
+                index="03"
+                title="Off the Grid — Forgotten Musicians"
+                year="2024"
+                href="/projects/off-the-grid"
+                description="A storytelling website designed for forgotten or past-their-prime musicians, encouraging them to reconnect with creativity outside of social media. A nostalgic yet playful “off the grid” digital retreat."
+            />
 
-                <article class="project">
-                    <h3>
-                        <a href="/projects/opposites"
-                            >02 / Opposites — Chaos, Order, Light & Dark</a
-                        >
-                    </h3>
-                    <p class="year">2024</p>
-                    <p class="description">
-                        A four-part Creative Code project built in p5.js
-                        exploring visual contrast through movement, rhythm, and
-                        emotion. Each animation represents one side of a duality
-                        — chaos and order, light and dark.
-                    </p>
-                </article>
+            <ProjectCard
+                index="04"
+                title="The House Always Remembers"
+                year="2025"
+                href="/projects/the-house-always-remembers"
+                description="A retro, speakeasy-inspired storytelling site built around reusing playing cards. Combines narrative, design, and interactivity to promote creative reuse with a glamorous, DIY twist."
+            />
 
-                <article class="project">
-                    <h3>
-                        <a href="/projects/off-the-grid"
-                            >03 / Off the Grid — Forgotten Musicians</a
-                        >
-                    </h3>
-                    <p class="year">2024</p>
-                    <p class="description">
-                        A storytelling website designed for forgotten or
-                        past-their-prime musicians, encouraging them to
-                        reconnect with creativity outside of social media. A
-                        nostalgic yet playful “off the grid” digital retreat.
-                    </p>
-                </article>
-
-                <article class="project">
-                    <h3>
-                        <a href="/projects/the-house-always-remembers"
-                            >04 / The House Always Remembers</a
-                        >
-                    </h3>
-                    <p class="year">2025</p>
-                    <p class="description">
-                        A retro, speakeasy-inspired storytelling site built
-                        around reusing playing cards. Combines narrative,
-                        design, and interactivity to promote creative reuse with
-                        a glamorous, DIY twist.
-                    </p>
-                </article>
-
-                <article class="project">
-                    <h3>
-                        <a href="/projects/click-festival-showcase"
-                            >05 / Click Festival Showcase</a
-                        >
-                    </h3>
-                    <p class="year">2025</p>
-                    <p class="description">
-                        A JavaScript-focused coding project for the Creative
-                        Code course. Combines animation, interaction, and
-                        playful logic to showcase experimental coding work in
-                        one cohesive digital experience.
-                    </p>
-                </article>
-            </section>
-        </main>
-
-        <Footer />
-    </body>
-</html>
+            <ProjectCard
+                index="05"
+                title="Click Festival Showcase"
+                year="2025"
+                href="/projects/click-festival-showcase"
+                description="A JavaScript-focused coding project for the Creative Code course. Combines animation, interaction, and playful logic to showcase experimental coding work in one cohesive digital experience."
+            />
+        </section>
+    </main>
+</BaseLayout>

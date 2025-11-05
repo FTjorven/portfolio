@@ -1,8 +1,14 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "Wanneer geluid een verhaal wordt"
-date: 2025-09-22
+pubDate: 2025-09-22
 lang: "nl"
+description: "Over de manier waarop muziek emoties en verhalen kan oproepen — een korte reflectie geïnspireerd door een gesprek met een lokale artiest."
+author: "ftjorven"
 tags: ["dutch", "muziek", "interview"]
+image:
+  url: "/images/music-story-nl.jpg"
+  alt: "Artiest met gitaar in zacht podiumlicht"
 ---
 
 Muziek vertelt verhalen, ook zonder woorden.  

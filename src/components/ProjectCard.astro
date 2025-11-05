@@ -1,0 +1,17 @@
+---
+const props = Astro.props;
+
+const index = props.index; // e.g. "01"
+const title = props.title; // e.g. "Land of Lost Files"
+const year = props.year; // e.g. "2024"
+const href = props.href; // e.g. "/projects/land-of-lost-files"
+const description = props.description;
+---
+
+<article class="project">
+    <h3>
+        <a href={href}>{index} / {title}</a>
+    </h3>
+    <p class="year">{year}</p>
+    <p class="description">{description}</p>
+</article>

@@ -1,6 +1,6 @@
 ---
 const pathname = Astro.url.pathname;
-const isActive = (href) => pathname === href;
+const isActive = (href: string) => pathname === href;
 ---
 
 <style>
@@ -76,7 +76,7 @@ const isActive = (href) => pathname === href;
         margin: 0.25rem auto 0.75rem;
     }
 
-
+ 
     nav a.active {
         color: transparent;
         -webkit-text-stroke: 1.5px #fff;

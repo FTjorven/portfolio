@@ -1,7 +1,13 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "Land of Lost Files"
-date: 2024-10-10
+pubDate: 2024-10-10
+description: "A visual design project exploring forgotten corners of the early internet — digital decay, nostalgia, and the beauty of lost data."
+author: "ftjorven"
 tags: ["visual design", "concept art", "first-year", "nostalgia", "internet"]
+image:
+  url: "/images/land-of-lost-files.jpg"
+  alt: "Digital collage of pixelated and glitched file icons floating in cyberspace"
 ---
 
 **Land of Lost Files** was my take on the *Land of Lost and Found* assignment — my first visual design project at Devine.

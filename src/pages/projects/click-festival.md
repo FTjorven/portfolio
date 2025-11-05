@@ -1,7 +1,13 @@
 ---
+layout: ../../layouts/MarkdownPostLayout.astro
 title: "Click Festival Showcase"
-date: 2025-05-21
+pubDate: 2025-05-21
+description: "A Creative Code project showcasing interactive JavaScript experiments through animations, generative visuals, and playful design."
+author: "ftjorven"
 tags: ["creative code", "javascript", "animation", "interactive", "portfolio"]
+image:
+  url: "/images/click-festival-showcase.jpg"
+  alt: "Interactive digital showcase from the Click Festival project"
 link: "https://ftjorven.be/clickfestival/"
 ---
 
