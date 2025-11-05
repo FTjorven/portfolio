@@ -1,0 +1,25 @@
+---
+const props = Astro.props;
+
+const lang = props.lang;
+const title = props.title;
+const date = props.date;
+const excerpt = props.excerpt;
+const tags = props.tags || [];
+const link = props.link;
+
+let tagsHtml = "";
+for (let i = 0; i < tags.length; i++) {
+    tagsHtml += `<li>#${tags[i]}</li>`;
+}
+---
+
+<article class="writing-item" data-lang={lang}>
+    <h3>{title}</h3>
+    <p class="date">{date}</p>
+    <p class="excerpt">{excerpt}</p>
+
+    <ul class="tags" set:html={tagsHtml} />
+
+    <a href={link}>{lang === "nl" ? "Lees meer →" : "Read more →"}</a>
+</article>
