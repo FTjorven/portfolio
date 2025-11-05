@@ -3,6 +3,8 @@ import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 import Playlist from "../components/Playlist.astro";
 
+import "../styles/global.css";
+
 const pageTitle = "about me";
 const name = "Tjorven Florin";
 const occupation = "Web Design student at Devine, Howest Kortrijk";
@@ -34,7 +36,6 @@ const skills = [
 
         <main>
             <section class="intro">
-                <h1>Logo</h1>
                 <h2>ftjorven</h2>
                 <h2>{pageTitle}</h2>
                 <p>
@@ -85,7 +86,7 @@ const skills = [
                     title="KR23"
                     number="1"
                     description="This is my playlist of ambient or piano music. Whenever I really have to focus, this one gets put on."
-                    image="playlist-1.jpg"
+                    image="playlist-1.webp"
                     link="https://open.spotify.com/playlist/5S2axhaeEZgCzFmHcA5AY3?si=0e95d2406e114191"
                 />
 
@@ -93,7 +94,7 @@ const skills = [
                     title="JRJRJR"
                     number="2"
                     description="This is a collection of all the music of John Roseboro — really relaxing and one of my favourite artists!"
-                    image="playlist-2.jpg"
+                    image="playlist-2.webp"
                     link="https://open.spotify.com/playlist/2czaRGtqpTXGtN4iNSkpBE?si=23fafe6178f94a9b"
                 />
 
@@ -101,7 +102,7 @@ const skills = [
                     title="2025"
                     number="3"
                     description="These are all the songs I’ve listened to over the past year and liked enough to want to listen to again!"
-                    image="playlist-3.jpg"
+                    image="playlist-3.webp"
                     link="https://open.spotify.com/playlist/2rQ0ltmJ9PBAsemqgDsyYu?si=0f383be8e0f246b5"
                 />
             </section>

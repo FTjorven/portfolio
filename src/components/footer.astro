@@ -1,19 +1,102 @@
 ---
 const year = new Date().getFullYear();
+import Social from "./Social.astro";
 ---
+
+<style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    footer {
+        width: 100%;
+        background-color: #3f3f3f;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 3rem 1rem;
+        font-family: "Satoshi", sans-serif;
+
+        border-top-left-radius: 60px;
+        border-top-right-radius: 60px;
+
+        margin: 0;
+        border: none;
+    }
+
+    footer h2 {
+        font-family: "Junicode", serif;
+        font-style: italic;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: transparent;
+        -webkit-text-stroke: 1px #f2f2f2;
+        text-stroke: 1px #f2f2f2;
+    }
+
+    .section-title {
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 1rem 0 2rem;
+    }
+
+    li {
+        margin: 0.3rem 0;
+    }
+
+    a,
+    a:visited,
+    a:active {
+        color: #f2f2f2;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #fff;
+    }
+
+    .email {
+        display: block;
+        margin: 0.5rem 0 2rem;
+    }
+
+    .copyright {
+        font-family: "Junicode", serif;
+        font-style: italic;
+        font-size: 1rem;
+        opacity: 0.8;
+    }
+</style>
 
 <footer>
     <h2>ftjorven</h2>
-    <p>Find me elsewhere!</p>
+
+    <p class="section-title">Find me elsewhere!</p>
     <ul>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">YouTube</a></li>
+        <li><Social platform="Twitter" username="moziptwt" /></li>
+        <li><Social platform="Instagram" username="ftjorven" /></li>
+        <li>
+            <Social
+                platform="LinkedIn"
+                username="in/tjorven-florin-8a57a91aa/"
+            />
+        </li>
+        <li><Social platform="GitHub" username="FTjorven" /></li>
+        <li><Social platform="YouTube" username="@ftjorven" /></li>
     </ul>
 
-    <p>Contact me</p>
-    <a href="mailto:florintjorven@gmail.com">florintjorven@gmail.com</a>
-    <p>© ftjorven {year}</p>
+    <p class="section-title contact">Contact me</p>
+    <a href="mailto:florintjorven@gmail.com" class="email"
+        >florintjorven@gmail.com</a
+    >
+
+    <p class="copyright">© ftjorven {year}</p>
 </footer>
