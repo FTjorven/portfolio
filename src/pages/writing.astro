@@ -2,9 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WritingItem from "../components/WritingItem.astro";
 
+const allPosts = Object.values(
+    import.meta.glob("./writing/*.md", { eager: true }),
+);
+
 const pageTitle = "My writing";
 const description =
-    "A collection of my blog posts and music writing — exploring creativity, sound, and reflection in both English and Dutch.";
+    "A collection of my blog posts and music writing, exploring creativity, sound, and reflection in both English and Dutch.";
 ---
 
 <BaseLayout title={pageTitle} description={description}>

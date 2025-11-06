@@ -1,0 +1,152 @@
+---
+const project = Astro.props.project || {};
+
+const title = project.title || "Untitled";
+const description = project.description || "";
+const link = project.link || "";
+const image = project.image || null;
+const author = project.author || "";
+const pubDate = project.pubDate ? new Date(project.pubDate) : null;
+const year = pubDate ? String(pubDate.getFullYear()) : "";
+
+let tagsHtml = "";
+if (project.tags && project.tags.length) {
+    for (let i = 0; i < project.tags.length; i++) {
+        tagsHtml += `<li>#${project.tags[i]}</li>`;
+    }
+}
+---
+
+<style>
+    .project-details {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem 3rem;
+    }
+
+    .project-header {
+        margin-bottom: 1.25rem;
+    }
+
+    .project-title {
+        font-size: clamp(1.8rem, 4.5vw, 2.6rem);
+        line-height: 1.15;
+        margin: 0 0 0.5rem 0;
+    }
+
+    .meta {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        opacity: 0.8;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+    }
+
+    .dot {
+        opacity: 0.6;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 0.75rem;
+        padding: 0;
+        margin: 0.5rem 0 0;
+        list-style: none;
+        font-size: 0.95rem;
+        opacity: 0.9;
+    }
+
+    .cover {
+        margin: 1.25rem 0;
+    }
+
+    .cover img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 14px;
+    }
+
+    .cover figcaption {
+        font-size: 0.9rem;
+        opacity: 0.7;
+        margin-top: 0.4rem;
+        text-align: center;
+    }
+
+    .description {
+        margin: 1rem 0 1.5rem;
+        font-size: 1.05rem;
+        line-height: 1.6;
+    }
+
+    .actions .button {
+        display: inline-block;
+        padding: 0.6rem 1rem;
+        border: 1px solid currentColor;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 700;
+    }
+
+    .actions .button:hover {
+        text-decoration: underline;
+    }
+
+    .back {
+        margin-top: 2rem;
+        opacity: 0.85;
+    }
+
+    .back a {
+        text-decoration: none;
+    }
+    .back a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<article class="project-details">
+    <header class="project-header">
+        <h1 class="project-title">{title}</h1>
+        <div class="meta">
+            {year && <span class="year">{year}</span>}
+            {author && <span class="dot">·</span>}
+            {author && <span class="author">{author}</span>}
+        </div>
+
+        {tagsHtml && <ul class="tags" set:html={tagsHtml} />}
+    </header>
+
+    {
+        image?.url && (
+            <figure class="cover">
+                <img src={image.url} alt={image.alt || ""} />
+                {image.alt && <figcaption>{image.alt}</figcaption>}
+            </figure>
+        )
+    }
+
+    {description && <p class="description">{description}</p>}
+
+    {
+        link && (
+            <p class="actions">
+                <a
+                    class="button"
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Visit project →
+                </a>
+            </p>
+        )
+    }
+
+    <p class="back">
+        <a href="/projects">← Back to all projects</a>
+    </p>
+</article>

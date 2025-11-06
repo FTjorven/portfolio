@@ -1,4 +1,5 @@
 ---
+id: 3
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "How Sound Becomes Story"
 pubDate: 2025-09-15

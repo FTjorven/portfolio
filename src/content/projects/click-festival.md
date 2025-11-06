@@ -1,4 +1,5 @@
 ---
+id: 1
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Click Festival Showcase"
 pubDate: 2025-05-21

@@ -1,4 +1,5 @@
 ---
+id: 1
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Creative Routine in Autumn"
 pubDate: 2025-10-12

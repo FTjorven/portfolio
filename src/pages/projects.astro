@@ -2,6 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
+const allPosts = Object.values(
+    import.meta.glob("./projects/*.md", { eager: true }),
+);
+
 const pageTitle = "Book of little things";
 const description =
     "A collection of my design, code, and creative projects — small works that shaped how I think about design and development.";

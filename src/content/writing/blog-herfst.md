@@ -1,4 +1,5 @@
 ---
+id: 2
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Herfstgedachten over inspiratie"
 pubDate: 2025-10-20
