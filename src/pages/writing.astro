@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import WritingItem from "../components/WritingItem.astro";
 
 const allPosts = Object.values(
-    import.meta.glob("./writing/*.md", { eager: true }),
+    import.meta.glob("./content/writing/*.md", { eager: true }),
 );
 
 const pageTitle = "My writing";

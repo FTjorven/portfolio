@@ -6,7 +6,7 @@ pubDate: 2025-10-12
 lang: "en"
 description: "Reflections on how the change of season shapes creativity and focus."
 author: "ftjorven"
-tags: ["reflection", "routine", "english"]
+tags: ["blog", "reflection", "routine", "english"]
 image:
   url: "/images/autumn.jpg"
   alt: "Warm autumn leaves with soft light"
