@@ -1,0 +1,151 @@
+---
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => pathname === href;
+---
+
+<style>
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.25rem;
+    }
+
+    #menu-btn {
+        background: none;
+        border: 0;
+        font: inherit;
+        cursor: pointer;
+    }
+
+    nav#primary-nav[hidden] {
+        display: none;
+    }
+
+    nav#primary-nav {
+        position: fixed;
+        inset: 0 auto auto 0;
+        width: 100%;
+        background: #000;
+        color: #fff;
+        z-index: 50;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+        padding: 1rem 1.25rem 3rem;
+        box-sizing: border-box;
+    }
+
+    .nav-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-block: 0.25rem 0.75rem;
+    }
+
+    #close-btn {
+        background: none;
+        border: 0;
+        color: #fff;
+        font: inherit;
+        cursor: pointer;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 2rem 1rem 1rem;
+        margin: 0;
+        display: grid;
+        gap: 1.5rem;
+        place-items: center;
+    }
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+        font-weight: 700;
+        letter-spacing: 0.01em;
+    }
+
+    nav li + li::before {
+        content: "";
+        display: block;
+        width: 60%;
+        height: 1px;
+        background: #555;
+        margin: 0.25rem auto 0.75rem;
+    }
+
+ 
+    nav a.active {
+        color: transparent;
+        -webkit-text-stroke: 1.5px #fff;
+        text-stroke: 1.5px #fff;
+        font-weight: 800;
+    }
+
+    nav a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<header>
+    <p>Logo</p>
+
+    <button id="menu-btn" aria-expanded="false" aria-controls="primary-nav">
+        Menu
+    </button>
+
+    <nav id="primary-nav" hidden>
+        <div class="nav-bar">
+            <p>Logo</p>
+            <button id="close-btn" aria-label="Close menu">Close</button>
+        </div>
+
+        <ul>
+            <li>
+                <a href="/" class={isActive("/") ? "active" : ""}>Homepage</a>
+            </li>
+            <li>
+                <a href="/about" class={isActive("/about") ? "active" : ""}
+                    >About Me</a>
+            </li>
+            <li>
+                <a
+                    href="/projects"
+                    class={isActive("/projects") ? "active" : ""}>Projects</a>
+            </li>
+            <li>
+                <a href="/writing" class={isActive("/writing") ? "active" : ""}
+                    >Writing</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<script is:inline>
+    const btn = document.getElementById("menu-btn");
+    const nav = document.getElementById("primary-nav");
+    const closeBtn = document.getElementById("close-btn");
+
+    function setOpen(open) {
+        if (open) {
+            nav.removeAttribute("hidden");
+            btn.setAttribute("aria-expanded", "true");
+        } else {
+            nav.setAttribute("hidden", "");
+            btn.setAttribute("aria-expanded", "false");
+        }
+    }
+
+    btn?.addEventListener("click", () => setOpen(true));
+    closeBtn?.addEventListener("click", () => setOpen(false));
+
+    nav?.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpen(false);
+    });
+</script>

@@ -1,99 +1,58 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
+const pageTitle = "FTJORVEN";
+const description =
+	"Portfolio of ftjorven — student at Devine who enjoys creating with design, sound, and code.";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>FTJORVEN</title>
-	</head>
-	<body>
-		<header>
-			<p>Logo</p>
-			<p>Menu</p>
-			<nav>
-				<ul>
-					<li><a href="/">Homepage</a></li>
-					<li><a href="/about">About Me</a></li>
-					<li><a href="/projects">Projects</a></li>
-					<li><a href="/writing">Writing</a></li>
-				</ul>
-			</nav>
-		</header>
+<BaseLayout title={pageTitle} description={description}>
+	<main class="homepage">
+		<h1 class="vertical-title">{pageTitle}</h1>
 
-		<main class="homepage">
-			<h1 class="vertical-title">FTJORVEN</h1>
+		<section class="intro-section">
+			<img src="/images/img-1.jpg" alt="img-1" class="main-image" />
 
-			<section class="intro-section">
-				<img src="/images/img-1.jpg" alt="img-1" class="main-image" />
+			<h2 class="subtitle">
+				<em>book of</em>
+				<strong>little things</strong>
+			</h2>
 
-				<h2 class="subtitle">
-					<em>book of</em>
-					<strong>little things</strong>
-				</h2>
+			<img src="/images/img-2.jpg" alt="img-2" class="secondary-image" />
 
-				<img
-					src="/images/img-2.jpg"
-					alt="img-2"
-					class="secondary-image"
-				/>
+			<p class="intro-text">
+				I like to make things I find cool, I&#39;m a student at Devine.
+			</p>
+		</section>
 
-				<p class="intro-text">
-					I like to make things I find cool, I&#39;m a student at
-					Devine.
-				</p>
-			</section>
+		<div class="divider">
+			<div class="checkerboard"></div>
+		</div>
 
-			<div class="divider">
-				<div class="checkerboard"></div>
-			</div>
+		<section class="site-intro">
+			<h2>Welcome to my portfolio</h2>
+			<p>
+				This website is a collection of the projects, experiments, and
+				ideas that reflect what I enjoy creating. You&#39;ll find a mix
+				of design, development, and personal writing. Each piece shows a
+				little part of how I think and what I like to make.
+			</p>
 
-			<section class="site-intro">
-				<h2>Welcome to my portfolio</h2>
-				<p>
-					This website is a collection of the projects, experiments,
-					and ideas that reflect what I enjoy creating. You&#39;ll
-					find a mix of design, development, and personal writing.
-					Each piece shows a little part of how I think and what I
-					like to make.
-				</p>
+			<p>
+				I&#39;m interested in how visuals, sound, and interaction can
+				come together to make meaningful experiences. Whether it&#39;s
+				coding something dynamic, designing a playful interface, or
+				writing about music, I enjoy exploring how all of these connect.
+			</p>
 
-				<p>
-					I&#39;m interested in how visuals, sound, and interaction
-					can come together to make meaningful experiences. Whether
-					it&#39;s coding something dynamic, designing a playful
-					interface, or writing about music, I enjoy exploring how all
-					of these connect.
-				</p>
+			<p>
+				Feel free to look around — my <a href="/projects">projects</a> page
+				features some of my recent design and web experiments, while the
+				<a href="/writing">writing</a> section includes thoughts and pieces
+				about music and creativity.
+			</p>
 
-				<p>
-					Feel free to look around — my
-					<a href="/projects">projects</a> page features some of my recent
-					design and web experiments, while the
-					<a href="/writing">writing</a> section includes thoughts and
-					pieces about music and creativity.
-				</p>
-
-				<p class="signature">– ftjorven</p>
-			</section>
-		</main>
-		<footer>
-			<h2>ftjorven</h2>
-			<p>Find me elsewhere!</p>
-			<ul class="socials">
-				<li><a href="#">Twitter</a></li>
-				<li><a href="#">Instagram</a></li>
-				<li><a href="#">LinkedIn</a></li>
-				<li><a href="#">GitHub</a></li>
-				<li><a href="#">YouTube</a></li>
-			</ul>
-
-			<p>Contact me</p>
-			<a href="mailto:florintjorven@gmail.com">florintjorven@gmail.com</a>
-			<p>© ftjorven 2025</p>
-		</footer>
-	</body>
-</html>
+			<p class="signature">– ftjorven</p>
+		</section>
+	</main>
+</BaseLayout>
