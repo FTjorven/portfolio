@@ -1,24 +1,25 @@
 ---
-import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import ProjectDetails from "../../components/ProjectDetails.astro";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
 
-    const paths = projects.map(function (entry) {
-        return {
-            params: { id: entry.id },
-            props: { project: entry.data },
-        };
-    });
+    const paths = projects.map((entry) => ({
+        params: { id: entry.id },
+        props: { project: entry },
+    }));
 
     return paths;
 }
 
-const project = Astro.props.project;
+const { id } = Astro.params;
+const { project } = Astro.props;
+const { Content } = await render(project);
 ---
 
-<BaseLayout title={project.title} description={project.description}>
-    <ProjectDetails project={project} />
+<BaseLayout title={project.data.title} description={project.data.description}>
+    <Content />
+    <ProjectDetails project={project.data} />
 </BaseLayout>
