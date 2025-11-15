@@ -336,3 +336,167 @@ body {
         gap: 2.5rem;
     }
 }
+
+/* -------------- WRITING PAGE ----------------- */
+
+.writing-page {
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.writing-page .intro {
+    margin-bottom: 2rem;
+}
+
+.writing-page .intro h1 {
+    font-size: 2.2rem;
+    font-family: 'Junicode', serif;
+    margin-bottom: 0.5rem;
+}
+
+.writing-page .intro p {
+    max-width: 38rem;
+    line-height: 1.45;
+}
+
+/* Language filter */
+.language-filter {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+}
+
+.filter-btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #000;
+    background: #fff;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.filter-btn.active {
+    background: #000;
+    color: #fff;
+}
+
+/* Section headers */
+.blog-posts h2,
+.music-posts h2 {
+    font-family: 'Junicode', serif;
+    font-size: 1.6rem;
+    margin: 2rem 0 1rem;
+}
+
+/* Writing item card */
+.writing-item {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+/* ------ Writing images: wide, rectangular, outlined ------ */
+
+.writing-image {
+    width: 95%;
+    aspect-ratio: 16 / 9;
+    /* wide rectangle */
+    object-fit: cover;
+    border-radius: 1rem;
+    border: 1px solid #000;
+    display: block;
+    margin: 0 auto 0.8rem auto;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Centered, slightly smaller on mobile */
+@media (max-width: 700px) {
+    .writing-image {
+        width: 90%;
+    }
+}
+
+/* Full width on desktop */
+@media (min-width: 700px) {
+    .writing-image {
+        width: 100%;
+        margin: 0 0 0.8rem 0;
+    }
+}
+
+.writing-image:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+/* Titles */
+.writing-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Date */
+.writing-item .date {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+/* Excerpt */
+.writing-item .excerpt {
+    line-height: 1.45;
+    max-width: 40rem;
+}
+
+/* Tags */
+.writing-item .tags {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+/* Read more link */
+.writing-item a {
+    margin-top: 0.4rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: #000;
+}
+
+/* -------- Desktop news-style layout -------- */
+
+@media (min-width: 800px) {
+
+    .blog-posts,
+    .music-posts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 2rem;
+        /* vertical and horizontal spacing */
+        align-items: start;
+    }
+
+    /* Make the section title span full width */
+    .blog-posts h2,
+    .music-posts h2 {
+        grid-column: 1 / -1;
+        margin-bottom: 1rem;
+    }
+
+    /* Writing items stay column-based internally */
+    .writing-item {
+        margin-bottom: 0;
+        /* grid handles spacing */
+    }
+
+    .writing-image {
+        width: 100%;
+        margin: 0 0 0.8rem 0;
+        /* remove mobile centering */
+    }
+}

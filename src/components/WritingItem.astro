@@ -7,6 +7,7 @@ const date = props.date;
 const excerpt = props.excerpt;
 const tags = props.tags || [];
 const link = props.link;
+const image = props.image;
 
 let tagsHtml = "";
 for (let i = 0; i < tags.length; i++) {
@@ -15,6 +16,7 @@ for (let i = 0; i < tags.length; i++) {
 ---
 
 <article class="writing-item" data-lang={lang}>
+    {image && <img src={image} alt={title} class="writing-image" />}
     <h3>{title}</h3>
     <p class="date">{date}</p>
     <p class="excerpt">{excerpt}</p>
