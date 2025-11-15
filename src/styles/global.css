@@ -245,3 +245,94 @@ body {
         margin-top: 0;
     }
 }
+
+/* -------------- PROJECTS PAGE ----------------- */
+
+.projects-page {
+    padding: 1rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Intro section */
+.projects-page .intro {
+    margin-bottom: 2rem;
+}
+
+.projects-page .intro h2 {
+    font-family: 'Junicode', serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.projects-page .intro p {
+    max-width: 40rem;
+    line-height: 1.45;
+}
+
+/* Project list layout */
+.project-list {
+    display: grid;
+    gap: 2rem;
+}
+
+/* Individual project card */
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.project-image {
+    width: 85%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 1rem;
+    border: 1px solid #000;
+    display: block;
+    margin: 0 auto 0.6rem auto;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+@media (min-width: 700px) {
+    .project-image {
+        width: 100%;
+        margin: 0 0 0.6rem 0;
+    }
+}
+
+.project-image:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+/* Title */
+.project h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.project h3 a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* Year */
+.project .year {
+    font-size: 0.95rem;
+    color: gray;
+}
+
+/* Description */
+.project .description {
+    line-height: 1.4;
+    max-width: 40rem;
+}
+
+/* ---------- Desktop layout ---------- */
+@media (min-width: 700px) {
+    .project-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}

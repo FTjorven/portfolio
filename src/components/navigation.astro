@@ -9,6 +9,7 @@ const isActive = (href: string) => pathname === href;
         align-items: center;
         justify-content: space-between;
         padding: 1rem 1.25rem;
+        font-size: 2rem;
     }
 
     #menu-btn {
@@ -56,7 +57,6 @@ const isActive = (href: string) => pathname === href;
         margin: 0;
         display: grid;
         gap: 1.5rem;
-        place-items: center;
     }
 
     nav a {
@@ -76,7 +76,6 @@ const isActive = (href: string) => pathname === href;
         margin: 0.25rem auto 0.75rem;
     }
 
- 
     nav a.active {
         color: transparent;
         -webkit-text-stroke: 1.5px #fff;
@@ -108,16 +107,19 @@ const isActive = (href: string) => pathname === href;
             </li>
             <li>
                 <a href="/about" class={isActive("/about") ? "active" : ""}
-                    >About Me</a>
+                    >About Me</a
+                >
             </li>
             <li>
                 <a
                     href="/projects"
-                    class={isActive("/projects") ? "active" : ""}>Projects</a>
+                    class={isActive("/projects") ? "active" : ""}>Projects</a
+                >
             </li>
             <li>
                 <a href="/writing" class={isActive("/writing") ? "active" : ""}
-                    >Writing</a>
+                    >Writing</a
+                >
             </li>
         </ul>
     </nav>
