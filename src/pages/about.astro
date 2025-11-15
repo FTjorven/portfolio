@@ -12,16 +12,16 @@ const description =
 const name = "Tjorven Florin";
 const occupation = "Web Design student at Devine, Howest Kortrijk";
 const hobbies = [
-    "Music and live shows",
-    "Writing about music",
-    "Exploring local creative scenes",
-    "Combining code and design",
+    "- Music and live shows",
+    "- Writing about music",
+    "- Exploring local creative scenes",
+    "- Combining code and design",
 ];
 const skills = [
-    "Visual design",
-    "Creative coding (p5.js, JavaScript)",
-    "UX thinking",
-    "Storytelling through design",
+    "- Visual design",
+    "- Creative coding (p5.js, JavaScript)",
+    "- UX thinking",
+    "- Storytelling through design",
 ];
 ---
 
@@ -51,15 +51,21 @@ const skills = [
             <h3>occupation</h3>
             <p>{occupation}</p>
 
-            <h3>hobbies</h3>
-            <ul>
-                {hobbies.map((hobby) => <li>{hobby}</li>)}
-            </ul>
+            <div class="more-list-boxes">
+                <div class="list-box">
+                    <h4>hobbies</h4>
+                    <ul>
+                        {hobbies.map((hobby) => <li>{hobby}</li>)}
+                    </ul>
+                </div>
 
-            <h3>skills</h3>
-            <ul>
-                {skills.map((skill) => <li>{skill}</li>)}
-            </ul>
+                <div class="list-box">
+                    <h4>skills</h4>
+                    <ul>
+                        {skills.map((skill) => <li>{skill}</li>)}
+                    </ul>
+                </div>
+            </div>
 
             <h3>more to come...?</h3>
             <p>
@@ -73,30 +79,31 @@ const skills = [
 
         <section class="playlists">
             <h3>working playlists</h3>
+            <div class="playlists_list">
+                <Playlist
+                    title="KR23"
+                    number="1"
+                    description="This is my playlist of ambient or piano music. Whenever I really have to focus, this one gets put on."
+                    image="playlist-1.webp"
+                    link="https://open.spotify.com/playlist/5S2axhaeEZgCzFmHcA5AY3?si=0e95d2406e114191"
+                />
 
-            <Playlist
-                title="KR23"
-                number="1"
-                description="This is my playlist of ambient or piano music. Whenever I really have to focus, this one gets put on."
-                image="playlist-1.webp"
-                link="https://open.spotify.com/playlist/5S2axhaeEZgCzFmHcA5AY3?si=0e95d2406e114191"
-            />
+                <Playlist
+                    title="JRJRJR"
+                    number="2"
+                    description="This is a collection of all the music of John Roseboro — really relaxing and one of my favourite artists!"
+                    image="playlist-2.webp"
+                    link="https://open.spotify.com/playlist/2czaRGtqpTXGtN4iNSkpBE?si=23fafe6178f94a9b"
+                />
 
-            <Playlist
-                title="JRJRJR"
-                number="2"
-                description="This is a collection of all the music of John Roseboro — really relaxing and one of my favourite artists!"
-                image="playlist-2.webp"
-                link="https://open.spotify.com/playlist/2czaRGtqpTXGtN4iNSkpBE?si=23fafe6178f94a9b"
-            />
-
-            <Playlist
-                title="2025"
-                number="3"
-                description="These are all the songs I’ve listened to over the past year and liked enough to want to listen to again!"
-                image="playlist-3.webp"
-                link="https://open.spotify.com/playlist/2rQ0ltmJ9PBAsemqgDsyYu?si=0f383be8e0f246b5"
-            />
+                <Playlist
+                    title="2025"
+                    number="3"
+                    description="These are all the songs I’ve listened to over the past year and liked enough to want to listen to again!"
+                    image="playlist-3.webp"
+                    link="https://open.spotify.com/playlist/2rQ0ltmJ9PBAsemqgDsyYu?si=0f383be8e0f246b5"
+                />
+            </div>
         </section>
 
         <section class="outro">
