@@ -2,6 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
+import "../styles/reset.css";
+import "../styles/global.css";
+
 const allPosts = Object.values(
     import.meta.glob("./projects/*.md", { eager: true }),
 );

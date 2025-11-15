@@ -2,6 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WritingItem from "../components/WritingItem.astro";
 
+import "../styles/reset.css";
+import "../styles/global.css";
+
 const allPosts = Object.values(
     import.meta.glob("./content/writing/*.md", { eager: true }),
 );

@@ -104,3 +104,144 @@ body {
     font-size: 0.95rem;
     max-width: 280px;
 }
+
+
+/* -------------- HOMEPAGE ----------------- */
+
+.homepage {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 1rem;
+    column-gap: 1rem;
+}
+
+/* Vertical FTJORVEN title */
+.vertical-title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 6rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin: 0;
+    align-self: start;
+}
+
+/* Group of main images + subtitle */
+.intro-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+/* Images */
+.main-image,
+.secondary-image {
+    width: 90%;
+    border-radius: 1rem;
+    object-fit: contain;
+}
+
+.secondary-image {
+    width: 40%;
+}
+
+.intro-paragraph {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* “book of little things” */
+.subtitle {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: -10rem;
+
+}
+
+.little-block {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.little-block strong {
+    font-size: 2.2rem;
+    font-weight: 500;
+    font-family: 'Junicode', serif;
+}
+
+.subtitle em {
+    font-family: 'Junicode', serif;
+    font-size: 2.8rem;
+    font-style: italic;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1px #000;
+}
+
+/* Short intro text under second image */
+.intro-text {
+    max-width: 22rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* Checkerboard line */
+.divider {
+    margin: 2.5rem 0 1.5rem;
+}
+
+.checkerboard {
+    width: 100%;
+    height: 20px;
+    background-image: repeating-linear-gradient(90deg,
+            black 0 20px,
+            white 20px 40px);
+}
+
+/* Lower content section */
+.site-intro {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+}
+
+.site-intro h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.site-intro p {
+    margin-bottom: 1rem;
+    line-height: 1.45;
+}
+
+.signature {
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+/* ----------------- HOMEPAGE DESKTOP ----------------- */
+@media (min-width: 768px) {
+    .homepage {
+        grid-template-columns: 120px 1fr 300px;
+        column-gap: 2rem;
+    }
+
+    .vertical-title {
+        font-size: 4rem;
+    }
+
+    .intro-section {
+        grid-column: 2;
+        max-width: 600px;
+    }
+
+    .site-intro {
+        grid-column: 3;
+        align-self: start;
+        margin-top: 0;
+    }
+}
