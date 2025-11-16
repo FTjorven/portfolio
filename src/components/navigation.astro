@@ -9,6 +9,7 @@ const isActive = (href: string) => pathname === href;
         align-items: center;
         justify-content: space-between;
         padding: 1rem 1.25rem;
+        font-size: 2rem;
     }
 
     #menu-btn {
@@ -57,6 +58,7 @@ const isActive = (href: string) => pathname === href;
         display: grid;
         gap: 1.5rem;
         place-items: center;
+        text-align: center;
     }
 
     nav a {
@@ -76,7 +78,6 @@ const isActive = (href: string) => pathname === href;
         margin: 0.25rem auto 0.75rem;
     }
 
- 
     nav a.active {
         color: transparent;
         -webkit-text-stroke: 1.5px #fff;
@@ -86,6 +87,53 @@ const isActive = (href: string) => pathname === href;
 
     nav a:hover {
         text-decoration: underline;
+    }
+
+    @media (min-width: 768px) {
+        #menu-btn,
+        #close-btn,
+        .nav-bar {
+            display: none;
+        }
+
+        nav#primary-nav {
+            position: static;
+            background: transparent;
+            color: #000;
+            width: auto;
+            padding: 0;
+            border-radius: 0;
+            display: block;
+        }
+
+        nav#primary-nav[hidden] {
+            display: block;
+        }
+
+        nav#primary-nav ul {
+            display: flex;
+            gap: 2rem;
+            padding: 0;
+            margin: 0;
+            place-items: center;
+            text-align: left;
+        }
+
+        nav#primary-nav li + li::before {
+            display: none;
+        }
+
+        nav#primary-nav a {
+            color: #000;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav#primary-nav a.active {
+            color: transparent;
+            -webkit-text-stroke: 1px #000;
+        }
     }
 </style>
 

@@ -2,6 +2,9 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 
+import "../styles/reset.css";
+import "../styles/global.css";
+
 const allPosts = Object.values(
     import.meta.glob("./projects/*.md", { eager: true }),
 );
@@ -30,6 +33,7 @@ const description =
                 year="2024"
                 href="/projects/land-of-lost-files"
                 description="My first visual design assignment, imagining a digital world filled with forgotten data — old files, obsolete formats, and memories from the early internet. A world of decay, nostalgia, and rediscovery."
+                image="/images/lost-files.jpg"
             />
 
             <ProjectCard
@@ -38,6 +42,7 @@ const description =
                 year="2024"
                 href="/projects/off-the-grid"
                 description="A storytelling website designed for forgotten or past-their-prime musicians, encouraging them to reconnect with creativity outside of social media. A nostalgic yet playful “off the grid” digital retreat."
+                image="/images/off-grid.jpg"
             />
 
             <ProjectCard
@@ -46,6 +51,7 @@ const description =
                 year="2025"
                 href="/projects/the-house-always-remembers"
                 description="A retro, speakeasy-inspired storytelling site built around reusing playing cards. Combines narrative, design, and interactivity to promote creative reuse with a glamorous, DIY twist."
+                image="/images/house-remembers.jpg"
             />
 
             <ProjectCard
@@ -54,6 +60,7 @@ const description =
                 year="2025"
                 href="/projects/click-festival-showcase"
                 description="A JavaScript-focused coding project for the Creative Code course. Combines animation, interaction, and playful logic to showcase experimental coding work in one cohesive digital experience."
+                image="/images/click-festival.jpg"
             />
         </section>
     </main>

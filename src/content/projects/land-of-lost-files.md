@@ -7,7 +7,7 @@ description: "A visual design project exploring forgotten corners of the early i
 author: "ftjorven"
 tags: ["visual design", "concept art", "first-year", "nostalgia", "internet"]
 image:
-  url: "/images/land-of-lost-files.jpg"
+  url: "/images/lost-files.jpg"
   alt: "Digital collage of pixelated and glitched file icons floating in cyberspace"
 ---
 

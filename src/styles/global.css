@@ -1,10 +1,27 @@
-html {
-    background-color: #f1f5f9;
-    font-family: sans-serif;
-    scroll-behavior: smooth;
+:root {
+    --black: #000;
+    --white: #fff;
+    --gray: gray;
+    --bg-light: #f1f5f9;
+
+    --font-sans: 'Satoshi', sans-serif;
+    --font-serif: 'Junicode', serif;
+
+    --radius-lg: 1rem;
+    --radius-xl: 1.2rem;
+    --max-width-page: 900px;
+    --max-width-writing: 800px;
+    --max-width-text: 40rem;
+
+    --transition-fast: 0.25s ease;
 }
 
-/* -------------- SATOSHI (Sans-serif) ----------------- */
+html {
+    background-color: var(--bg-light);
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
 
 @font-face {
     font-family: 'Satoshi';
@@ -59,48 +76,543 @@ html {
 
 html,
 body {
-    font-family: 'Satoshi', sans-serif;
-    color: #000;
-    background-color: #fff;
+    font-family: var(--font-sans);
+    color: var(--black);
+    background-color: var(--white);
 }
 
+strong {
+    font-weight: 600;
+}
 
-/* -------------- PLAYLISTS ----------------- */
+/* -------------- HOMEPAGE ----------------- */
 
-.playlist {
+.homepage {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 1rem;
+    column-gap: 1rem;
+}
+
+.vertical-title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 6rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin: 0;
+    align-self: start;
+}
+
+.intro-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.main-image,
+.secondary-image {
+    width: 90%;
+    border-radius: var(--radius-lg);
+    object-fit: contain;
+}
+
+.secondary-image {
+    width: 40%;
+}
+
+.intro-paragraph {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.subtitle {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    margin-bottom: -10rem;
+}
+
+.little-block {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    line-height: 1;
+}
+
+.little-block strong {
+    font-size: 2.2rem;
+    font-weight: 500;
+    font-family: var(--font-serif);
+}
+
+.subtitle em {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-style: italic;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--black);
+}
+
+.intro-text {
+    max-width: 22rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.site-intro {
+    grid-column: 1 / -1;
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+}
+
+.site-intro h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.site-intro p {
+    margin-bottom: 1rem;
+    line-height: 1.45;
+}
+
+.signature {
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+.desktop-hero {
+    display: none;
+    width: 60%;
+}
+
+@media (min-width: 768px) {
+    .homepage {
+        grid-template-columns: 120px 1fr 300px;
+        column-gap: 2rem;
+        padding-left: 1rem;
+    }
+
+    .main-image,
+    .subtitle,
+    .intro-paragraph {
+        display: none;
+    }
+
+    .desktop-hero {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        grid-column: 2;
+        align-self: start;
+    }
+
+    .intro-section {
+        grid-column: 2 / span 2;
+        display: contents;
+    }
+
+    .site-intro {
+        grid-column: 3;
+        margin-top: 0;
+        align-self: start;
+    }
+}
+
+/* -------------- PROJECTS PAGE ----------------- */
+
+.projects-page {
+    padding: 1rem;
+    max-width: var(--max-width-page);
+    margin: 0 auto;
+}
+
+.projects-page .intro {
     margin-bottom: 2rem;
 }
 
-.playlist-image {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 20px;
-    margin-bottom: 1rem;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+.projects-page .intro h2 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
 }
 
-/* Subtle hover effect */
+.projects-page .intro p {
+    max-width: var(--max-width-text);
+    line-height: 1.45;
+}
+
+.project-list {
+    display: grid;
+    gap: 2rem;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.project-image {
+    width: 85%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--black);
+    display: block;
+    margin: 0 auto 0.6rem auto;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+@media (min-width: 700px) {
+    .project-image {
+        width: 100%;
+        margin: 0 0 0.6rem 0;
+    }
+}
+
+.project-image:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+.project h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.project h3 a {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.project .year {
+    font-size: 0.95rem;
+    color: var(--gray);
+}
+
+.project .description {
+    line-height: 1.4;
+    max-width: var(--max-width-text);
+}
+
+@media (min-width: 700px) {
+    .project-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+}
+
+/* -------------- WRITING PAGE ----------------- */
+
+.writing-page {
+    padding: 1rem;
+    max-width: var(--max-width-writing);
+    margin: 0 auto;
+}
+
+.writing-page .intro {
+    margin-bottom: 2rem;
+}
+
+.writing-page .intro h1 {
+    font-size: 2.2rem;
+    font-family: var(--font-serif);
+    margin-bottom: 0.5rem;
+}
+
+.writing-page .intro p {
+    max-width: 38rem;
+    line-height: 1.45;
+}
+
+.language-filter {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.6rem;
+}
+
+.filter-btn {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--black);
+    background: var(--white);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+
+.filter-btn.active {
+    background: var(--black);
+    color: var(--white);
+}
+
+.blog-posts h2,
+.music-posts h2 {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    margin: 2rem 0 1rem;
+}
+
+.writing-item {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.writing-image {
+    width: 95%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--black);
+    display: block;
+    margin: 0 auto 0.8rem auto;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+@media (max-width: 700px) {
+    .writing-image {
+        width: 90%;
+    }
+}
+
+@media (min-width: 700px) {
+    .writing-image {
+        width: 100%;
+        margin: 0 0 0.8rem 0;
+    }
+}
+
+.writing-image:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.writing-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.writing-item .date {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.writing-item .excerpt {
+    line-height: 1.45;
+    max-width: var(--max-width-text);
+}
+
+.writing-item .tags {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 0.85rem;
+    color: #444;
+}
+
+.writing-item a {
+    margin-top: 0.4rem;
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--black);
+}
+
+@media (min-width: 800px) {
+
+    .blog-posts,
+    .music-posts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 2rem;
+        align-items: start;
+    }
+
+    .blog-posts h2,
+    .music-posts h2 {
+        grid-column: 1 / -1;
+        margin-bottom: 1rem;
+    }
+
+    .writing-item {
+        margin-bottom: 0;
+    }
+
+    .writing-image {
+        width: 100%;
+        margin: 0 0 0.8rem 0;
+    }
+}
+
+/* -------------- ABOUT PAGE ----------------- */
+
+.about-page {
+    padding: 1rem;
+    max-width: var(--max-width-page);
+    margin: 0 auto;
+}
+
+.intro h2:first-of-type {
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    margin-bottom: 1rem;
+}
+
+.intro h2:last-of-type {
+    font-size: 1.8rem;
+    margin-top: -0.5rem;
+}
+
+.intro p {
+    max-width: var(--max-width-text);
+    line-height: 1.45;
+    margin: 1rem 0 2rem;
+}
+
+.education,
+.more {
+    margin-bottom: 2rem;
+}
+
+.education h3,
+.more h3,
+.playlists h3 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+}
+
+.more ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1.2rem;
+}
+
+.more ul li {
+    margin-bottom: 0.3rem;
+}
+
+.outro p {
+    max-width: var(--max-width-text);
+    line-height: 1.45;
+    margin-top: 2rem;
+}
+
+/* -------------- RESPONSIVE PLAYLIST GRID ----------------- */
+
+.playlists {
+    margin-top: 2rem;
+}
+
+.playlists h3 {
+    margin-bottom: 1.5rem;
+}
+
+.playlists_list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 750px) {
+    .playlists_list {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        align-items: start;
+    }
+}
+
+.playlist {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.playlist-image {
+    width: 85%;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--black);
+    margin-bottom: 0.6rem;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+@media (min-width: 750px) {
+    .playlist-image {
+        width: 100%;
+        max-width: none;
+    }
+}
+
 .playlist-image:hover {
     transform: scale(1.03);
     opacity: 0.9;
 }
 
 .playlist h4 {
-    font-size: 1.2rem;
-    margin-bottom: 0.3rem;
-}
-
-.playlist span {
-    font-weight: normal;
-    color: gray;
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
 }
 
 .playlist p {
-    font-size: 0.95rem;
-    max-width: 280px;
+    font-size: 0.9rem;
+    max-width: 260px;
+    line-height: 1.4;
+}
+
+.more h3 {
+    margin-top: 1.8rem;
+    margin-bottom: 0.6rem;
+}
+
+.more p {
+    margin-bottom: 1rem;
+}
+
+/* ---------- HOOBIES + SKILLS BOXES ---------- */
+
+.more-list-boxes {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin: 1rem 0 2rem;
+}
+
+@media (min-width: 750px) {
+    .more-list-boxes {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.list-box {
+    border: 1px solid var(--black);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.2rem;
+    background: var(--white);
+}
+
+.list-box h4 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.list-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.list-box ul li {
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
 }

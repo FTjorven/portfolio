@@ -1,6 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+import "../styles/reset.css";
+import "../styles/global.css";
+
 const pageTitle = "FTJORVEN";
 const description =
 	"Portfolio of ftjorven — student at Devine who enjoys creating with design, sound, and code.";
@@ -11,23 +14,29 @@ const description =
 		<h1 class="vertical-title">{pageTitle}</h1>
 
 		<section class="intro-section">
-			<img src="/images/img-1.jpg" alt="img-1" class="main-image" />
+			<img src="/images/img-1.png" alt="img-1" class="main-image" />
 
 			<h2 class="subtitle">
 				<em>book of</em>
-				<strong>little things</strong>
+				<span class="little-block">
+					<strong>little</strong>
+					<strong>things</strong>
+				</span>
 			</h2>
 
-			<img src="/images/img-2.jpg" alt="img-2" class="secondary-image" />
+			<div class="intro-paragraph">
+				<img
+					src="images/img-2.png"
+					alt="img-2"
+					class="secondary-image"
+				/>
+				<p class="intro-text">
+					I like to make things I find cool, I'm a student at Devine.
+				</p>
+			</div>
 
-			<p class="intro-text">
-				I like to make things I find cool, I&#39;m a student at Devine.
-			</p>
+			<img src="/images/hero-desktop.png" alt="" class="desktop-hero" />
 		</section>
-
-		<div class="divider">
-			<div class="checkerboard"></div>
-		</div>
 
 		<section class="site-intro">
 			<h2>Welcome to my portfolio</h2>
