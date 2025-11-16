@@ -2,9 +2,6 @@
 import { getCollection, render } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
-import "../styles/reset.css";
-import "../styles/global.css";
-
 export async function getStaticPaths() {
     const posts = await getCollection("writing");
 
