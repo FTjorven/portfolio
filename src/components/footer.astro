@@ -3,13 +3,38 @@ const year = new Date().getFullYear();
 import Social from "./Social.astro";
 ---
 
-<style>
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-    }
+<footer>
+    <h2>ftjorven</h2>
 
+    <div class="footer-content">
+        <div class="column">
+            <p class="section-title">Find me elsewhere!</p>
+            <ul>
+                <li><Social platform="Twitter" username="moziptwt" /></li>
+                <li><Social platform="Instagram" username="ftjorven" /></li>
+                <li>
+                    <Social
+                        platform="LinkedIn"
+                        username="in/tjorven-florin-8a57a91aa/"
+                    />
+                </li>
+                <li><Social platform="GitHub" username="FTjorven" /></li>
+                <li><Social platform="YouTube" username="@ftjorven" /></li>
+            </ul>
+        </div>
+
+        <div class="column">
+            <p class="section-title contact">Contact me</p>
+            <a href="mailto:florintjorven@gmail.com" class="email">
+                florintjorven@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <p class="copyright">© ftjorven {year}</p>
+</footer>
+
+<style>
     footer {
         width: 100%;
         background-color: #3f3f3f;
@@ -17,28 +42,29 @@ import Social from "./Social.astro";
         text-align: center;
         padding: 3rem 1rem;
         font-family: "Satoshi", sans-serif;
-
         border-top-left-radius: 60px;
         border-top-right-radius: 60px;
-
-        margin: 0;
-        border: none;
+        text-decoration: none;
     }
 
     footer h2 {
         font-family: "Junicode", serif;
         font-style: italic;
         font-size: 2rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 2rem;
         color: transparent;
         -webkit-text-stroke: 1px #f2f2f2;
-        text-stroke: 1px #f2f2f2;
     }
 
-    .section-title {
-        font-weight: 600;
-        margin-top: 1.5rem;
-        margin-bottom: 0.5rem;
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .column {
+        text-align: center;
     }
 
     ul {
@@ -51,16 +77,9 @@ import Social from "./Social.astro";
         margin: 0.3rem 0;
     }
 
-    a,
-    a:visited,
-    a:active {
-        color: #f2f2f2;
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
-        color: #fff;
+    .section-title {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
     }
 
     .email {
@@ -73,30 +92,29 @@ import Social from "./Social.astro";
         font-style: italic;
         font-size: 1rem;
         opacity: 0.8;
+        margin-top: 1.5rem;
+    }
+
+    @media (min-width: 800px) {
+        .footer-content {
+            flex-direction: row;
+            justify-content: center;
+            gap: 6rem;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        footer {
+            text-align: left;
+            padding: 4rem 3rem 3rem;
+        }
+
+        .column {
+            text-align: left;
+        }
+
+        footer h2 {
+            text-align: center;
+        }
     }
 </style>
-
-<footer>
-    <h2>ftjorven</h2>
-
-    <p class="section-title">Find me elsewhere!</p>
-    <ul>
-        <li><Social platform="Twitter" username="moziptwt" /></li>
-        <li><Social platform="Instagram" username="ftjorven" /></li>
-        <li>
-            <Social
-                platform="LinkedIn"
-                username="in/tjorven-florin-8a57a91aa/"
-            />
-        </li>
-        <li><Social platform="GitHub" username="FTjorven" /></li>
-        <li><Social platform="YouTube" username="@ftjorven" /></li>
-    </ul>
-
-    <p class="section-title contact">Contact me</p>
-    <a href="mailto:florintjorven@gmail.com" class="email"
-        >florintjorven@gmail.com</a
-    >
-
-    <p class="copyright">© ftjorven {year}</p>
-</footer>
