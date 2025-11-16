@@ -4,7 +4,6 @@ const isActive = (href: string) => pathname === href;
 ---
 
 <style>
-    /* -------------------- BASE HEADER -------------------- */
     header {
         display: flex;
         align-items: center;
@@ -19,8 +18,6 @@ const isActive = (href: string) => pathname === href;
         font: inherit;
         cursor: pointer;
     }
-
-    /* -------------------- MOBILE NAV (DEFAULT) -------------------- */
 
     nav#primary-nav[hidden] {
         display: none;
@@ -92,19 +89,13 @@ const isActive = (href: string) => pathname === href;
         text-decoration: underline;
     }
 
-    /* -------------------------------------------------------- */
-    /* -------------------- DESKTOP NAV ----------------------- */
-    /* -------------------------------------------------------- */
-
     @media (min-width: 768px) {
-        /* Hide mobile UI */
         #menu-btn,
         #close-btn,
         .nav-bar {
             display: none;
         }
 
-        /* Show nav inline instead of overlay */
         nav#primary-nav {
             position: static;
             background: transparent;
@@ -115,12 +106,10 @@ const isActive = (href: string) => pathname === href;
             display: block;
         }
 
-        /* Force nav to display even if "hidden" attribute is present */
         nav#primary-nav[hidden] {
             display: block;
         }
 
-        /* Inline link layout */
         nav#primary-nav ul {
             display: flex;
             gap: 2rem;
@@ -131,7 +120,7 @@ const isActive = (href: string) => pathname === href;
         }
 
         nav#primary-nav li + li::before {
-            display: none; /* remove separators for desktop */
+            display: none;
         }
 
         nav#primary-nav a {
@@ -151,13 +140,11 @@ const isActive = (href: string) => pathname === href;
 <header>
     <p>Logo</p>
 
-    <!-- MOBILE ONLY -->
     <button id="menu-btn" aria-expanded="false" aria-controls="primary-nav">
         Menu
     </button>
 
     <nav id="primary-nav" hidden>
-        <!-- MOBILE ONLY -->
         <div class="nav-bar">
             <p>Logo</p>
             <button id="close-btn" aria-label="Close menu">Close</button>
