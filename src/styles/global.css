@@ -63,6 +63,10 @@ body {
     background-color: #fff;
 }
 
+strong {
+    font-weight: 600;
+}
+
 
 .homepage {
     display: grid;

@@ -17,6 +17,6 @@ const frontmatter = Astro.props.frontmatter;
 const { Content } = await render(Astro.props.post);
 ---
 
-<MarkdownPostLayout frontmatter={frontmatter}>
+<MarkdownPostLayout frontmatter={frontmatter} backUrl="/writing">
     <Content />
 </MarkdownPostLayout>

@@ -1,28 +1,22 @@
 ---
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import ProjectDetails from "../../components/ProjectDetails.astro";
 import { getCollection, render } from "astro:content";
-
-import "../styles/reset.css";
-import "../styles/global.css";
+import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
     const projects = await getCollection("projects");
 
     const paths = projects.map((entry) => ({
         params: { id: entry.id },
-        props: { project: entry },
+        props: { frontmatter: entry.data, project: entry },
     }));
 
     return paths;
 }
 
-const { id } = Astro.params;
-const { project } = Astro.props;
-const { Content } = await render(project);
+const frontmatter = Astro.props.frontmatter;
+const { Content } = await render(Astro.props.project);
 ---
 
-<BaseLayout title={project.data.title} description={project.data.description}>
+<MarkdownPostLayout frontmatter={frontmatter} backUrl="/projects">
     <Content />
-    <ProjectDetails project={project.data} />
-</BaseLayout>
+</MarkdownPostLayout>

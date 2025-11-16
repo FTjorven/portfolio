@@ -7,7 +7,7 @@ description: "A retro storytelling website reimagining playing cards as creative
 author: "ftjorven"
 tags: ["integration", "storytelling", "web design", "reuse", "playing cards"]
 image:
-  url: "/images/the-house-always-remembers.jpg"
+  url: "/images/house-remembers.jpg"
   alt: "Vintage-inspired website design with playing cards and warm tones"
 link: "https://ftjorven.be/integration2/"
 ---

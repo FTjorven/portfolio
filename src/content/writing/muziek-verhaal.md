@@ -8,7 +8,7 @@ description: "Over de manier waarop muziek emoties en verhalen kan oproepen — 
 author: "ftjorven"
 tags: ["dutch", "muziek", "interview"]
 image:
-  url: "/images/music-story-nl.jpg"
+  url: "/images/writing/muziek-verhaal.jpg"
   alt: "Artiest met gitaar in zacht podiumlicht"
 ---
 
