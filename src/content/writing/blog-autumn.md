@@ -8,7 +8,7 @@ description: "Reflections on how the change of season shapes creativity and focu
 author: "ftjorven"
 tags: ["blog", "reflection", "routine", "english"]
 image:
-  url: "images/writing/creative-autumn.jpg"
+  url: "/portfolio/images/writing/creative-autumn.jpg"
   alt: "Warm autumn leaves with soft light"
 ---
 
