@@ -7,7 +7,7 @@ description: "A Creative Code project showcasing interactive JavaScript experime
 author: "ftjorven"
 tags: ["creative code", "javascript", "animation", "interactive", "portfolio"]
 image:
-  url: "/images/click-festival.jpg"
+  url: "images/click-festival.jpg"
   alt: "Interactive digital showcase from the Click Festival project"
 link: "https://ftjorven.be/clickfestival/"
 ---
