@@ -7,7 +7,7 @@ description: "A storytelling website built for forgotten musicians, encouraging 
 author: "ftjorven"
 tags: ["integration", "web design", "storytelling", "off-the-grid", "forgotten musicians"]
 image:
-  url: {`${import.meta.env.BASE_URL}images/off-grid.jpg`}
+  url: "/portfolio/images/off-grid.jpg"
   alt: "Retro-styled webpage design with analog textures and musical elements"
 link: "https://ftjorven.be/integration1/"
 ---
