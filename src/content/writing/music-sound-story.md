@@ -8,7 +8,7 @@ description: "Exploring the narrative potential of melody and rhythm — how mus
 author: "ftjorven"
 tags: ["music", "analysis", "english"]
 image:
-  url: "images/writing/music-sound-story.jpg"
+  url: "/portfolio/images/writing/music-sound-story.jpg"
   alt: "Soft light over vinyl records and sound waves"
 ---
 
