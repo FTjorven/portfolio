@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+const { skills } = Astro.props as {
+    skills: CollectionEntry<"skills">[];
+};
+---
+
+{
+    skills.map((skill) => (
+        <li>
+            <h4>{skill.data.title}</h4>
+
+            {skill.rendered ? <div set:html={skill.rendered.html} /> : null}
+        </li>
+    ))
+}

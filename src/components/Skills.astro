@@ -1,0 +1,14 @@
+---
+// Skills.astro
+import SkillsCard from "./SkillsCard.astro";
+import { getCollection } from "astro:content";
+
+const skills = await getCollection("skills");
+---
+
+<section class="skills">
+    <h3>skills</h3>
+    <ul>
+        <SkillsCard skills={skills} />
+    </ul>
+</section>
