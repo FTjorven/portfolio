@@ -3,11 +3,12 @@ import { getCollection, render } from "astro:content";
 import MarkdownPostLayout from "../../layouts/MarkdownPostLayout.astro";
 
 export async function getStaticPaths() {
+   
     const projects = await getCollection("projects");
 
-    const paths = projects.map((entry) => ({
-        params: { id: entry.id },
-        props: { frontmatter: entry.data, project: entry },
+    const paths = projects.map((project) => ({
+        params: { id: project.id },
+        props: { frontmatter: project.data, project },
     }));
 
     return paths;
