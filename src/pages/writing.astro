@@ -24,8 +24,8 @@ const description =
             </p>
 
             <div class="language-filter">
-                <button class="filter-btn active" data-lang="en">English</button
-                >
+                <button class="filter-btn active" data-lang="all">All</button>
+                <button class="filter-btn" data-lang="en">English</button>
                 <button class="filter-btn" data-lang="nl">Dutch</button>
             </div>
         </section>
@@ -78,4 +78,32 @@ const description =
             />
         </section>
     </div>
+
+    <script>
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const writingItems = document.querySelectorAll("[data-lang]");
+
+        filterBtns.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const selectedLang = btn.getAttribute("data-lang");
+
+                // Update active button
+                filterBtns.forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+
+                // Filter writing items
+                writingItems.forEach((item) => {
+                    if (item.classList.contains("filter-btn")) return; // Skip filter buttons themselves
+
+                    const itemLang = item.getAttribute("data-lang");
+
+                    if (selectedLang === "all" || itemLang === selectedLang) {
+                        item.style.display = "";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
 </BaseLayout>
