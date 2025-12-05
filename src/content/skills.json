@@ -1,0 +1,27 @@
+[
+  {
+    "id": "css",
+    "title": "CSS",
+    "experience": "I have been familiar with CSS for about 1 year."
+  },
+  {
+    "id": "html",
+    "title": "HTML",
+    "experience": "I have used HTML for 1 year!"
+  },
+  {
+    "id": "javascript",
+    "title": "JS",
+    "experience": "I have been developing my javascript skills for a year now."
+  },
+  {
+    "id": "php",
+    "title": "PHP",
+    "experience": "I used PHP last year, but I'm not that much of an expert on the topic."
+  },
+  {
+    "id": "ux",
+    "title": "ux",
+    "experience": "I've been doing UX work for a year and a half now. I'd like to think I'm pretty good at it."
+  }
+]

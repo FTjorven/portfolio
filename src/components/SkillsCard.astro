@@ -10,8 +10,7 @@ const { skills } = Astro.props as {
     skills.map((skill) => (
         <li>
             <h4>{skill.data.title}</h4>
-
-            {skill.rendered ? <div set:html={skill.rendered.html} /> : null}
+            <p>{skill.data.experience}</p>
         </li>
     ))
 }
