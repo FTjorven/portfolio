@@ -446,6 +446,7 @@ strong {
 }
 
 @media (min-width: 800px) {
+
     .blog-posts,
     .music-posts {
         display: grid;
