@@ -280,6 +280,7 @@ strong {
 
 .project-image {
     width: 85%;
+    max-height: 300px;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: var(--radius-lg);
@@ -292,6 +293,7 @@ strong {
 @media (min-width: 700px) {
     .project-image {
         width: 100%;
+        max-height: 400px;
         margin: 0 0 0.6rem 0;
     }
 }
@@ -387,6 +389,7 @@ strong {
 
 .writing-image {
     width: 95%;
+    max-height: 250px;
     aspect-ratio: 16 / 9;
     object-fit: cover;
     border-radius: var(--radius-lg);
@@ -405,6 +408,7 @@ strong {
 @media (min-width: 700px) {
     .writing-image {
         width: 100%;
+        max-height: 300px;
         margin: 0 0 0.8rem 0;
     }
 }

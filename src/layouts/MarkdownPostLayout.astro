@@ -1,6 +1,7 @@
 ---
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
 
 import "../styles/reset.css";
 import "../styles/global.css";
@@ -34,10 +35,14 @@ const pubDate = frontmatter.pubDate
             {frontmatter.author && <p>Written by: {frontmatter.author}</p>}
             {
                 frontmatter.image?.url && (
-                    <img
+                    <Image
                         src={frontmatter.image.url}
-                        width="300"
+                        width={300}
+                        height={400}
                         alt={frontmatter.image.alt || ""}
+                        widths={[256, 512, 768]}
+                        sizes="(min-width: 768px) 300px, 90vw"
+                        format="avif"
                     />
                 )
             }

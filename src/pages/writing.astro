@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WritingItem from "../components/WritingItem.astro";
+import creativeAutumnImg from "../assets/images/writing/creative-autumn.jpg";
+import creatieveHerfstImg from "../assets/images/writing/creatief-herfst.jpg";
+import musicSoundStoryImg from "../assets/images/writing/music-sound-story.jpg";
+import muziekVerhaalImg from "../assets/images/writing/muziek-verhaal.jpg";
 
 import "../styles/reset.css";
 import "../styles/global.css";
@@ -40,7 +44,7 @@ const description =
                 excerpt="Reflections on how the change of season shapes creativity and focus."
                 tags={["english", "reflection", "routine"]}
                 link={`${import.meta.env.BASE_URL}writing/blog-autumn`}
-                image={`${import.meta.env.BASE_URL}images/writing/creative-autumn.jpg`}
+                image={creativeAutumnImg}
             />
 
             <WritingItem
@@ -50,7 +54,7 @@ const description =
                 excerpt="Een korte overdenking over hoe het seizoen invloed heeft op creatief werk."
                 tags={["dutch", "inspiratie", "reflectie"]}
                 link={`${import.meta.env.BASE_URL}writing/blog-herfst`}
-                image={`${import.meta.env.BASE_URL}images/writing/creatief-herfst.jpg`}
+                image={creatieveHerfstImg}
             />
         </section>
 
@@ -64,7 +68,7 @@ const description =
                 excerpt="Exploring the narrative potential of melody and rhythm."
                 tags={["english", "music", "analysis"]}
                 link={`${import.meta.env.BASE_URL}writing/music-sound-story`}
-                image={`${import.meta.env.BASE_URL}images/writing/music-sound-story.jpg`}
+                image={musicSoundStoryImg}
             />
 
             <WritingItem
@@ -74,7 +78,7 @@ const description =
                 excerpt="Over de manier waarop muziek emoties en verhalen kan oproepen."
                 tags={["dutch", "muziek", "interview"]}
                 link={`${import.meta.env.BASE_URL}writing/muziek-verhaal`}
-                image={`${import.meta.env.BASE_URL}images/writing/muziek-verhaal.jpg`}
+                image={muziekVerhaalImg}
             />
         </section>
     </div>

@@ -1,6 +1,10 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import lostFilesImg from "../assets/images/lost-files.jpg";
+import offGridImg from "../assets/images/off-grid.jpg";
+import houseRemembersImg from "../assets/images/house-remembers.jpg";
+import clickFestivalImg from "../assets/images/click-festival.jpg";
 
 import "../styles/reset.css";
 import "../styles/global.css";
@@ -33,7 +37,7 @@ const description =
                 year="2024"
                 href={`${import.meta.env.BASE_URL}projects/land-of-lost-files`}
                 description="My first visual design assignment, imagining a digital world filled with forgotten data — old files, obsolete formats, and memories from the early internet. A world of decay, nostalgia, and rediscovery."
-                image={`${import.meta.env.BASE_URL}images/lost-files.jpg`}
+                image={lostFilesImg}
             />
 
             <ProjectCard
@@ -42,7 +46,7 @@ const description =
                 year="2024"
                 href={`${import.meta.env.BASE_URL}projects/off-the-grid`}
                 description="A storytelling website designed for forgotten or past-their-prime musicians, encouraging them to reconnect with creativity outside of social media. A nostalgic yet playful “off the grid” digital retreat."
-                image={`${import.meta.env.BASE_URL}images/off-grid.jpg`}
+                image={offGridImg}
             />
 
             <ProjectCard
@@ -51,7 +55,7 @@ const description =
                 year="2025"
                 href={`${import.meta.env.BASE_URL}projects/the-house-always-remembers`}
                 description="A retro, speakeasy-inspired storytelling site built around reusing playing cards. Combines narrative, design, and interactivity to promote creative reuse with a glamorous, DIY twist."
-                image={`${import.meta.env.BASE_URL}images/house-remembers.jpg`}
+                image={houseRemembersImg}
             />
 
             <ProjectCard
@@ -60,7 +64,7 @@ const description =
                 year="2025"
                 href={`${import.meta.env.BASE_URL}projects/click-festival-showcase`}
                 description="A JavaScript-focused coding project for the Creative Code course. Combines animation, interaction, and playful logic to showcase experimental coding work in one cohesive digital experience."
-                image={`${import.meta.env.BASE_URL}images/click-festival.jpg`}
+                image={clickFestivalImg}
             />
         </section>
     </div>

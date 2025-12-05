@@ -1,5 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+import img1 from "../assets/images/img-1.png";
+import img2 from "../assets/images/img-2.png";
 
 import "../styles/reset.css";
 import "../styles/global.css";
@@ -14,7 +17,16 @@ const description =
 		<h1 class="vertical-title">{pageTitle}</h1>
 
 		<section class="intro-section">
-			<img src="images/img-1.png" alt="img-1" class="main-image" />
+			<Image
+				src={img1}
+				alt="img-1"
+				class="main-image"
+				width={219}
+				height={229}
+				widths={[256, 512, 768]}
+				sizes="(min-width: 768px) 400px, 90vw"
+				format="avif"
+			/>
 
 			<h2 class="subtitle">
 				<em>book of</em>
@@ -25,10 +37,15 @@ const description =
 			</h2>
 
 			<div class="intro-paragraph">
-				<img
-					src="images/img-2.png"
+				<Image
+					src={img2}
 					alt="img-2"
 					class="secondary-image"
+					width={126}
+					height={139}
+					widths={[128, 256, 384]}
+					sizes="(min-width: 768px) 200px, 50vw"
+					format="avif"
 				/>
 				<p class="intro-text">
 					I like to make things I find cool, I'm a student at Devine.

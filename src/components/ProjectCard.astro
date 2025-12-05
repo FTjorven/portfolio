@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const props = Astro.props;
 
 const index = props.index;
@@ -13,7 +15,16 @@ const image = props.image;
     {
         image && (
             <a href={href}>
-                <img src={image} alt={title} class="project-image" />
+                <Image
+                    src={image}
+                    alt={title}
+                    class="project-image"
+                    width={800}
+                    height={800}
+                    widths={[256, 512, 768, 1024]}
+                    sizes="(min-width: 1024px) 512px, (min-width: 768px) 50vw, 90vw"
+                    format="avif"
+                />
             </a>
         )
     }
