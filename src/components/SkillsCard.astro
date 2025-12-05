@@ -6,11 +6,4 @@ const { skills } = Astro.props as {
 };
 ---
 
-{
-    skills.map((skill) => (
-        <li>
-            <h4>{skill.data.title}</h4>
-            <p>{skill.data.experience}</p>
-        </li>
-    ))
-}
+{skills.map((skill) => <li>- {skill.data.title}</li>)}

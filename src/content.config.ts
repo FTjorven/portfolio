@@ -46,7 +46,6 @@ const skills = defineCollection({
         z.object({
             id: z.string(),
             title: z.string(),
-            experience: z.string(),
         }),
 });
 

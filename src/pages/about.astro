@@ -18,12 +18,6 @@ const hobbies = [
     "- Exploring local creative scenes",
     "- Combining code and design",
 ];
-const skills = [
-    "- Visual design",
-    "- Creative coding (p5.js, JavaScript)",
-    "- UX thinking",
-    "- Storytelling through design",
-];
 ---
 
 <BaseLayout title={pageTitle} description={description}>
@@ -60,24 +54,18 @@ const skills = [
                 </div>
 
                 <div class="list-box">
-                    <h4>skills</h4>
-                    <ul>
-                        {skills.map((skill) => <li>{skill}</li>)}
-                    </ul>
+                    <Skills />
                 </div>
             </div>
 
             <h3>more to come...?</h3>
             <p>
-                Besides my work in Web Design, I’m very passionate about music
-                and live shows. I’m currently working on getting more into my
+                Besides my work in Web Design, I'm very passionate about music
+                and live shows. I'm currently working on getting more into my
                 local music scene. I work at a concert venue in Kortrijk and
                 often write about music, which you can find in the writing
                 section of my page.
             </p>
-            <div>
-                <Skills />
-            </div>
         </section>
 
         <section class="playlists">

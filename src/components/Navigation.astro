@@ -10,6 +10,10 @@ const isActive = (href: string) => pathname === href;
         width="30rem"
     />
 
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-icon">☀️</span>
+    </button>
+
     <button id="menu-btn" aria-expanded="false" aria-controls="primary-nav">
         Menu
     </button>
@@ -79,6 +83,10 @@ const isActive = (href: string) => pathname === href;
     });
 </script>
 
+<script>
+    import "../scripts/theme-toggle.js";
+</script>
+
 <style>
     header {
         display: flex;
@@ -86,6 +94,26 @@ const isActive = (href: string) => pathname === href;
         justify-content: space-between;
         padding: 1rem 1.25rem;
         font-size: 2rem;
+        gap: 1rem;
+    }
+
+    #theme-toggle {
+        background: none;
+        border: 2px solid var(--black);
+        border-radius: 50%;
+        width: 2.5rem;
+        height: 2.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease;
+        font-size: 1.2rem;
+        color: var(--black);
+    }
+
+    #theme-toggle:hover {
+        transform: scale(1.1);
     }
 
     #menu-btn {
@@ -93,6 +121,7 @@ const isActive = (href: string) => pathname === href;
         border: 0;
         font: inherit;
         cursor: pointer;
+        color: var(--black);
     }
 
     nav#primary-nav[hidden] {
@@ -122,7 +151,7 @@ const isActive = (href: string) => pathname === href;
     #close-btn {
         background: none;
         border: 0;
-        color: #fff;
+        color: var(--black);
         font: inherit;
         cursor: pointer;
     }
@@ -138,7 +167,7 @@ const isActive = (href: string) => pathname === href;
     }
 
     nav a {
-        color: #fff;
+        color: var(--black);
         text-decoration: none;
         font-size: clamp(1.6rem, 6vw, 2.4rem);
         font-weight: 700;
@@ -156,8 +185,8 @@ const isActive = (href: string) => pathname === href;
 
     nav a.active {
         color: transparent;
-        -webkit-text-stroke: 1.5px #fff;
-        text-stroke: 1.5px #fff;
+        -webkit-text-stroke: 1.5px var(--black);
+        text-stroke: 1.5px var(--black);
         font-weight: 800;
     }
 
@@ -175,7 +204,7 @@ const isActive = (href: string) => pathname === href;
         nav#primary-nav {
             position: static;
             background: transparent;
-            color: #000;
+            color: var(--black);
             width: auto;
             padding: 0;
             border-radius: 0;
@@ -200,7 +229,7 @@ const isActive = (href: string) => pathname === href;
         }
 
         nav#primary-nav a {
-            color: #000;
+            color: var(--black);
             font-size: 1.2rem;
             font-weight: 600;
             text-decoration: none;
@@ -208,7 +237,7 @@ const isActive = (href: string) => pathname === href;
 
         nav#primary-nav a.active {
             color: transparent;
-            -webkit-text-stroke: 1px #000;
+            -webkit-text-stroke: 1px var(--black);
         }
     }
 </style>

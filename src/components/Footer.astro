@@ -47,6 +47,11 @@ import Social from "./Social.astro";
         text-decoration: none;
     }
 
+    [data-theme="dark"] footer {
+        background-color: var(--white);
+        color: var(--black);
+    }
+
     footer h2 {
         font-family: "Junicode", serif;
         font-style: italic;
@@ -54,6 +59,10 @@ import Social from "./Social.astro";
         margin-bottom: 2rem;
         color: transparent;
         -webkit-text-stroke: 1px #f2f2f2;
+    }
+
+    [data-theme="dark"] footer h2 {
+        -webkit-text-stroke: 1px var(--black);
     }
 
     .footer-content {
@@ -87,6 +96,10 @@ import Social from "./Social.astro";
         margin: 0.5rem 0 2rem;
         color: #f2f2f2;
         text-decoration: none;
+    }
+
+    [data-theme="dark"] .email {
+        color: var(--black);
     }
 
     .copyright {
