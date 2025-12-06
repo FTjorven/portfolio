@@ -26,7 +26,7 @@ const pubDate = frontmatter.pubDate
             <h1>{frontmatter.title}</h1>
             {pubDate && <p>{pubDate}</p>}
             {
-                frontmatter.description && (
+                frontmatter.description && !frontmatter.hideDescription && (
                     <p>
                         <em>{frontmatter.description}</em>
                     </p>
@@ -34,22 +34,36 @@ const pubDate = frontmatter.pubDate
             }
             {frontmatter.author && <p>Written by: {frontmatter.author}</p>}
             {
-                frontmatter.image?.url && (
-                    <Image
-                        src={frontmatter.image.url}
-                        width={300}
-                        height={400}
-                        alt={frontmatter.image.alt || ""}
-                        widths={[256, 512, 768]}
-                        sizes="(min-width: 768px) 300px, 90vw"
-                        format="avif"
-                    />
-                )
+                frontmatter.image?.url &&
+                    frontmatter.image.imageClass === "square-image" && (
+                        <div style="width: 500px; height: 500px; margin: 2rem 0; overflow: hidden; border-radius: 1rem; border: 1px solid #000; display: block; line-height: 0;">
+                            <img
+                                src={frontmatter.image.url}
+                                alt={frontmatter.image.alt || ""}
+                                style="width: 100%; height: 100%; object-fit: cover; display: block; margin: 0; padding: 0;"
+                            />
+                        </div>
+                    )
+            }
+            {
+                frontmatter.image?.url &&
+                    frontmatter.image.imageClass !== "square-image" && (
+                        <img
+                            src={frontmatter.image.url}
+                            alt={frontmatter.image.alt || ""}
+                        />
+                    )
             }
             <slot />
             {
                 frontmatter.tags?.length && (
-                    <p>Tags: {frontmatter.tags.join(", ")}</p>
+                    <div style="display: flex; gap: 0.5rem; margin-top: 2rem; flex-wrap: wrap;">
+                        {frontmatter.tags.map((tag) => (
+                            <span style="background: var(--black); color: var(--white); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.9rem;">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
                 )
             }
 
@@ -111,6 +125,30 @@ const pubDate = frontmatter.pubDate
         border: 1px solid #000;
         display: block;
         margin: 1.5rem auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+    }
+
+    .writing-detail img[class*="square"] {
+        width: 250px !important;
+        height: 250px !important;
+        max-width: 250px !important;
+        min-width: 250px !important;
+        aspect-ratio: 1 / 1 !important;
+        margin: 0 1.5rem 1rem 0 !important;
+        float: left !important;
+        display: block !important;
+        object-fit: cover !important;
+    }
+
+    .writing-detail iframe {
+        width: 100%;
+        max-width: 600px;
+        aspect-ratio: 16 / 9;
+        border-radius: 1rem;
+        border: 1px solid var(--black);
+        display: block;
+        margin: 2rem 0;
     }
 
     .writing-detail p {
@@ -255,20 +293,12 @@ const pubDate = frontmatter.pubDate
         border-top-color: #3d3d3d;
     }
 
-    .writing-detail img {
-        width: 100%;
-        aspect-ratio: 16 / 9;
-        object-fit: cover;
-        border-radius: 1rem;
-        border: 1px solid #000;
-    }
-
     .back-btn {
         display: inline-block;
         padding: 0.6rem 1.2rem;
         color: #ffffff !important;
         border-radius: 0.4rem;
-        text-decoration: none;
+        text-decoration: none !important;
         background: var(--black);
         font-size: 0.9rem;
         transition: opacity 0.2s ease;
