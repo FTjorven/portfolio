@@ -68,28 +68,40 @@ const pubDate = frontmatter.pubDate
     </body>
 </html>
 
-<style>
+<style is:global>
     .writing-detail {
         max-width: 800px;
         margin: 0 auto;
         padding: 1rem;
+        color: var(--black);
     }
 
     .writing-detail h1 {
         font-family: "Junicode", serif;
-        font-size: 2.2rem;
-        margin-bottom: 0.5rem;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        color: var(--black);
     }
 
     .writing-detail > p:first-of-type {
         color: gray;
         font-size: 0.9rem;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .writing-detail > p:nth-of-type(2) {
+        font-size: 1.2rem;
+        line-height: 1.9;
+        margin-bottom: 2.5rem;
+        font-weight: 500;
     }
 
     .writing-detail em {
         font-family: "Junicode", serif;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: var(--black);
     }
 
     .writing-detail img {
@@ -102,45 +114,145 @@ const pubDate = frontmatter.pubDate
     }
 
     .writing-detail p {
-        line-height: 1.5;
-        margin-bottom: 1rem;
-        max-width: 45rem;
+        line-height: 1.8;
+        margin-bottom: 1.8rem;
+        max-width: 42rem;
+        font-size: 1.1rem;
+        color: var(--black);
+        letter-spacing: 0.01em;
+    }
+
+    .writing-detail p:last-of-type {
+        margin-bottom: 2.5rem;
     }
 
     .writing-detail h2,
     .writing-detail h3 {
         font-family: "Junicode", serif;
-        margin-top: 2rem;
-        margin-bottom: 0.6rem;
+        margin-top: 3rem;
+        margin-bottom: 1.2rem;
+        color: var(--black);
+        font-weight: 700;
+        line-height: 1.3;
     }
 
     .writing-detail h2 {
-        font-size: 1.6rem;
+        font-size: 2.2rem;
+        position: relative;
+        padding-bottom: 0.6rem;
+    }
+
+    .writing-detail h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: var(--black);
+        border-radius: 2px;
     }
 
     .writing-detail h3 {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 
     .writing-detail ul,
     .writing-detail ol {
-        margin: 1rem 0 1.5rem 1.2rem;
-        line-height: 1.45;
+        margin: 1.5rem 0 1.5rem 2rem;
+        line-height: 1.7;
+    }
+
+    .writing-detail li {
+        margin-bottom: 0.8rem;
+        font-size: 1.05rem;
+        color: var(--black);
+    }
+
+    .writing-detail li::marker {
+        color: var(--black);
+        font-weight: 600;
+    }
+
+    .writing-detail a {
+        color: var(--black);
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 3px;
+        transition: opacity 0.2s ease;
+    }
+
+    .writing-detail a:hover {
+        opacity: 0.7;
+    }
+
+    .writing-detail blockquote {
+        border-left: 4px solid var(--black);
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        font-style: italic;
+        color: var(--black);
+        opacity: 0.9;
     }
 
     .writing-detail code {
         background: #f1f5f9;
         padding: 0.2rem 0.4rem;
         border-radius: 0.3rem;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        font-family: "Courier New", monospace;
+        color: #c7254e;
+    }
+
+    [data-theme="dark"] .writing-detail code {
+        background: #2d2d2d;
+        color: #f97583;
     }
 
     .writing-detail pre {
-        background: #f1f5f9;
-        padding: 1rem;
-        border-radius: 0.5rem;
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 0.75rem;
         overflow-x: auto;
-        margin: 1.2rem 0;
+        margin: 1.5rem 0;
+        border: 1px solid #e1e4e8;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] .writing-detail pre {
+        background: #1e1e1e;
+        border-color: #3d3d3d;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .writing-detail pre code {
+        background: transparent;
+        padding: 0;
+        color: #24292e;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        display: block;
+    }
+
+    [data-theme="dark"] .writing-detail pre code {
+        color: #e1e4e8;
+    }
+
+    .writing-detail strong {
+        font-weight: 700;
+        color: var(--black);
+        font-size: 1.15rem;
+        letter-spacing: 0.02em;
+    }
+
+    .writing-detail hr {
+        border: 0;
+        border-top: 1px solid #e1e4e8;
+        margin: 2rem 0;
+    }
+
+    [data-theme="dark"] .writing-detail hr {
+        border-top-color: #3d3d3d;
     }
 
     .writing-detail img {
