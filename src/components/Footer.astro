@@ -118,28 +118,26 @@ import Social from "./Social.astro";
     .rss-link {
         display: inline-block;
         padding: 0.5rem 1rem;
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: linear-gradient(135deg, #932222, #1763aa);
+        border: none;
         border-radius: 0.5rem;
-        color: #f2f2f2;
+        color: #ffffff;
         text-decoration: none;
         font-size: 0.9rem;
         transition: all 0.2s ease;
     }
 
     .rss-link:hover {
-        background: rgba(255, 255, 255, 0.2);
+        opacity: 0.9;
         transform: translateY(-2px);
     }
 
     [data-theme="dark"] .rss-link {
-        color: var(--black);
-        background: rgba(0, 0, 0, 0.05);
-        border-color: rgba(0, 0, 0, 0.2);
+        color: #ffffff;
     }
 
     [data-theme="dark"] .rss-link:hover {
-        background: rgba(0, 0, 0, 0.1);
+        opacity: 0.9;
     }
 
     .copyright {

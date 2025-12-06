@@ -9,12 +9,15 @@ const writing = defineCollection({
             pubDate: z.coerce.date(),
             lang: z.enum(["en", "nl"]).optional(),
             description: z.string().optional(),
+            hideDescription: z.boolean().optional(),
             author: z.string().optional(),
+            score: z.string().optional(),
             tags: z.array(z.string()).default([]),
             image: z
                 .object({
                     url: z.string(),
                     alt: z.string().optional(),
+                    imageClass: z.string().optional(),
                 })
                 .optional(),
             link: z.string().optional(),
@@ -34,6 +37,7 @@ const projects = defineCollection({
                 .object({
                     url: z.string(),
                     alt: z.string().optional(),
+                    imageClass: z.string().optional(),
                 })
                 .optional(),
             link: z.string().optional(),
