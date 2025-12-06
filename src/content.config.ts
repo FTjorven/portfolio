@@ -11,6 +11,7 @@ const writing = defineCollection({
             description: z.string().optional(),
             hideDescription: z.boolean().optional(),
             author: z.string().optional(),
+            score: z.string().optional(),
             tags: z.array(z.string()).default([]),
             image: z
                 .object({

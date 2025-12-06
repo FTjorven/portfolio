@@ -11,12 +11,19 @@ const { frontmatter, backUrl } = Astro.props;
 const pubDate = frontmatter.pubDate
     ? new Date(frontmatter.pubDate).toISOString().slice(0, 10)
     : "";
+
+const BASE_URL = import.meta.env.BASE_URL || "/";
 ---
 
 <html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href={`${BASE_URL}images/logo.svg`}
+        />
         <title>{frontmatter.title ?? "Post"}</title>
         <meta name="description" content={frontmatter.description ?? ""} />
     </head>
@@ -56,10 +63,19 @@ const pubDate = frontmatter.pubDate
             }
             <slot />
             {
+                frontmatter.score && (
+                    <div class="score-box">
+                        <p style="font-size: 2rem; font-weight: 700; margin: 0; color: inherit;">
+                            {frontmatter.score}
+                        </p>
+                    </div>
+                )
+            }
+            {
                 frontmatter.tags?.length && (
                     <div style="display: flex; gap: 0.5rem; margin-top: 2rem; flex-wrap: wrap;">
                         {frontmatter.tags.map((tag) => (
-                            <span style="background: var(--black); color: var(--white); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.9rem;">
+                            <span style="background: linear-gradient(135deg, #932222, #1763AA); color: #ffffff; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.9rem;">
                                 {tag}
                             </span>
                         ))}
@@ -187,7 +203,7 @@ const pubDate = frontmatter.pubDate
         left: 0;
         width: 60px;
         height: 3px;
-        background: var(--black);
+        background: linear-gradient(90deg, #932222, #1763aa);
         border-radius: 2px;
     }
 
@@ -291,6 +307,19 @@ const pubDate = frontmatter.pubDate
 
     [data-theme="dark"] .writing-detail hr {
         border-top-color: #3d3d3d;
+    }
+
+    .score-box {
+        margin-bottom: 1rem;
+        padding: 1rem 2.5rem;
+        background: linear-gradient(#932222, #1763aa);
+        color: var(--white);
+        border-radius: 0.5rem;
+        display: inline-block;
+    }
+
+    .score-box p {
+        color: var(--white);
     }
 
     .back-btn {
