@@ -8,7 +8,7 @@ description: "Een korte overdenking over hoe het seizoen invloed heeft op creati
 author: "ftjorven"
 tags: ["blog", "dutch", "inspiratie", "reflectie"]
 image:
-  url: "/portfolio/images/writing/creatief-herfst.jpg"
+  url: "../../assets/images/writing/creatief-herfst.jpg"
   alt: "Herfstbladeren en zacht licht"
 ---
 

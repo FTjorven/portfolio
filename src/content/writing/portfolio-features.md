@@ -6,7 +6,7 @@ description: "A look at the extra features I added to my portfolio site — dark
 author: "ftjorven"
 tags: ["english", "web development", "technical", "portfolio"]
 image:
-    url: "/portfolio/images/writing/creative-autumn.jpg"
+    url: "/portfolio/images/writing/portfolio-header.jpg"
     alt: "Portfolio website features showcase"
 ---
 
