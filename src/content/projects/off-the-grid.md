@@ -1,5 +1,6 @@
 ---
-id: 4
+index: 4
+year: "2024"
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Off the Grid — Forgotten Musicians"
 pubDate: 2024-12-15

@@ -1,5 +1,6 @@
 ---
-id: 2
+index: 2
+year: "2025"
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "The House Always Remembers"
 pubDate: 2025-05-20

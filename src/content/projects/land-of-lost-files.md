@@ -1,5 +1,6 @@
 ---
-id: 3
+index: 3
+year: "2024"
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Land of Lost Files"
 pubDate: 2024-10-10

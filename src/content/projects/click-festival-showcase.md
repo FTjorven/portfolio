@@ -1,5 +1,6 @@
 ---
-id: 1
+index: 1
+year: "2025"
 layout: ../../layouts/MarkdownPostLayout.astro
 title: "Click Festival Showcase"
 pubDate: 2025-05-21
