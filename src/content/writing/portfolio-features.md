@@ -4,7 +4,7 @@ pubDate: 2025-12-06
 lang: en
 description: "A look at the extra features I added to my portfolio site — dark mode, RSS feeds, search functionality, and more."
 author: "ftjorven"
-tags: ["english", "web development", "technical", "portfolio"]
+tags: ["english", "web development", "technical", "portfolio", "blog"]
 image:
     url: "/portfolio/images/writing/portfolio-header.jpg"
     alt: "Portfolio website features showcase"

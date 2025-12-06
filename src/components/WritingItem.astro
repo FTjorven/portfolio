@@ -19,7 +19,11 @@ for (let i = 0; i < tags.length; i++) {
 
 <article class="writing-item" data-lang={lang}>
     {
-        image && (
+        image && typeof image === "string" ? (
+            <a href={link}>
+                <img src={image} alt={title} class="writing-image" />
+            </a>
+        ) : image ? (
             <a href={link}>
                 <Image
                     src={image}
@@ -32,7 +36,7 @@ for (let i = 0; i < tags.length; i++) {
                     format="avif"
                 />
             </a>
-        )
+        ) : null
     }
     <h3>{title}</h3>
     <p class="date">{date}</p>

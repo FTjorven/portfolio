@@ -1,18 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WritingItem from "../components/WritingItem.astro";
-import portfolioHeaderImg from "../assets/images/writing/portfolio-header.jpg";
-import creativeAutumnImg from "../assets/images/writing/creative-autumn.jpg";
-import creatieveHerfstImg from "../assets/images/writing/creatief-herfst.jpg";
-import musicSoundStoryImg from "../assets/images/writing/music-sound-story.jpg";
-import muziekVerhaalImg from "../assets/images/writing/muziek-verhaal.jpg";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
 import "../styles/reset.css";
 import "../styles/global.css";
 
-const allPosts = Object.values(
-    import.meta.glob("./content/writing/*.md", { eager: true }),
+const allWriting = await getCollection("writing");
+const sortedWriting = allWriting.sort(
+    (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
+
+// Separate blog posts and music posts
+const musicPosts = sortedWriting.filter((post) =>
+    post.data.tags?.some(
+        (tag) =>
+            tag.toLowerCase().includes("music") ||
+            tag.toLowerCase().includes("muziek"),
+    ),
+);
+
+const blogPosts = sortedWriting.filter((post) => !musicPosts.includes(post));
 
 const pageTitle = "My writing";
 const description =
@@ -47,59 +57,49 @@ const description =
         <section class="blog-posts">
             <h2>Blog Posts</h2>
 
-            <WritingItem
-                lang="en"
-                title="Building My Portfolio: Extra Features & Technical Deep Dive"
-                date="December 2025"
-                excerpt="A look at the extra features I added to my portfolio site — dark mode, RSS feeds, search functionality, and more."
-                tags={["english", "web development", "technical"]}
-                link={`${import.meta.env.BASE_URL}writing/portfolio-features`}
-                image={portfolioHeaderImg}
-            />
-
-            <WritingItem
-                lang="en"
-                title="Creative Routine in Autumn"
-                date="October 2025"
-                excerpt="Reflections on how the change of season shapes creativity and focus."
-                tags={["english", "reflection", "routine"]}
-                link={`${import.meta.env.BASE_URL}writing/blog-autumn`}
-                image={creativeAutumnImg}
-            />
-
-            <WritingItem
-                lang="nl"
-                title="Herfstgedachten over inspiratie"
-                date="Oktober 2025"
-                excerpt="Een korte overdenking over hoe het seizoen invloed heeft op creatief werk."
-                tags={["dutch", "inspiratie", "reflectie"]}
-                link={`${import.meta.env.BASE_URL}writing/blog-herfst`}
-                image={creatieveHerfstImg}
-            />
+            {
+                blogPosts.map((post) => {
+                    const date = new Date(post.data.pubDate).toLocaleDateString(
+                        "en-US",
+                        { year: "numeric", month: "long" },
+                    );
+                    return (
+                        <WritingItem
+                            lang={post.data.lang}
+                            title={post.data.title}
+                            date={date}
+                            excerpt={post.data.description}
+                            tags={post.data.tags || []}
+                            link={`${import.meta.env.BASE_URL}writing/${post.id.replace(".md", "")}`}
+                            image={post.data.image?.url}
+                        />
+                    );
+                })
+            }
         </section>
 
         <section class="music-posts">
             <h2>Music Writing</h2>
 
-            <WritingItem
-                lang="en"
-                title="How Sound Becomes Story"
-                date="September 2025"
-                excerpt="Exploring the narrative potential of melody and rhythm."
-                tags={["english", "music", "analysis"]}
-                link={`${import.meta.env.BASE_URL}writing/music-sound-story`}
-                image={musicSoundStoryImg}
-            />
-
-            <WritingItem
-                lang="nl"
-                title="Wanneer geluid een verhaal wordt"
-                date="September 2025"
-                excerpt="Over de manier waarop muziek emoties en verhalen kan oproepen."
-                tags={["dutch", "muziek", "interview"]}
-                link={`${import.meta.env.BASE_URL}writing/muziek-verhaal`}
-                image={muziekVerhaalImg}
-            />
+            {
+                musicPosts.map((post) => {
+                    const date = new Date(post.data.pubDate).toLocaleDateString(
+                        "en-US",
+                        { year: "numeric", month: "long" },
+                    );
+                    return (
+                        <WritingItem
+                            lang={post.data.lang}
+                            title={post.data.title}
+                            date={date}
+                            excerpt={post.data.description}
+                            tags={post.data.tags || []}
+                            link={`${import.meta.env.BASE_URL}writing/${post.id.replace(".md", "")}`}
+                            image={post.data.image?.url}
+                        />
+                    );
+                })
+            }
         </section>
     </div>
 
