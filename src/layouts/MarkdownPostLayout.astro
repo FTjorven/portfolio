@@ -266,14 +266,19 @@ const pubDate = frontmatter.pubDate
     .back-btn {
         display: inline-block;
         padding: 0.6rem 1.2rem;
-        color: #ffffff;
+        color: #ffffff !important;
         border-radius: 0.4rem;
         text-decoration: none;
-        background: #000;
+        background: var(--black);
         font-size: 0.9rem;
+        transition: opacity 0.2s ease;
+    }
+
+    [data-theme="dark"] .back-btn {
+        color: #000000 !important;
     }
 
     .back-btn:hover {
-        background: #453e3e;
+        opacity: 0.8;
     }
 </style>
