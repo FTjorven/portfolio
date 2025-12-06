@@ -28,6 +28,15 @@ import Social from "./Social.astro";
             <a href="mailto:florintjorven@gmail.com" class="email">
                 florintjorven@gmail.com
             </a>
+            <div class="rss-subscribe">
+                <a
+                    href={`${import.meta.env.BASE_URL}rss.xml`}
+                    class="rss-link"
+                    aria-label="Subscribe to RSS feed"
+                >
+                    📰 Subscribe to Projects RSS
+                </a>
+            </div>
         </div>
     </div>
 
@@ -100,6 +109,37 @@ import Social from "./Social.astro";
 
     [data-theme="dark"] .email {
         color: var(--black);
+    }
+
+    .rss-subscribe {
+        margin-top: 1rem;
+    }
+
+    .rss-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 0.5rem;
+        color: #f2f2f2;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.2s ease;
+    }
+
+    .rss-link:hover {
+        background: rgba(255, 255, 255, 0.2);
+        transform: translateY(-2px);
+    }
+
+    [data-theme="dark"] .rss-link {
+        color: var(--black);
+        background: rgba(0, 0, 0, 0.05);
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+
+    [data-theme="dark"] .rss-link:hover {
+        background: rgba(0, 0, 0, 0.1);
     }
 
     .copyright {

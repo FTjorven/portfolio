@@ -13,6 +13,12 @@ const allPosts = Object.values(
     import.meta.glob("./projects/*.md", { eager: true }),
 );
 
+// Pagination settings
+const PROJECTS_PER_PAGE = 4;
+const currentPage = 1;
+const totalProjects = 4; // Update this as you add more projects
+const totalPages = Math.ceil(totalProjects / PROJECTS_PER_PAGE);
+
 const pageTitle = "Book of little things";
 const description =
     "A collection of my design, code, and creative projects — small works that shaped how I think about design and development.";
@@ -67,5 +73,169 @@ const description =
                 image={clickFestivalImg}
             />
         </section>
+
+        <div class="pagination">
+            <p class="pagination-info">
+                Showing {PROJECTS_PER_PAGE} of {totalProjects} projects
+            </p>
+            <!-- Pagination will be active when you have more than 4 projects -->
+            {
+                totalPages > 1 && (
+                    <nav class="pagination-nav" aria-label="Project pagination">
+                        <button
+                            class="pagination-btn"
+                            disabled={currentPage === 1}
+                            aria-label="Previous page"
+                        >
+                            ← Previous
+                        </button>
+                        <span class="pagination-current">
+                            Page {currentPage} of {totalPages}
+                        </span>
+                        <button
+                            class="pagination-btn"
+                            disabled={currentPage === totalPages}
+                            aria-label="Next page"
+                        >
+                            Next →
+                        </button>
+                    </nav>
+                )
+            }
+        </div>
     </div>
 </BaseLayout>
+
+<style>
+    .projects-page {
+        padding: 1rem;
+        max-width: var(--max-width-page);
+        margin: 0 auto;
+    }
+
+    .projects-page .intro {
+        margin-bottom: 2rem;
+    }
+
+    .projects-page .intro h2 {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .projects-page .intro p {
+        max-width: var(--max-width-text);
+        line-height: 1.45;
+    }
+
+    .project-list {
+        display: grid;
+        gap: 2rem;
+    }
+
+    .project {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .project-image {
+        width: 85%;
+        max-height: 300px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--black);
+        display: block;
+        margin: 0 auto 0.6rem auto;
+        transition:
+            transform var(--transition-fast),
+            opacity var(--transition-fast);
+    }
+
+    .project-image:hover {
+        transform: scale(1.03);
+        opacity: 0.9;
+    }
+
+    .project h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .project h3 a {
+        text-decoration: none;
+        color: var(--black);
+    }
+
+    .project .year {
+        font-size: 0.95rem;
+        color: var(--gray);
+    }
+
+    .project .description {
+        line-height: 1.4;
+        max-width: var(--max-width-text);
+    }
+
+    @media (min-width: 700px) {
+        .project-image {
+            width: 100%;
+            max-height: 400px;
+            margin: 0 0 0.6rem 0;
+        }
+
+        .project-list {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+    }
+
+    .pagination {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--gray);
+        text-align: center;
+    }
+
+    .pagination-info {
+        color: var(--gray);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .pagination-nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .pagination-btn {
+        padding: 0.6rem 1.2rem;
+        border: 2px solid var(--black);
+        background: var(--white);
+        color: var(--black);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 0.95rem;
+        font-family: var(--font-sans);
+        transition: all 0.2s ease;
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+        background: var(--black);
+        color: var(--white);
+        transform: translateY(-2px);
+    }
+
+    .pagination-btn:disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+    }
+
+    .pagination-current {
+        font-weight: 600;
+        color: var(--black);
+    }
+</style>
