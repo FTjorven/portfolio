@@ -4,7 +4,11 @@ const isActive = (href: string) => pathname === href;
 ---
 
 <header>
-    <p>Logo</p>
+    <img
+        src={`${import.meta.env.BASE_URL}images/logo.svg`}
+        alt="logo for site, F and T with dots next to them"
+        width="30rem"
+    />
 
     <button id="menu-btn" aria-expanded="false" aria-controls="primary-nav">
         Menu
@@ -12,7 +16,10 @@ const isActive = (href: string) => pathname === href;
 
     <nav id="primary-nav" hidden>
         <div class="nav-bar">
-            <p>Logo</p>
+            <img
+                src={`${import.meta.env.BASE_URL}images/logo.svg`}
+                alt="logo for site, F and T with dots next to them"
+            />
             <button id="close-btn" aria-label="Close menu">Close</button>
         </div>
 
@@ -20,7 +27,7 @@ const isActive = (href: string) => pathname === href;
             <li>
                 <a
                     href={`${import.meta.env.BASE_URL}/`}
-                    class={isActive("/") ? "active" : ""}>Homepage</a
+                    class={isActive("") ? "active" : ""}>Homepage</a
                 >
             </li>
             <li>
@@ -43,6 +50,10 @@ const isActive = (href: string) => pathname === href;
             </li>
         </ul>
     </nav>
+
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+        <span class="theme-icon">☀️</span>
+    </button>
 </header>
 
 <script is:inline>
@@ -72,6 +83,10 @@ const isActive = (href: string) => pathname === href;
     });
 </script>
 
+<script>
+    import "../scripts/theme-toggle.js";
+</script>
+
 <style>
     header {
         display: flex;
@@ -79,6 +94,57 @@ const isActive = (href: string) => pathname === href;
         justify-content: space-between;
         padding: 1rem 1.25rem;
         font-size: 2rem;
+        gap: 1rem;
+    }
+
+    #theme-toggle {
+        background: var(--white);
+        border: 2px solid var(--black);
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        font-size: 1.4rem;
+        color: var(--black);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        order: 3;
+    }
+
+    #theme-toggle::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+    }
+
+    #theme-toggle:hover {
+        transform: scale(1.15) rotate(15deg);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    #theme-toggle:hover::before {
+        border-color: var(--black);
+        opacity: 0.3;
+    }
+
+    #theme-toggle:active {
+        transform: scale(0.95) rotate(-5deg);
+    }
+
+    .theme-icon {
+        display: inline-block;
+        transition: transform 0.4s ease;
+    }
+
+    #theme-toggle:hover .theme-icon {
+        transform: rotate(180deg);
     }
 
     #menu-btn {
@@ -86,6 +152,8 @@ const isActive = (href: string) => pathname === href;
         border: 0;
         font: inherit;
         cursor: pointer;
+        color: var(--black);
+        order: 2;
     }
 
     nav#primary-nav[hidden] {
@@ -165,14 +233,19 @@ const isActive = (href: string) => pathname === href;
             display: none;
         }
 
+        header {
+            gap: 2rem;
+        }
+
         nav#primary-nav {
             position: static;
             background: transparent;
-            color: #000;
+            color: var(--black);
             width: auto;
             padding: 0;
             border-radius: 0;
             display: block;
+            order: 2;
         }
 
         nav#primary-nav[hidden] {
@@ -193,7 +266,7 @@ const isActive = (href: string) => pathname === href;
         }
 
         nav#primary-nav a {
-            color: #000;
+            color: var(--black);
             font-size: 1.2rem;
             font-weight: 600;
             text-decoration: none;
@@ -201,7 +274,7 @@ const isActive = (href: string) => pathname === href;
 
         nav#primary-nav a.active {
             color: transparent;
-            -webkit-text-stroke: 1px #000;
+            -webkit-text-stroke: 1px var(--black);
         }
     }
 </style>

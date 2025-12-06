@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const props = Astro.props;
 
 const lang = props.lang;
@@ -16,7 +18,26 @@ for (let i = 0; i < tags.length; i++) {
 ---
 
 <article class="writing-item" data-lang={lang}>
-    {image && <img src={image} alt={title} class="writing-image" />}
+    {
+        image && typeof image === "string" ? (
+            <a href={link}>
+                <img src={image} alt={title} class="writing-image" />
+            </a>
+        ) : image ? (
+            <a href={link}>
+                <Image
+                    src={image}
+                    alt={title}
+                    class="writing-image"
+                    width={800}
+                    height={450}
+                    widths={[256, 512, 768, 1024]}
+                    sizes="(min-width: 1024px) 512px, (min-width: 768px) 50vw, 90vw"
+                    format="avif"
+                />
+            </a>
+        ) : null
+    }
     <h3>{title}</h3>
     <p class="date">{date}</p>
     <p class="excerpt">{excerpt}</p>

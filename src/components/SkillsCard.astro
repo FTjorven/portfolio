@@ -1,0 +1,9 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+const { skills } = Astro.props as {
+    skills: CollectionEntry<"skills">[];
+};
+---
+
+{skills.map((skill) => <li>- {skill.data.title}</li>)}

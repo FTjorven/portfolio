@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import ProductCard from "./ProductCard.astro";
+
+const products = await getCollection("products");
+---
+
+<style>
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-gap: var(--s4);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+<ul>
+  {
+    products.map((product) => (
+      <li>
+        <a href={`/products/${product.data.id}`}>
+          <ProductCard product={product.data} />
+        </a>
+      </li>
+    ))
+  }
+</ul>

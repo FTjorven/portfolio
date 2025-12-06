@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Playlist from "../components/Playlist.astro";
+import Skills from "../components/Skills.astro";
 
 import "../styles/reset.css";
 import "../styles/global.css";
@@ -16,12 +17,6 @@ const hobbies = [
     "- Writing about music",
     "- Exploring local creative scenes",
     "- Combining code and design",
-];
-const skills = [
-    "- Visual design",
-    "- Creative coding (p5.js, JavaScript)",
-    "- UX thinking",
-    "- Storytelling through design",
 ];
 ---
 
@@ -59,17 +54,14 @@ const skills = [
                 </div>
 
                 <div class="list-box">
-                    <h4>skills</h4>
-                    <ul>
-                        {skills.map((skill) => <li>{skill}</li>)}
-                    </ul>
+                    <Skills />
                 </div>
             </div>
 
             <h3>more to come...?</h3>
             <p>
-                Besides my work in Web Design, I’m very passionate about music
-                and live shows. I’m currently working on getting more into my
+                Besides my work in Web Design, I'm very passionate about music
+                and live shows. I'm currently working on getting more into my
                 local music scene. I work at a concert venue in Kortrijk and
                 often write about music, which you can find in the writing
                 section of my page.
@@ -116,3 +108,209 @@ const skills = [
         </section>
     </div>
 </BaseLayout>
+
+<style>
+    .about-page {
+        padding: 1rem;
+        max-width: var(--max-width-page);
+        margin: 0 auto;
+    }
+
+    .intro h2:first-of-type {
+        font-family: var(--font-serif);
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .intro h2:last-of-type {
+        font-size: 1.8rem;
+        margin-top: -0.5rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .intro h2:last-of-type::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 60%;
+        height: 3px;
+        background: var(--black);
+        border-radius: 2px;
+    }
+
+    .intro p {
+        max-width: var(--max-width-text);
+        line-height: 1.45;
+        margin: 1rem 0 2rem;
+    }
+
+    .education,
+    .more {
+        margin-bottom: 2rem;
+    }
+
+    .education h3,
+    .more h3,
+    .playlists h3 {
+        font-family: var(--font-serif);
+        font-size: 1.4rem;
+        margin-bottom: 0.6rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .education h3::before,
+    .more h3::before,
+    .playlists h3::before {
+        content: "◆";
+        margin-right: 0.5rem;
+        opacity: 0.7;
+        font-size: 0.9rem;
+    }
+
+    .more ul {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 1.2rem;
+    }
+
+    .more ul li {
+        margin-bottom: 0.3rem;
+    }
+
+    .outro p {
+        max-width: var(--max-width-text);
+        line-height: 1.45;
+        margin-top: 2rem;
+    }
+
+    .playlists {
+        margin-top: 2rem;
+    }
+
+    .playlists h3 {
+        margin-bottom: 1.5rem;
+    }
+
+    .playlists_list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .playlist {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .playlist-image {
+        width: 85%;
+        max-width: 220px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        border: 2px solid var(--black);
+        margin-bottom: 0.6rem;
+        transition:
+            transform var(--transition-fast),
+            opacity var(--transition-fast),
+            box-shadow var(--transition-fast);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .playlist-image:hover {
+        transform: scale(1.05) rotate(2deg);
+        opacity: 0.95;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .playlist h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .playlist p {
+        font-size: 0.9rem;
+        max-width: 260px;
+        line-height: 1.4;
+    }
+
+    .more h3 {
+        margin-top: 1.8rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .more p {
+        margin-bottom: 1rem;
+    }
+
+    .more-list-boxes {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        margin: 1rem 0 2rem;
+    }
+
+    @media (min-width: 750px) {
+        .playlists_list {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .playlist-image {
+            width: 100%;
+            max-width: none;
+        }
+
+        .more-list-boxes {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .list-box {
+        border: 2px solid var(--black);
+        border-radius: var(--radius-lg);
+        padding: 1rem 1.2rem;
+        background: var(--white);
+        transition:
+            transform var(--transition-fast),
+            box-shadow var(--transition-fast);
+        position: relative;
+    }
+
+    .list-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .list-box h4 {
+        font-family: var(--font-serif);
+        font-size: 1.2rem;
+        margin-bottom: 0.6rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .list-box h4::after {
+        content: "✦";
+        margin-left: 0.4rem;
+        font-size: 0.8rem;
+        opacity: 0.6;
+    }
+
+    .list-box ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .list-box ul li {
+        margin-bottom: 0.3rem;
+        line-height: 1.4;
+    }
+</style>

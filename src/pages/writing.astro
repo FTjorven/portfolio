@@ -1,13 +1,28 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import WritingItem from "../components/WritingItem.astro";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
 import "../styles/reset.css";
 import "../styles/global.css";
 
-const allPosts = Object.values(
-    import.meta.glob("./content/writing/*.md", { eager: true }),
+const allWriting = await getCollection("writing");
+const sortedWriting = allWriting.sort(
+    (a, b) =>
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
+
+// Separate blog posts and music posts
+const musicPosts = sortedWriting.filter((post) =>
+    post.data.tags?.some(
+        (tag) =>
+            tag.toLowerCase().includes("music") ||
+            tag.toLowerCase().includes("muziek"),
+    ),
+);
+
+const blogPosts = sortedWriting.filter((post) => !musicPosts.includes(post));
 
 const pageTitle = "My writing";
 const description =
@@ -19,13 +34,22 @@ const description =
         <section class="intro">
             <h1>{pageTitle}</h1>
             <p>
-                Welcome to my writing archive. Here you’ll find both general
+                Welcome to my writing archive. Here you'll find both general
                 blog posts and pieces about music writing.
             </p>
 
+            <div class="search-container">
+                <input
+                    type="search"
+                    id="search-input"
+                    placeholder="Search posts by title, excerpt, or tags..."
+                    aria-label="Search blog posts"
+                />
+            </div>
+
             <div class="language-filter">
-                <button class="filter-btn active" data-lang="en">English</button
-                >
+                <button class="filter-btn active" data-lang="all">All</button>
+                <button class="filter-btn" data-lang="en">English</button>
                 <button class="filter-btn" data-lang="nl">Dutch</button>
             </div>
         </section>
@@ -33,49 +57,226 @@ const description =
         <section class="blog-posts">
             <h2>Blog Posts</h2>
 
-            <WritingItem
-                lang="en"
-                title="Creative Routine in Autumn"
-                date="October 2025"
-                excerpt="Reflections on how the change of season shapes creativity and focus."
-                tags={["english", "reflection", "routine"]}
-                link={`${import.meta.env.BASE_URL}writing/blog-autumn`}
-                image={`${import.meta.env.BASE_URL}images/writing/creative-autumn.jpg`}
-            />
-
-            <WritingItem
-                lang="nl"
-                title="Herfstgedachten over inspiratie"
-                date="Oktober 2025"
-                excerpt="Een korte overdenking over hoe het seizoen invloed heeft op creatief werk."
-                tags={["dutch", "inspiratie", "reflectie"]}
-                link={`${import.meta.env.BASE_URL}writing/blog-herfst`}
-                image={`${import.meta.env.BASE_URL}images/writing/creatief-herfst.jpg`}
-            />
+            {
+                blogPosts.map((post) => {
+                    const date = new Date(post.data.pubDate).toLocaleDateString(
+                        "en-US",
+                        { year: "numeric", month: "long" },
+                    );
+                    return (
+                        <WritingItem
+                            lang={post.data.lang}
+                            title={post.data.title}
+                            date={date}
+                            excerpt={post.data.description}
+                            tags={post.data.tags || []}
+                            link={`${import.meta.env.BASE_URL}writing/${post.id.replace(".md", "")}`}
+                            image={post.data.image?.url}
+                        />
+                    );
+                })
+            }
         </section>
 
         <section class="music-posts">
             <h2>Music Writing</h2>
 
-            <WritingItem
-                lang="en"
-                title="How Sound Becomes Story"
-                date="September 2025"
-                excerpt="Exploring the narrative potential of melody and rhythm."
-                tags={["english", "music", "analysis"]}
-                link={`${import.meta.env.BASE_URL}writing/music-sound-story`}
-                image={`${import.meta.env.BASE_URL}images/writing/music-sound-story.jpg`}
-            />
-
-            <WritingItem
-                lang="nl"
-                title="Wanneer geluid een verhaal wordt"
-                date="September 2025"
-                excerpt="Over de manier waarop muziek emoties en verhalen kan oproepen."
-                tags={["dutch", "muziek", "interview"]}
-                link={`${import.meta.env.BASE_URL}writing/muziek-verhaal`}
-                image={`${import.meta.env.BASE_URL}images/writing/muziek-verhaal.jpg`}
-            />
+            {
+                musicPosts.map((post) => {
+                    const date = new Date(post.data.pubDate).toLocaleDateString(
+                        "en-US",
+                        { year: "numeric", month: "long" },
+                    );
+                    return (
+                        <WritingItem
+                            lang={post.data.lang}
+                            title={post.data.title}
+                            date={date}
+                            excerpt={post.data.description}
+                            tags={post.data.tags || []}
+                            link={`${import.meta.env.BASE_URL}writing/${post.id.replace(".md", "")}`}
+                            image={post.data.image?.url}
+                        />
+                    );
+                })
+            }
         </section>
     </div>
+
+    <script>
+        import "../scripts/writing-filter.js";
+    </script>
 </BaseLayout>
+
+<style>
+    .writing-page {
+        padding: 1rem;
+        max-width: var(--max-width-writing);
+        margin: 0 auto;
+    }
+
+    .writing-page .intro {
+        margin-bottom: 2rem;
+    }
+
+    .writing-page .intro h1 {
+        font-size: 2.2rem;
+        font-family: var(--font-serif);
+        margin-bottom: 0.5rem;
+    }
+
+    .writing-page .intro p {
+        max-width: 38rem;
+        line-height: 1.45;
+    }
+
+    .search-container {
+        margin: 1.5rem 0 0.5rem;
+    }
+
+    #search-input {
+        width: 100%;
+        max-width: 38rem;
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        font-family: var(--font-sans);
+        border: 2px solid var(--black);
+        border-radius: 0.5rem;
+        background: var(--white);
+        color: var(--black);
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    #search-input:focus {
+        outline: none;
+        border-color: var(--black);
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
+
+    #search-input::placeholder {
+        color: var(--gray);
+        opacity: 0.7;
+    }
+
+    .language-filter {
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.6rem;
+    }
+
+    .filter-btn {
+        padding: 0.4rem 0.8rem;
+        border: 1px solid var(--black);
+        background: var(--white);
+        color: var(--black);
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 0.95rem;
+    }
+
+    .filter-btn.active {
+        background: var(--black);
+        color: var(--white);
+    }
+
+    .blog-posts h2,
+    .music-posts h2 {
+        font-family: var(--font-serif);
+        font-size: 1.6rem;
+        margin: 2rem 0 1rem;
+    }
+
+    .writing-item {
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .writing-image {
+        width: 95%;
+        max-height: 250px;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--black);
+        display: block;
+        margin: 0 auto 0.8rem auto;
+        transition:
+            transform var(--transition-fast),
+            opacity var(--transition-fast);
+    }
+
+    @media (max-width: 700px) {
+        .writing-image {
+            width: 90%;
+        }
+    }
+
+    @media (min-width: 700px) {
+        .writing-image {
+            width: 100%;
+            max-height: 300px;
+            margin: 0 0 0.8rem 0;
+        }
+    }
+
+    .writing-image:hover {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+
+    .writing-item h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .writing-item .date {
+        color: var(--gray);
+        font-size: 0.9rem;
+    }
+
+    .writing-item .excerpt {
+        line-height: 1.45;
+        max-width: var(--max-width-text);
+    }
+
+    .writing-item .tags {
+        display: flex;
+        gap: 0.5rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        font-size: 0.85rem;
+        color: #444;
+    }
+
+    .writing-item a {
+        margin-top: 0.4rem;
+        text-decoration: none;
+        font-weight: 500;
+        color: var(--black);
+    }
+
+    @media (min-width: 800px) {
+        .blog-posts,
+        .music-posts {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem 2rem;
+            align-items: start;
+        }
+
+        .blog-posts h2,
+        .music-posts h2 {
+            grid-column: 1 / -1;
+            margin-bottom: 1rem;
+        }
+
+        .writing-item {
+            margin-bottom: 0;
+        }
+    }
+</style>

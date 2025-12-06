@@ -1,0 +1,18 @@
+[
+    {
+        "id": "visual-design",
+        "title": "Visual design"
+    },
+    {
+        "id": "creative-coding",
+        "title": "Creative coding (p5.js, JavaScript)"
+    },
+    {
+        "id": "ux-thinking",
+        "title": "UX thinking"
+    },
+    {
+        "id": "storytelling",
+        "title": "Storytelling through design"
+    }
+]
