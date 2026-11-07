@@ -5,6 +5,14 @@ document.documentElement.classList.remove('no-js');
 
 initHero();
 
+// The 3D hero loads separately, so three.js never delays the rest of the page.
+// has-3d hides the plain project cards right away (hero3d.js removes it if WebGL fails).
+const hero = document.querySelector('.hero');
+if (hero && window.WebGLRenderingContext) {
+  hero.classList.add('has-3d');
+  import('./hero3d.js').then(({ initHero3d }) => initHero3d());
+}
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------- Mobile menu ---------- */

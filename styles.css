@@ -304,14 +304,76 @@ em { font-style: italic; }
 .hero {
   position: relative;
   min-height: 100svh;
-  overflow-x: clip;
   width: min(calc(100% - 2 * var(--gutter)), var(--max));
   margin-inline: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 140px;
-  padding-bottom: 80px;
+  padding-top: 120px;
+  padding-bottom: 48px;
+  isolation: isolate; /* lets the 3D canvas sit behind the text */
+}
+
+/* 3D scene from hero3d.js, behind the text. Full window width, so prints can swing into the margins */
+.hero__canvas {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 50vw);
+  z-index: -1;
+  width: 100vw;
+  height: 100%;
+  pointer-events: none;
+}
+.hero.is-over-print { cursor: pointer; }
+
+/* Space the hanging prints take up, right under the name */
+.hero__stage {
+  position: relative;
+  margin-bottom: 24px;
+}
+.has-3d .hero__stage { height: clamp(250px, 36vh, 380px); }
+/* Without 3D: the projects as a simple row of cards */
+.hero__projects {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding-top: 24px;
+}
+.hero__projects a { display: flex; flex-direction: column; gap: 4px; }
+.hero__projects img {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  background: var(--bg-2);
+}
+.hero__projects strong { margin-top: 8px; font-family: var(--font-display); font-size: 0.95rem; }
+.hero__projects span { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); }
+/* With 3D: the list stays for keyboard and screen reader users, but out of sight */
+.has-3d .hero__projects {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.hero__hint {
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  display: none;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+.has-3d .hero__hint { display: block; }
+@media (max-width: 760px) {
+  .has-3d .hero__stage { height: 340px; }
+  .hero__projects { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero__hint { right: auto; left: 0; }
 }
 
 
@@ -346,54 +408,25 @@ em { font-style: italic; }
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  font-size: clamp(3.4rem, 15vw, 14rem);
+  font-size: clamp(3.4rem, 12vw, 10.5rem);
   letter-spacing: -0.02em;
   margin-top: -0.08em;
 }
+/* Zero-size marker at the baseline of the dot in "Florin.": the line is tied here */
+.hero__nail { display: inline-block; width: 0; height: 0; }
 .hero__role {
   font-family: var(--font-serif);
   font-size: clamp(1.4rem, 2.6vw, 2.2rem);
-  margin-bottom: 48px;
 }
 
 .hero__bottom {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 32px;
-}
-.hero__intro { max-width: 46ch; font-size: clamp(1rem, 1.4vw, 1.15rem); color: var(--muted); }
-.hero__buttons { display: flex; flex-wrap: wrap; gap: 12px; }
-
-.hero__scroll {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--muted);
+  justify-content: space-between;
+  gap: 24px 32px;
 }
-.hero__scroll-line {
-  width: 1px;
-  height: 40px;
-  background: var(--muted);
-  animation: drip 2s var(--ease) infinite;
-  transform-origin: top;
-}
-@keyframes drip {
-  0% { transform: scaleY(0); }
-  50% { transform: scaleY(1); }
-  100% { transform: scaleY(1); opacity: 0; }
-}
-@media (max-width: 760px) { .hero__scroll { display: none; } }
+.hero__buttons { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* =========================================================
    Marquee
