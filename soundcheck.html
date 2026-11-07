@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>The Soundcheck — Tjorven Florin</title>
+  <meta name="description" content="The Soundcheck: an interactive backstage experience built with self-trained machine learning models and GSAP. Case study by Tjorven Florin." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="index.html" class="nav__logo">tjorven<span>.</span></a>
+
+    <nav class="nav__links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html" aria-current="page">Work</a>
+    </nav>
+  </header>
+
+  <!-- Fixed top-right corner: menu (mobile) + contact -->
+  <div class="corner">
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+    <a href="#contact" class="corner__cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+
+  <main id="top">
+    <!-- ============ CASE HEADER ============ -->
+    <section class="page-head case-head">
+      <a href="work.html" class="case-back reveal">← All work</a>
+      <p class="eyebrow reveal">Case study · Machine learning &amp; animation</p>
+      <h1 class="page-head__title case-head__title case-head__title--long reveal">The<br />Soundcheck<span class="accent">.</span></h1>
+      <p class="case-head__sub reveal">
+        A browser experience that puts you behind the mixing desk before the show,
+        and listens to you while you play.
+      </p>
+
+      <dl class="case-meta reveal">
+        <!-- 👉 Check: was this a solo project? -->
+        <div><dt>My role</dt><dd>Concept, design &amp; development</dd></div>
+        <div><dt>Stack</dt><dd>Teachable Machine, TensorFlow.js, GSAP</dd></div>
+        <div><dt>Context</dt><dd>Devine coding assignment</dd></div>
+        <div><dt>Live</dt><dd><a class="case-link" href="https://ftjorven.be/soundcheck/" target="_blank" rel="noopener">ftjorven.be/soundcheck ↗</a></dd></div>
+      </dl>
+    </section>
+
+    <section class="case-hero-shot reveal">
+      <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.be/soundcheck</span></div>
+            <img src="images/soundcheck/intro.jpg" alt="The Soundcheck start screen: The Soundcheck, step behind the curtain" loading="lazy" />
+          </figure>
+    </section>
+
+    <!-- ============ THE BRIEF ============ -->
+    <section class="section section--tight case-split">
+      <div class="section__label reveal">The brief</div>
+      <div>
+        <p class="case-lead reveal">
+          Build a desktop experience that tells a personal story by combining machine learning
+          and animation.
+        </p>
+        <!-- 👉 Add why this theme is personal to you -->
+        <p class="case-body reveal">
+          I chose the half hour before a concert: the soundcheck. Nobody in the crowd sees it,
+          but everything depends on it. The visitor takes over from the crew: record the
+          instruments, balance the mix, design the lights and run the show. Instead of clicking
+          through a form, you play real sounds into your microphone and the app reacts.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ REQUIREMENTS ============ -->
+    <section class="section section--band case-brief" data-cursor="light">
+      <div class="section__label reveal">Brief → build</div>
+      <h2 class="case-h2 reveal">Every requirement, <em>used for the story</em>.</h2>
+
+      <div class="case-brief__grid">
+        <article class="reveal">
+          <span class="case-brief__req">Machine learning</span>
+          <h3>Two self-trained sound models</h3>
+          <p>I trained two audio classifiers in Teachable Machine and run them in the browser with TensorFlow.js: one tells a guitar from a bongo, the other counts applause at the end.</p>
+        </article>
+        <article class="reveal">
+          <span class="case-brief__req">ScrollTrigger</span>
+          <h3>Story &amp; pacing</h3>
+          <p>Pins the intro story and moves you from stage to stage. The next stage only opens once both instruments have been recorded.</p>
+        </article>
+        <article class="reveal">
+          <span class="case-brief__req">Draggable</span>
+          <h3>A real mixing desk</h3>
+          <p>Each channel is a vertical fader you drag with the mouse, with its value and accessibility attributes updated live.</p>
+        </article>
+        <article class="reveal">
+          <span class="case-brief__req">MotionPath</span>
+          <h3>Moving stage lights</h3>
+          <p>Three light fixtures travel along curved rails above the stage, rotating with the path so their beams sweep the room.</p>
+        </article>
+        <article class="reveal">
+          <span class="case-brief__req">Error handling</span>
+          <h3>No dead ends</h3>
+          <p>Loading states while models download, clear feedback when the microphone or a model fails, and buttons that stay disabled until there's something to play.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT PLAYS ============ -->
+    <section class="section section--tight">
+      <div class="section__label reveal">How it plays</div>
+      <h2 class="case-h2 reveal">Five stages, <em>one show</em>.</h2>
+
+      <ol class="case-journey">
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>01 · Record</span>
+            <h3>Play into your microphone</h3>
+            <p>The app listens continuously. When the model is at least 90% sure it hears a guitar or a bongo, it starts recording a four-second clip of it, with no record button needed.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.be/soundcheck</span></div>
+            <img src="images/soundcheck/detect.jpg" alt="Instrument detection stage with guitar and bongo recording status" loading="lazy" />
+          </figure>
+        </li>
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>02 · Mix</span>
+            <h3>Balance the band</h3>
+            <p>Four draggable faders: kick, snare, guitar and vocals. Each one ticks off once you've adjusted it, and a visualiser confirms the final mix.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.be/soundcheck</span></div>
+            <img src="images/soundcheck/mixer.jpg" alt="Mixing desk with four vertical faders" loading="lazy" />
+          </figure>
+        </li>
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>03 · Light</span>
+            <h3>Design the lights</h3>
+            <p>Pick a mood, then set intensity, beam width and effects step by step. Start the light show and the moving heads sweep across the screen.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.be/soundcheck</span></div>
+            <img src="images/soundcheck/lighting.jpg" alt="Lighting setup with moving beams and particles running" loading="lazy" />
+          </figure>
+        </li>
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>04 · Show</span>
+            <h3>Run the final soundcheck</h3>
+            <p>A canvas stage where you trigger your own recordings and layer confetti, lasers, spotlights and smoke, with an intensity slider from chill to wild.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.be/soundcheck</span></div>
+            <img src="images/soundcheck/final-run.jpg" alt="Final run: canvas stage with instrument triggers and effects" loading="lazy" />
+          </figure>
+        </li>
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>05 · Applause</span>
+            <h3>Clap for yourself</h3>
+            <p>You get a score for your recordings, mix, lighting and show. Then the second model listens for applause: every clap it hears fills a star.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.be/soundcheck</span></div>
+            <img src="images/soundcheck/score.jpg" alt="Score screen with performance score and breakdown" loading="lazy" />
+          </figure>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ UNDER THE HOOD ============ -->
+    <section class="section section--tight case-split">
+      <div class="section__label reveal">Under the hood</div>
+      <div class="case-code-notes">
+        <p class="case-lead reveal">The key moment: letting the model decide when to record.</p>
+        <div class="code-window reveal" aria-label="Code excerpt">
+          <div class="code-window__bar"><i></i><i></i><i></i><span>ml5-instrument.js (simplified)</span></div>
+<pre><code>recognizer.<span class="p">listen</span>(<span class="k">async</span> (result) =&gt; {
+  <span class="k">const</span> i = result.scores.<span class="p">indexOf</span>(Math.<span class="p">max</span>(...result.scores));
+  <span class="k">const</span> label = labels[i].<span class="p">toLowerCase</span>();
+  <span class="k">const</span> confidence = result.scores[i];
+
+  <span class="c">// Only record when the model is 90% sure</span>
+  <span class="k">if</span> (<span class="p">isInstrument</span>(label) &amp;&amp; confidence &gt;= <span class="n">0.9</span> &amp;&amp; !isRecording) {
+    isRecording = <span class="n">true</span>;
+    <span class="k">const</span> clip = <span class="k">await</span> <span class="p">recordSnippet</span>(<span class="n">4</span>); <span class="c">// seconds</span>
+    recordings[label] = clip;
+    <span class="p">unlockNextStageIfComplete</span>();
+  }
+});</code></pre>
+        </div>
+        <p class="case-body reveal">
+          The high threshold keeps talking and background noise from starting a recording.
+          The clips are kept in memory and reused later in the show and in the final mix.
+        </p>
+
+        <div class="code-window reveal" aria-label="Code excerpt">
+          <div class="code-window__bar"><i></i><i></i><i></i><span>lighting.js</span></div>
+<pre><code>gsap.<span class="p">timeline</span>({ repeat: <span class="n">-1</span>, yoyo: <span class="n">true</span> })
+  .<span class="p">to</span>(fixtureLeft, {
+    duration: <span class="n">6</span>,
+    ease: <span class="s">"sine.inOut"</span>,
+    motionPath: {
+      path: railLeft,
+      align: railLeft,
+      autoRotate: <span class="n">true</span>,   <span class="c">// the beam follows the rail's curve</span>
+      alignOrigin: [<span class="n">0.5</span>, <span class="n">0</span>],
+    },
+  });</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REFLECTION ============ -->
+    <!-- 👉 Write these in your own words -->
+    <section class="section section--tight case-reflect">
+      <div class="reveal">
+        <div class="section__label">Hardest part</div>
+        <p>Training sound models that work in a real room: microphones, background noise and different instruments all change what the model hears.</p>
+      </div>
+      <div class="reveal">
+        <div class="section__label">What I took away</div>
+        <p>How to train and run machine learning in the browser, and how to use animation to guide someone through an experience instead of just decorating it.</p>
+      </div>
+    </section>
+
+    <div class="case-actions reveal">
+      <a href="https://ftjorven.be/soundcheck/" target="_blank" rel="noopener" class="btn btn--primary">
+        Try it yourself
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <span class="case-actions__note">Desktop with a microphone works best.</span>
+    </div>
+
+    <a href="walter.html" class="case-next">
+      <span class="eyebrow">Next project</span>
+      <span class="case-next__title">Designing without a name <span class="accent">→</span></span>
+    </a>
+
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--band contact" id="contact">
+      <p class="eyebrow reveal">Got a project, internship or just want to say hi?</p>
+      <h2 class="contact__title reveal">
+        <a href="mailto:florintjorven@gmail.com" class="contact__mail">
+          Let's work<br />together <span class="arrow">↗</span>
+        </a>
+      </h2>
+
+      <ul class="socials reveal">
+        <li><a href="mailto:florintjorven@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/tjorven-florin-8a57a91aa/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/FTjorven/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.behance.net/tjorvenflorin1" target="_blank" rel="noopener">Behance</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer section--band">
+    <div class="footer__row">
+      <span>© <span id="year"></span> Tjorven Florin</span>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+      </nav>
+      <a href="#top" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

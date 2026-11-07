@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Site icon: a bold "T" with the green dot from the "tjorven." logo -->
+  <rect width="64" height="64" rx="14" fill="#111114"/>
+  <rect x="11" y="15" width="36" height="9" fill="#f4f2ec"/>
+  <rect x="24.5" y="15" width="9" height="34" fill="#f4f2ec"/>
+  <circle cx="47" cy="44" r="5.5" fill="#22c55e"/>
+</svg>

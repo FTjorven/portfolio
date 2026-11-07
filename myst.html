@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>Myst — Tjorven Florin</title>
+  <meta name="description" content="Myst: development case study by Tjorven Florin. A React Native app and a projection-mapped installation for Visit Antwerp." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="index.html" class="nav__logo">tjorven<span>.</span></a>
+
+    <nav class="nav__links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html" aria-current="page">Work</a>
+    </nav>
+  </header>
+
+  <!-- Fixed top-right corner: menu (mobile) + contact -->
+  <div class="corner">
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+    <a href="#contact" class="corner__cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+
+  <main id="top">
+    <!-- ============ CASE HEADER ============ -->
+    <section class="page-head case-head">
+      <a href="work.html" class="case-back reveal">← All work</a>
+      <p class="eyebrow reveal">Case study · Development</p>
+      <h1 class="page-head__title case-head__title reveal">Myst<span class="accent">.</span></h1>
+      <p class="case-head__sub reveal">
+        I wrote the code behind a city app and an interactive shop-window installation
+        for Visit Antwerp.
+      </p>
+
+      <dl class="case-meta reveal">
+        <div><dt>My role</dt><dd>Development</dd></div>
+        <div><dt>Stack</dt><dd>React Native, Supabase, OSC, MadMapper</dd></div>
+        <div><dt>Team</dt><dd>4 Devine + 2 CMD Rotterdam students</dd></div>
+        <div><dt>When</dt><dd>6 weeks · June 2026</dd></div>
+      </dl>
+    </section>
+
+    <!-- Hero visual: the app I built -->
+    <section class="case-stage reveal" data-cursor="light">
+      <img class="case-phone" src="images/myst/map-fog.webp" alt="App: the map of Antwerp covered in fog" />
+      <img class="case-phone case-phone--raised" src="images/myst/pin-detail.webp" alt="App: a discovered store" />
+      <img class="case-phone" src="images/myst/crews.webp" alt="App: crews" />
+    </section>
+
+    <!-- ============ IN SHORT ============ -->
+    <!-- 👉 Check this text and make it sound like you -->
+    <section class="section section--tight case-split">
+      <div class="section__label reveal">In short</div>
+      <div>
+        <p class="case-lead reveal">
+          Visit Antwerp wanted young visitors to find the city's independent fashion
+          stores, without it feeling like an ad.
+        </p>
+        <p class="case-body reveal">
+          Our answer was a game of discovery: a map hidden under fog that you clear by
+          exploring, and a physical box in the city that lets you try on Antwerp styles
+          through projection. The designers shaped how it looked and felt. My job was to
+          make it actually run: two apps, a database and a live link to a projector.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT FITS TOGETHER ============ -->
+    <section class="section section--tight">
+      <div class="section__label reveal">How it fits together</div>
+      <h2 class="case-h2 reveal">One system, <em>three</em> screens.</h2>
+
+      <div class="case-arch reveal" aria-label="System overview">
+        <div class="case-arch__flow">
+          <span class="case-arch__label">In the box</span>
+          <div class="case-arch__node"><strong>iPad kiosk</strong><span>Pick an outfit</span></div>
+          <span class="case-arch__link">OSC <i>→</i></span>
+          <div class="case-arch__node"><strong>MadMapper</strong><span>Switches the scene</span></div>
+          <span class="case-arch__link"><i>→</i></span>
+          <div class="case-arch__node"><strong>Projector</strong><span>Outfit on the mannequin</span></div>
+        </div>
+        <div class="case-arch__flow">
+          <span class="case-arch__label">In the city</span>
+          <div class="case-arch__node"><strong>QR code</strong><span>Shown on the kiosk</span></div>
+          <span class="case-arch__link"><i>→</i></span>
+          <div class="case-arch__node case-arch__node--main"><strong>MYST app</strong><span>React Native</span></div>
+          <span class="case-arch__link"><i>⇄</i></span>
+          <div class="case-arch__node"><strong>Supabase</strong><span>Accounts, pins, crews</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT I BUILT ============ -->
+    <!-- 👉 Check these descriptions: adjust to what you actually built -->
+    <section class="section section--band case-code" data-cursor="light">
+      <div class="section__label reveal">What I built</div>
+
+      <article class="case-feature reveal">
+        <div class="case-feature__text">
+          <span class="case-feature__num">01</span>
+          <h3>A map that starts empty</h3>
+          <p>
+            The core of the app. Every store, workshop and piece of fashion history is a pin
+            stored in Supabase, hidden under fog until you get there. Users can also add their
+            own discoveries, which go straight into the database.
+          </p>
+        </div>
+        <div class="case-feature__media">
+          <img class="case-phone" src="images/myst/map-pin.webp" alt="App: a pin appears on the map" loading="lazy" />
+          <img class="case-phone" src="images/myst/add-discovery.webp" alt="App: adding a discovery" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="case-feature case-feature--flip reveal">
+        <div class="case-feature__text">
+          <span class="case-feature__num">02</span>
+          <h3>Accounts &amp; crews</h3>
+          <p>
+            Sign-up, a short onboarding that saves your styles and interests, and crews:
+            small groups you join with a code or QR so you can share finds with friends.
+            All of it backed by Supabase auth and tables.
+          </p>
+        </div>
+        <div class="case-feature__media">
+          <img class="case-phone" src="images/myst/onboarding-styles.webp" alt="App: onboarding, pick your styles" loading="lazy" />
+          <img class="case-phone" src="images/myst/crew-code.webp" alt="App: crew invite code" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="case-feature reveal">
+        <div class="case-feature__text">
+          <span class="case-feature__num">03</span>
+          <h3>Tap the iPad, change the projection</h3>
+          <p>
+            The kiosk runs on an iPad in the box. When a visitor picks an outfit, it sends an
+            OSC message to MadMapper, which swaps the scene projected onto the mannequin, so the
+            screen and the physical installation stay in sync.
+          </p>
+        </div>
+        <div class="case-feature__media case-feature__media--wide">
+          <img src="images/myst/ipad-picker.webp" alt="Kiosk: outfit picker" loading="lazy" />
+          <video src="images/myst/installation.mp4" poster="images/myst/installation-poster.webp" autoplay muted loop playsinline aria-label="Projection on the mannequin switching outfits"></video>
+        </div>
+      </article>
+
+      <ul class="chips reveal">
+        <li>React Native</li><li>Supabase</li><li>JavaScript</li><li>OSC</li><li>MadMapper</li><li>iPad kiosk</li>
+      </ul>
+    </section>
+
+    <!-- ============ DEV TIMELINE ============ -->
+    <!-- 👉 Check these phases against how it really went -->
+    <section class="section section--tight">
+      <div class="section__label reveal">How the build went</div>
+      <h2 class="case-h2 reveal">From test site to <em>expo</em>.</h2>
+
+      <ol class="case-phases">
+        <li class="reveal">
+          <span>Week 1–2</span>
+          <h3>Concept &amp; scoping</h3>
+          <p>While the concept took shape, I mapped out what had to be built and which parts were technically risky.</p>
+        </li>
+        <li class="reveal">
+          <span>Week 3</span>
+          <h3>Proof of concept</h3>
+          <p>The riskiest idea was controlling a projection from a tablet. A small test site that switched MadMapper scenes over OSC proved it could work.</p>
+        </li>
+        <li class="reveal">
+          <span>Week 4–5</span>
+          <h3>Building the apps</h3>
+          <p>Setting up Supabase, then building the mobile app and the iPad kiosk from the final designs, screen by screen.</p>
+        </li>
+        <li class="reveal">
+          <span>Week 6</span>
+          <h3>Install &amp; expo</h3>
+          <p>Connecting everything inside the physical box, testing it on site and presenting it in Kortrijk.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ SEE IT ============ -->
+    <section class="section section--tight">
+      <div class="section__label reveal">See it in action</div>
+      <div class="case-film reveal">
+        <video src="images/myst/case-movie.mp4" poster="images/myst/case-movie-poster.webp" controls preload="none" playsinline aria-label="Myst case movie"></video>
+      </div>
+      <p class="case-credit reveal">Case movie by Luca Hauspie and Alexander Jonckheere.</p>
+    </section>
+
+    <!-- ============ TEAM + REFLECTION ============ -->
+    <section class="section section--tight case-split">
+      <div class="section__label reveal">The team</div>
+      <div>
+        <ul class="case-team reveal">
+          <li class="is-me"><strong>Tjorven Florin</strong><span>Development</span></li>
+          <li><strong>Amber Vanhooren</strong><span>Experience design, development</span></li>
+          <li><strong>Luca Hauspie</strong><span>Visual design, motion, installation</span></li>
+          <li><strong>Alexander Jonckheere</strong><span>Visual design, motion, installation</span></li>
+        </ul>
+        <p class="case-credit reveal">App and kiosk designs by Luca Hauspie and Alexander Jonckheere. Plus two CMD students from Rotterdam.</p>
+      </div>
+    </section>
+
+    <!-- 👉 Write these in your own words -->
+    <section class="section section--tight case-reflect">
+      <div class="reveal">
+        <div class="section__label">Hardest part</div>
+        <p>Making software and hardware behave together: an iPad, a projector and an app all had to work the moment someone walked up to the box.</p>
+      </div>
+      <div class="reveal">
+        <div class="section__label">What I took away</div>
+        <p>Building a full app with a real back-end, prototyping the risky part first, and translating a designer's screens into working code.</p>
+      </div>
+    </section>
+
+    <a href="soundcheck.html" class="case-next">
+      <span class="eyebrow">Next project</span>
+      <span class="case-next__title">The Soundcheck <span class="accent">→</span></span>
+    </a>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--band contact" id="contact">
+      <p class="eyebrow reveal">Got a project, internship or just want to say hi?</p>
+      <h2 class="contact__title reveal">
+        <a href="mailto:florintjorven@gmail.com" class="contact__mail">
+          Let's work<br />together <span class="arrow">↗</span>
+        </a>
+      </h2>
+
+      <ul class="socials reveal">
+        <li><a href="mailto:florintjorven@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/tjorven-florin-8a57a91aa/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/FTjorven/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.behance.net/tjorvenflorin1" target="_blank" rel="noopener">Behance</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer section--band">
+    <div class="footer__row">
+      <span>© <span id="year"></span> Tjorven Florin</span>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+      </nav>
+      <a href="#top" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>

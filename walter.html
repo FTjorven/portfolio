@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>Designing Without a Name — Tjorven Florin</title>
+  <meta name="description" content="Designing Without a Name: an interactive long-read about Walter Van Beirendonck for MoMu Antwerp. Designed and built by Tjorven Florin." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="index.html" class="nav__logo">tjorven<span>.</span></a>
+
+    <nav class="nav__links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html" aria-current="page">Work</a>
+    </nav>
+  </header>
+
+  <!-- Fixed top-right corner: menu (mobile) + contact -->
+  <div class="corner">
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+    <a href="#contact" class="corner__cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+
+  <main id="top">
+    <!-- ============ CASE HEADER ============ -->
+    <section class="page-head case-head">
+      <a href="work.html" class="case-back reveal">← All work</a>
+      <p class="eyebrow reveal">Case study · Interactive long-read for MoMu</p>
+      <h1 class="page-head__title case-head__title case-head__title--long reveal">Designing<br />without a name<span class="accent">.</span></h1>
+      <p class="case-head__sub reveal">
+        The years Walter Van Beirendonck couldn't use his own name, told as a story
+        that takes yours away first.
+      </p>
+
+      <dl class="case-meta reveal">
+        <div><dt>My role</dt><dd>Concept, design &amp; development (solo)</dd></div>
+        <div><dt>Client</dt><dd>MoMu, Fashion Museum Antwerp (Devine brief)</dd></div>
+        <div><dt>Stack</dt><dd>Vite, GSAP, ScrollTrigger, DrawSVG, TextPlugin</dd></div>
+        <div><dt>Live</dt><dd><a class="case-link" href="https://ftjorven.github.io/integration3/" target="_blank" rel="noopener">ftjorven.github.io/integration3 ↗</a></dd></div>
+      </dl>
+    </section>
+
+    <!-- Desktop + mobile side by side -->
+    <section class="case-devices reveal">
+      <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/intro.jpg" alt="Desktop: hero with the title Designing Without A Name, collaged with halftone imagery" loading="lazy" />
+          </figure>
+      <img class="case-devices__phone" src="images/walter/mobile.jpg" alt="Mobile: the same hero, recomposed for a narrow screen" loading="lazy" />
+    </section>
+
+    <!-- ============ THE BRIEF ============ -->
+    <section class="section section--tight case-split">
+      <div class="section__label reveal">The brief</div>
+      <div>
+        <p class="case-lead reveal">
+          MoMu wanted interactive stories that make people curious about fashion and want to visit,
+          one designer per story.
+        </p>
+        <p class="case-body reveal">
+          I chose Walter Van Beirendonck, and one strange chapter in his career: in 1999 he left
+          Mustang, and his contract stopped him from using his own name for five seasons. So he
+          kept designing as <em>aestheticterrorists</em>, was accused of copying… himself, and
+          eventually came back as <em>aestheticterrorists by Walter</em>.
+        </p>
+        <p class="case-body reveal">
+          My angle: don't just tell the reader about losing a name, make them feel it. The story
+          opens by asking for your name, and then takes it away.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ INTERACTIONS ============ -->
+    <section class="section section--tight">
+      <div class="section__label reveal">Interactions</div>
+      <h2 class="case-h2 reveal">You don't just read it, <em>you take part</em>.</h2>
+
+      <div class="case-moments">
+        <article class="case-moment reveal">
+          <header class="case-moment__head">
+            <span>01</span>
+            <h3>Sign your name away</h3>
+            <p>You type your name to "start designing". On submit, the line under it is erased with DrawSVG and the page answers: <strong>your name is gone, it was signed away</strong>. From there on, Walter's story is also yours.</p>
+          </header>
+          <div class="case-moment__pair">
+            <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/name.jpg" alt="Before: Fill in your name, with an input field on a wavy line" loading="lazy" />
+          </figure>
+            <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/name-gone.jpg" alt="After: Your name is gone. It didn&#39;t disappear. It was signed away." loading="lazy" />
+          </figure>
+          </div>
+        </article>
+
+        <article class="case-moment reveal">
+          <header class="case-moment__head">
+            <span>02</span>
+            <h3>Collections in the crosshairs</h3>
+            <p>A pinned, scroll-scrubbed section moves through four collections from 1999 to 2002. The year sits in a target, and each title and description types itself out with TextPlugin as you scroll.</p>
+          </header>
+          <div class="case-moment__pair">
+            <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/collection-1999.jpg" alt="Collection 1999: No References, inside a red crosshair" loading="lazy" />
+          </figure>
+            <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/collection-2001.jpg" alt="Collection 2001: Dissections" loading="lazy" />
+          </figure>
+          </div>
+        </article>
+
+        <article class="case-moment reveal">
+          <header class="case-moment__head">
+            <span>03</span>
+            <h3>Detonate a visual bomb</h3>
+            <p>Walter's work drops loud colours and slogans into quiet fashion. Here the reader literally does the same: hit Detonate and the page explodes into a manifesto.</p>
+          </header>
+          <div class="case-moment__pair">
+            <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/bombs.jpg" alt="Visual Bombs chapter with halftone bombs and grenades and a Detonate button" loading="lazy" />
+          </figure>
+            <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/boom.jpg" alt="After detonating: Wear your truth loud." loading="lazy" />
+          </figure>
+          </div>
+        </article>
+
+        <article class="case-moment case-moment--split reveal">
+          <header class="case-moment__head">
+            <span>04</span>
+            <h3>Pull the slogan lever</h3>
+            <p>A slot machine built from Walter's vocabulary. Pull the lever and three reels spin into a new slogan, the kind he would print across a garment.</p>
+          </header>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/slogans.jpg" alt="Slogan slot machine showing BOLD DRESS ANTWERP next to a lever" loading="lazy" />
+          </figure>
+        </article>
+
+        <article class="case-moment case-moment--split reveal">
+          <header class="case-moment__head">
+            <span>05</span>
+            <h3>Uncover the headline</h3>
+            <p>The plagiarism chapter ends in a newspaper reporting the reveal, with key words redacted. Click a black bar to uncover it, until you reach the last line: <strong>Walter Van Beirendonck is aestheticterrorists.</strong></p>
+          </header>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/integration3</span></div>
+            <img src="images/walter/newspaper.jpg" alt="Newspaper article with redacted words: BREAKING, aestheticterrorists designer reveals name" loading="lazy" />
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ VISUAL DESIGN ============ -->
+    <!-- 👉 Check the design rationale -->
+    <section class="section section--band case-visual" data-cursor="light">
+      <div class="section__label reveal">Visual language</div>
+      <h2 class="case-h2 reveal">Loud on purpose, <em>like the clothes</em>.</h2>
+
+      <div class="case-visual__grid">
+        <div class="reveal">
+          <p class="case-visual__text">
+            I built the look from Walter's own world: bright colour dropped into grey, cut-out
+            halftone collage like protest posters, and heavy, shouting type next to a quiet
+            editorial serif. Bombs, grenades, masks and crosshairs come straight from the
+            aestheticterrorists name.
+          </p>
+          <ul class="case-swatches" aria-label="Colour palette">
+            <li style="--c: #C63131"><span>Red</span>#C63131</li>
+            <li style="--c: #C64878"><span>Pink</span>#C64878</li>
+            <li style="--c: #93A06A"><span>Olive</span>#93A06A</li>
+            <li style="--c: #2E2E2E"><span>Ink</span>#2E2E2E</li>
+            <li style="--c: #E0E0E0"><span>Grey</span>#E0E0E0</li>
+          </ul>
+          <dl class="case-type">
+            <div><dt>Headlines</dt><dd>Podium Soft</dd></div>
+            <div><dt>Display</dt><dd>ITC Avant Garde Gothic</dd></div>
+            <div><dt>Editorial</dt><dd>PP Editorial New</dd></div>
+            <div><dt>Body</dt><dd>Satoshi</dd></div>
+          </dl>
+        </div>
+        <img class="case-visual__img reveal" src="images/walter/aestheticterrorists.jpg" alt="The aestheticterrorists label, stacked like clothing tags" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- ============ DEVELOPMENT ============ -->
+    <section class="section section--tight case-split">
+      <div class="section__label reveal">Development</div>
+      <div class="case-code-notes">
+        <p class="case-lead reveal">Every chapter has its own interaction, all running on one GSAP setup.</p>
+        <ul class="case-dev-list reveal">
+          <li><strong>Vite + npm</strong> to bundle the JavaScript and CSS, deployed to GitHub Pages.</li>
+          <li><strong>ScrollTrigger</strong> for the pinned collection section and the reveal of every chapter.</li>
+          <li><strong>DrawSVG</strong> to erase the line under your name, <strong>TextPlugin</strong> to type out the collections.</li>
+          <li><strong>AVIF images</strong> for the collage cut-outs, to keep a heavy visual style fast.</li>
+          <li><strong>Responsive</strong> layouts that recompose the collage for mobile instead of just shrinking it.</li>
+        </ul>
+        <div class="code-window reveal" aria-label="Code excerpt">
+          <div class="code-window__bar"><i></i><i></i><i></i><span>name-form.js (simplified)</span></div>
+<pre><code>form.<span class="p">addEventListener</span>(<span class="s">"submit"</span>, (e) =&gt; {
+  e.<span class="p">preventDefault</span>();
+
+  gsap.<span class="p">timeline</span>({ onComplete: showNameIsGone })
+    <span class="c">// the line flashes orange…</span>
+    .<span class="p">to</span>(line, { stroke: <span class="s">"#FF6B35"</span>, strokeWidth: <span class="n">6</span>, duration: <span class="n">0.3</span> })
+    <span class="c">// …and is erased, taking your name with it</span>
+    .<span class="p">to</span>(line, { drawSVG: <span class="s">"0% 0%"</span>, duration: <span class="n">1.2</span>, ease: <span class="s">"power2.in"</span> })
+    .<span class="p">to</span>(input, { opacity: <span class="n">0</span>, y: <span class="n">-20</span> }, <span class="s">"&lt;"</span>);
+});</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REFLECTION ============ -->
+    <!-- 👉 Write these in your own words -->
+    <section class="section section--tight case-reflect">
+      <div class="reveal">
+        <div class="section__label">Hardest part</div>
+        <p>Balancing a long-read with a lot of interaction: every interactive moment had to move the story forward, not interrupt the reading.</p>
+      </div>
+      <div class="reveal">
+        <div class="section__label">What I took away</div>
+        <p>Designing and building a full experience on my own, from concept and visual language to the last scroll animation.</p>
+      </div>
+    </section>
+
+    <div class="case-actions reveal">
+      <a href="https://ftjorven.github.io/integration3/" target="_blank" rel="noopener" class="btn btn--primary">
+        Read the story
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <span class="case-actions__note">Works on desktop and mobile.</span>
+    </div>
+
+    <a href="milesmeals.html" class="case-next">
+      <span class="eyebrow">Next project</span>
+      <span class="case-next__title">Miles &amp; Meals <span class="accent">→</span></span>
+    </a>
+
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--band contact" id="contact">
+      <p class="eyebrow reveal">Got a project, internship or just want to say hi?</p>
+      <h2 class="contact__title reveal">
+        <a href="mailto:florintjorven@gmail.com" class="contact__mail">
+          Let's work<br />together <span class="arrow">↗</span>
+        </a>
+      </h2>
+
+      <ul class="socials reveal">
+        <li><a href="mailto:florintjorven@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/tjorven-florin-8a57a91aa/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/FTjorven/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.behance.net/tjorvenflorin1" target="_blank" rel="noopener">Behance</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer section--band">
+    <div class="footer__row">
+      <span>© <span id="year"></span> Tjorven Florin</span>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+      </nav>
+      <a href="#top" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
