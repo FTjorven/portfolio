@@ -28,6 +28,22 @@
   color-scheme: light;
 }
 
+/* Dark theme: the creative development site (<html data-theme="dark">) */
+:root[data-theme='dark'] {
+  --bg: #0c0c0f;
+  --bg-2: #16161b;
+  --surface: #1b1b21;
+  --border: rgba(255, 255, 255, 0.1);
+  --text: #f4f2ec;
+  --muted: #9b9ba6;
+
+  --accent: #4ade80;   /* bright green, readable on dark */
+  --accent-2: #14532d; /* deep green for coloured bands */
+  --on-accent: #0c0c0f;
+
+  color-scheme: dark;
+}
+
 /* =========================================================
    Base
    ========================================================= */
@@ -1052,7 +1068,7 @@ em { font-style: italic; }
 /* About: disciplines */
 .disciplines {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   border-top: 1px solid var(--border);
 }
 .discipline {
@@ -1638,3 +1654,15 @@ em { font-style: italic; }
   }
   .reveal { opacity: 1; transform: none; }
 }
+
+/* =========================================================
+   Dark theme tweaks
+   Coloured bands use the deep green so white text stays readable,
+   and the contact/footer band gets a slightly lighter tone than the page.
+   ========================================================= */
+:root[data-theme='dark'] .teaser,
+:root[data-theme='dark'] .case-code { --bg: var(--accent-2); }
+:root[data-theme='dark'] .case-arch__node--main { background: var(--accent-2); }
+:root[data-theme='dark'] .contact,
+:root[data-theme='dark'] .footer { --bg: #141418; }
+:root[data-theme='dark'] .grain { opacity: 0.07; }

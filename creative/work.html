@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0c0f" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>Work — Tjorven Florin</title>
+  <meta name="description" content="Selected creative development work by Tjorven Florin: installations, interactive web experiences and front-end." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="index.html" class="nav__logo">tjorven<span>.</span></a>
+
+    <nav class="nav__links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html" aria-current="page">Work</a>
+    </nav>
+  </header>
+
+  <!-- Fixed top-right corner: menu (mobile) + contact -->
+  <div class="corner">
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+    <a href="#contact" class="corner__cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+
+  <main id="top">
+    <!-- ============ PAGE HEADER ============ -->
+    <section class="page-head">
+      <p class="eyebrow reveal">Selected work</p>
+      <h1 class="page-head__title reveal">Things I've <em>built</em><span class="accent">.</span></h1>
+      <p class="page-head__intro reveal">
+        Interactive experiences, installations and front-end work from my time at Devine.
+      </p>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section section--tight work">
+      <div class="projects">
+        <a href="myst.html" class="project reveal">
+          <div class="project__visual" style="--bg-c: #ecebe6">
+            <img src="images/myst/cover.webp" alt="MYST logo" loading="lazy" />
+          </div>
+          <div class="project__info">
+            <div>
+              <h3>Myst</h3>
+              <p>Fashion app &amp; projection-mapped installation for Visit Antwerp</p>
+            </div>
+            <span class="project__meta">Development · 2026</span>
+          </div>
+        </a>
+
+        <a href="soundcheck.html" class="project reveal">
+          <div class="project__visual" style="--bg-c: #1b1b1b">
+            <img src="images/soundcheck/soundcheckicon.png" alt="The Soundcheck title artwork" loading="lazy" />
+          </div>
+          <div class="project__info">
+            <div>
+              <h3>The Soundcheck</h3>
+              <p>Interactive backstage experience with machine learning &amp; GSAP</p>
+            </div>
+            <span class="project__meta">Development · 2026</span>
+          </div>
+        </a>
+
+        <a href="walter.html" class="project reveal">
+          <div class="project__visual" style="--bg-c: #e0e0e0">
+            <img src="images/walter/icon.png" alt="Designing Without A Name title over a halftone collage" loading="lazy" />
+          </div>
+          <div class="project__info">
+            <div>
+              <h3>Designing Without a Name</h3>
+              <p>Scroll-driven interactive long-read on Walter Van Beirendonck for MoMu</p>
+            </div>
+            <span class="project__meta">Front-end · 2026</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--band contact" id="contact">
+      <p class="eyebrow reveal">Got a project, internship or just want to say hi?</p>
+      <h2 class="contact__title reveal">
+        <a href="mailto:florintjorven@gmail.com" class="contact__mail">
+          Let's work<br />together <span class="arrow">↗</span>
+        </a>
+      </h2>
+
+      <ul class="socials reveal">
+        <li><a href="https://github.com/FTjorven/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/tjorven-florin-8a57a91aa/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:florintjorven@gmail.com">Email</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer section--band">
+    <div class="footer__row">
+      <span>© <span id="year"></span> Tjorven Florin · Creative Developer</span>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+      </nav>
+      <a href="#top" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

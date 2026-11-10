@@ -12,8 +12,13 @@ import { gsap } from 'gsap';
 */
 
 const PAPER = '#fbfaf6';
-const INK = '#111114';
-const ACCENT = '#15803d';
+const INK = '#111114'; // caption text on the paper prints
+
+// The line and the pegs follow the page theme (light or dark site)
+const cssVar = (name, fallback) =>
+  getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
+const LINE = () => cssVar('--text', INK);
+const ACCENT = () => cssVar('--accent', '#15803d');
 
 export async function initHero3d() {
   const hero = document.querySelector('.hero');
@@ -60,7 +65,7 @@ export async function initHero3d() {
   const shadowGeo = new THREE.PlaneGeometry(1.2, 1.45).translate(0.06, -0.7, 0);
   const pegGeo = new THREE.BoxGeometry(0.07, 0.15, 0.03);
   const threadGeo = new THREE.PlaneGeometry(1, 1).translate(0, -0.5, 0);
-  const inkMaterial = new THREE.MeshBasicMaterial({ color: INK });
+  const inkMaterial = new THREE.MeshBasicMaterial({ color: LINE() });
 
   const prints = await Promise.all(links.map(async (link, i) => {
     const texture = new THREE.CanvasTexture(await drawPrint(link, i));
@@ -76,7 +81,7 @@ export async function initHero3d() {
         uWind: { value: 1 },
         uAlpha: { value: reduceMotion ? 1 : 0 },
         uFocus: { value: 0 },
-        uAccent: { value: new THREE.Color(ACCENT) },
+        uAccent: { value: new THREE.Color(ACCENT()) },
       },
       vertexShader: PAPER_VERTEX,
       fragmentShader: PAPER_FRAGMENT,
@@ -92,7 +97,7 @@ export async function initHero3d() {
       map: shadowTexture, transparent: true, opacity: reduceMotion ? 0.22 : 0, depthWrite: false,
     }));
     shadow.position.z = -0.08;
-    const peg = new THREE.Mesh(pegGeo, new THREE.MeshBasicMaterial({ color: ACCENT }));
+    const peg = new THREE.Mesh(pegGeo, new THREE.MeshBasicMaterial({ color: ACCENT() }));
     peg.position.set(0, 0.01, 0.03);
     holder.add(shadow, paper, peg);
     pivot.add(thread, holder);
@@ -374,7 +379,7 @@ async function drawPrint(link, i) {
   ctx.fillStyle = '#6a6a74';
   ctx.fillText(meta.toUpperCase(), margin, textY + 128);
   ctx.textAlign = 'right';
-  ctx.fillStyle = ACCENT;
+  ctx.fillStyle = '#15803d'; // always on paper, so the light-theme green
   ctx.fillText(`${String(i + 1).padStart(2, '0')} ↗`, W - margin, textY + 128);
   return c;
 }

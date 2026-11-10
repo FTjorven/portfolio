@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0c0f" />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <title>About — Tjorven Florin</title>
-  <meta name="description" content="About Tjorven Florin: Devine student at Howest working across development and visual design." />
+  <meta name="description" content="About Tjorven Florin: creative developer and Devine student at Howest, focused on interactive installations, motion and front-end." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-
 </head>
 <body>
   <div class="cursor" aria-hidden="true"></div>
@@ -56,13 +55,13 @@
 
       <div class="about-intro__text">
         <p class="lead reveal">
-          I'm a Digital Design &amp; Development student at Devine (Howest, Kortrijk),
-          somewhere right between a developer and a designer.
+          I'm a creative developer studying Digital Design &amp; Development at Devine (Howest, Kortrijk).
         </p>
         <p class="reveal">
-          I like taking an idea all the way: from a rough sketch, to a polished design in
-          Figma, to a working website that feels good to use. Code is where I feel most at home,
-          but I care just as much about typography, colour and layout.
+          Code is where I feel most at home. I like building things people play with: projection-mapped installations, scroll-driven stories, 3D scenes and experiments with machine learning, finished with motion that feels right.
+        </p>
+        <p class="reveal">
+          I have a background in visual design as well, so I sweat the typography, spacing and timing, not just the logic underneath.
         </p>
         <div class="about-intro__actions reveal">
           <!-- The CV lives in public/cv/ so Vite copies it into the build as-is -->
@@ -78,13 +77,18 @@
       <div class="disciplines">
         <article class="discipline reveal">
           <span class="discipline__num">01</span>
-          <h3>Development</h3>
-          <p>Responsive, accessible front-ends with attention to motion and detail. HTML, CSS, JavaScript, React and a bit of back-end when needed.</p>
+          <h3>Interactive &amp; installations</h3>
+          <p>Experiences that leave the browser: projection mapping, camera and sound input, machine learning in the browser.</p>
         </article>
         <article class="discipline reveal">
           <span class="discipline__num">02</span>
-          <h3>Visual design</h3>
-          <p>Typography, layout, colour and identities. I design in Figma and the Adobe suite, and I like work with a clear point of view.</p>
+          <h3>Motion &amp; 3D</h3>
+          <p>GSAP timelines, scroll-driven animation and real-time 3D with Three.js and WebGL shaders.</p>
+        </article>
+        <article class="discipline reveal">
+          <span class="discipline__num">03</span>
+          <h3>Front-end</h3>
+          <p>Responsive, accessible sites and apps in HTML, CSS, JavaScript and React, with a bit of back-end when needed.</p>
         </article>
       </div>
     </section>
@@ -143,11 +147,11 @@
         <div class="toolbox__row reveal">
           <div class="toolbox__head">
             <span class="toolbox__key">B</span>
-            <h3>Design</h3>
-            <span class="toolbox__count">06</span>
+            <h3>Design side</h3>
+            <span class="toolbox__count">03</span>
           </div>
           <ul class="toolbox__list">
-            <li>Figma</li><li>Illustrator</li><li>Photoshop</li><li>After Effects</li><li>InDesign</li><li>Blender</li>
+            <li>Figma</li><li>Illustrator</li><li>Blender</li>
           </ul>
         </div>
       </div>
@@ -163,17 +167,16 @@
       </h2>
 
       <ul class="socials reveal">
-        <li><a href="mailto:florintjorven@gmail.com">Email</a></li>
-        <li><a href="https://www.linkedin.com/in/tjorven-florin-8a57a91aa/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="https://github.com/FTjorven/" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.behance.net/tjorvenflorin1" target="_blank" rel="noopener">Behance</a></li>
+        <li><a href="https://www.linkedin.com/in/tjorven-florin-8a57a91aa/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:florintjorven@gmail.com">Email</a></li>
       </ul>
     </section>
   </main>
 
   <footer class="footer section--band">
     <div class="footer__row">
-      <span>© <span id="year"></span> Tjorven Florin</span>
+      <span>© <span id="year"></span> Tjorven Florin · Creative Developer</span>
       <nav class="footer__nav" aria-label="Footer">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -183,6 +186,6 @@
     </div>
   </footer>
 
-  <script type="module" src="script.js"></script>
+  <script type="module" src="./main.js"></script>
 </body>
 </html>

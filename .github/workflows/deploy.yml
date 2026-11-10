@@ -1,5 +1,10 @@
 name: Deploy to GitHub Pages
 
+# The same code lives in two repos, and each one publishes a different site:
+#   FTjorven/portfolio -> visual design site     (ftjorven.github.io/portfolio/)
+#   FTjorven/work      -> creative development site (ftjorven.github.io/work/)
+# Push to both remotes to update both sites.
+
 on:
   # Deploy every time you push to main
   push:
@@ -16,6 +21,9 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
+env:
+  SITE: ${{ github.event.repository.name == 'work' && 'creative' || 'visual' }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,10 +34,10 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - run: npm run build:${{ env.SITE }}
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: dist/${{ env.SITE }}
 
   deploy:
     needs: build
