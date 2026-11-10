@@ -1666,3 +1666,6 @@ em { font-style: italic; }
 :root[data-theme='dark'] .contact,
 :root[data-theme='dark'] .footer { --bg: #141418; }
 :root[data-theme='dark'] .grain { opacity: 0.07; }
+
+/* Before/after pairs of stills (revinyl.html): side by side, so no stacking gap */
+.case-moment__pair .case-figure + .case-figure { margin-top: 0; }
