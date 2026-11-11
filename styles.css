@@ -754,6 +754,26 @@ em { font-style: italic; }
 }
 .project:hover .shape--cube { transform: rotate(135deg) scale(1.08); }
 
+/* Behance card: links out to the UX case studies */
+.project--behance .project__visual { color: #fff; }
+.behance__mark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(5rem, 12vw, 9rem);
+  letter-spacing: -0.06em;
+  line-height: 1;
+  transition: transform 0.8s var(--ease);
+}
+.project--behance:hover .behance__mark { transform: scale(1.08) rotate(-4deg); }
+.behance__label {
+  position: absolute;
+  left: 20px;
+  bottom: 18px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+}
+
 .project__info {
   display: flex;
   justify-content: space-between;
