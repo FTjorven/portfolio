@@ -44,18 +44,27 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.retry.outputs.page_url || steps.retry2.outputs.page_url }}
     steps:
+      # Pushing twice within a few minutes can fail with "in progress deployment":
+      # GitHub is still finishing the previous one, sometimes for 10+ minutes.
+      # So: try, wait 2 minutes, try again, wait 5 more minutes, try a last time.
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
         continue-on-error: true
-      # Pushing twice in a row can fail with "in progress deployment":
-      # GitHub is still finishing the previous one. Wait, then try once more.
       - name: Wait for the previous deployment
         if: steps.deployment.outcome == 'failure'
-        run: sleep 90
+        run: sleep 120
       - name: Deploy to GitHub Pages (retry)
         id: retry
         if: steps.deployment.outcome == 'failure'
+        uses: actions/deploy-pages@v5
+        continue-on-error: true
+      - name: Wait a bit longer
+        if: steps.deployment.outcome == 'failure' && steps.retry.outcome == 'failure'
+        run: sleep 300
+      - name: Deploy to GitHub Pages (last try)
+        id: retry2
+        if: steps.deployment.outcome == 'failure' && steps.retry.outcome == 'failure'
         uses: actions/deploy-pages@v5
