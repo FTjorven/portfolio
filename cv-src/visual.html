@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- Source of public/cv/Tjorven_Florin_CV_Design.pdf (the CV on the visual design site).
+     Re-export: node scripts/cv-pdf.mjs -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tjorven Florin CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet" />
+  <style>
+    @page { size: A4; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --text: #1d1d1b; --muted: #6b6b66; --line: #d9d7d0; --accent: #d0343a; --bg: #faf9f5; }
+    html, body { background: var(--bg); }
+    body {
+      width: 210mm; height: 297mm; padding: 13mm 14mm 10mm; overflow: hidden;
+      font: 400 9.1pt/1.42 Inter, sans-serif; color: var(--text);
+      display: flex; flex-direction: column;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    em, .serif { font-family: Newsreader, Georgia, serif; font-style: italic; font-weight: 400; }
+
+    header { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 7mm; border-bottom: 1.5px solid var(--text); }
+    .eyebrow { font-size: 7.6pt; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 2.5mm; }
+    h1 { font-size: 36pt; font-weight: 700; letter-spacing: -.045em; line-height: 1; }
+    h1 span { color: var(--accent); }
+    .role { font-size: 12.5pt; margin-top: 3mm; }
+    .role em { font-size: 13.5pt; }
+    .contact { text-align: right; font-size: 9pt; line-height: 1.75; }
+
+    .intro { font-size: 10.4pt; line-height: 1.5; max-width: 142mm; padding: 5.5mm 0; border-bottom: 1px solid var(--line); width: 143mm; }
+    .intro em { font-size: 11.2pt; }
+
+    .grid { display: grid; grid-template-columns: 1fr 50mm; column-gap: 9mm; padding-top: 5.5mm; flex: 1; }
+    h2 { font-size: 8pt; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 3.5mm; }
+    h2 b { color: var(--muted); font-weight: 400; margin-right: 2.2mm; }
+    section { margin-bottom: 5mm; }
+
+    .item { margin-bottom: 3.4mm; }
+    .item__top { display: flex; justify-content: space-between; gap: 4mm; align-items: baseline; }
+    .item__title { font-weight: 600; font-size: 9.8pt; }
+    .item__title small { font-weight: 400; color: var(--muted); font-size: 9pt; margin-left: 1.5mm; }
+    .item__date { font-size: 8.4pt; color: var(--muted); white-space: nowrap; }
+    .item__sub { color: var(--muted); font-size: 9pt; }
+    .item p { margin-top: .6mm; }
+    .tags { font-size: 7.8pt; color: var(--muted); margin-top: 1.2mm; }
+
+    .edu { margin-bottom: 3.8mm; }
+    .edu b { font-weight: 600; font-size: 9.8pt; display: block; }
+    .edu span { display: block; color: var(--muted); font-size: 9pt; }
+    .pills { display: flex; flex-wrap: wrap; gap: 1.6mm; }
+    .pills li { list-style: none; border: 1px solid #b9b7b0; border-radius: 99px; padding: .9mm 3mm; font-size: 8.4pt; }
+    .rows li { list-style: none; display: flex; justify-content: space-between; padding: 1.5mm 0; border-bottom: 1px solid var(--line); font-size: 9.4pt; }
+    .rows li span { color: var(--muted); font-size: 8.4pt; }
+
+    footer { display: flex; justify-content: space-between; font-size: 8pt; color: var(--muted); border-top: 1px solid var(--line); padding-top: 3.5mm; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">Devine @ Howest · Open to internships</p>
+      <h1>Tjorven Florin<span>.</span></h1>
+      <p class="role">Visual designer &amp; <em>motion designer</em></p>
+    </div>
+    <div class="contact">
+      florintjorven@gmail.com<br />
+      +32 493 84 97 39<br />
+      Harelbeke, Belgium<br />
+      ftjorven.github.io/projects
+    </div>
+  </header>
+
+  <p class="intro">
+    Visual designer studying Digital Design &amp; Development. I like taking a brand from first sketches and moodboards to a full identity: logo, type, packaging, motion and the app it lives in. I care about <em>typography, colour and layout</em>, and because I also write code, I design with how things will be built in mind.
+  </p>
+
+  <div class="grid">
+    <div>
+      <section>
+        <h2><b>01</b>Selected projects</h2>
+        <div class="item">
+          <div class="item__top"><span class="item__title">Miles &amp; Meals</span><span class="item__date">2026</span></div>
+          <p>Brand identity, packaging and app design for a street food box service, from logo and stickers to a clickable prototype.</p>
+          <p class="tags">Figma · Branding · Packaging · UI design</p>
+        </div>
+        <div class="item">
+          <div class="item__top"><span class="item__title">Revinyl <small>Kickstarter promo</small></span><span class="item__date">2026</span></div>
+          <p>47-second motion film for BLOCK I, a device that plays digital music through your turntable. Concept, art direction, animation and sound.</p>
+          <p class="tags">After Effects · Audition · Photoshop</p>
+        </div>
+        <div class="item">
+          <div class="item__top"><span class="item__title">The House Remembers</span><span class="item__date">2025</span></div>
+          <p>A forgotten deck of playing cards turned into three ways to throw a party. Concept, storytelling, illustration and the website that tells it.</p>
+          <p class="tags">Illustrator · Figma · Web design</p>
+        </div>
+        <div class="item">
+          <div class="item__top"><span class="item__title">Designing Without a Name <small>for MoMu</small></span><span class="item__date">2026 · solo</span></div>
+          <p>Interactive long-read on Walter Van Beirendonck, from concept and visual language to every scroll animation.</p>
+          <p class="tags">Visual identity · Editorial layout · GSAP</p>
+        </div>
+      </section>
+
+      <section>
+        <h2><b>02</b>Experience</h2>
+        <div class="item">
+          <div class="item__top"><span class="item__title">Music journalist</span><span class="item__date">since 2025</span></div>
+          <p class="item__sub">Dansende Beren</p>
+          <p>Concert and festival reviews in Dutch, covering Pukkelpop, Rock Werchter, Rock Olmen and AFF Festival.</p>
+        </div>
+        <div class="item">
+          <div class="item__top"><span class="item__title">Volunteer</span><span class="item__date">since 2024</span></div>
+          <p class="item__sub">Wilde Westen · De Kreun, Kortrijk</p>
+          <p>Helping out at concerts and events at the venue behind De Kreun, Sonic City and Festival Kortrijk.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2><b>03</b>Earlier work</h2>
+        <div class="item">
+          <div class="item__top"><span class="item__title">Reception &amp; logistics <small>De Branding, Kortrijk · seasonal</small></span><span class="item__date">Jul 2024 to Jul 2026</span></div>
+          <p>Front desk and visitor questions, designing letters sent out across the whole network, supporting the logistics team and guiding other student workers.</p>
+        </div>
+        <div class="item">
+          <div class="item__top"><span class="item__title">Transcriber <small>HOGENT, Ghent</small></span><span class="item__date">Jun 2023 to Sep 2024</span></div>
+          <p>Transcribing research interviews for the Research Collective Equality project.</p>
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <section>
+        <h2><b>04</b>Education</h2>
+        <div class="edu"><b>Devine @ Howest</b><span>Digital Design &amp; Development</span><span>Kortrijk · 2024 to now · year 3</span></div>
+        <div class="edu"><b>Guldensporencollege</b><span>Secondary school, Handel</span><span>Kortrijk · until 2024</span></div>
+      </section>
+      <section>
+        <h2><b>05</b>Design</h2>
+        <ul class="pills">
+          <li>Figma</li><li>Illustrator</li><li>Photoshop</li><li>InDesign</li><li>After Effects</li><li>Audition</li><li>Blender</li><li>Prototyping</li><li>User testing</li>
+        </ul>
+      </section>
+      <section>
+        <h2><b>06</b>Also code</h2>
+        <ul class="pills">
+          <li>HTML &amp; CSS</li><li>JavaScript</li><li>React</li><li>GSAP</li>
+        </ul>
+      </section>
+      <section>
+        <h2><b>07</b>Languages</h2>
+        <ul class="rows"><li>Dutch <span>native</span></li><li>English <span>fluent</span></li></ul>
+      </section>
+      <section>
+        <h2><b>08</b>Online</h2>
+        <ul class="rows"><li>Behance <span>tjorvenflorin1</span></li><li>LinkedIn <span>tjorven-florin</span></li></ul>
+      </section>
+    </aside>
+  </div>
+
+  <footer><span>Full case studies at ftjorven.github.io/projects</span><span>Tjorven Florin · CV 2026</span></footer>
+</body>
+</html>
