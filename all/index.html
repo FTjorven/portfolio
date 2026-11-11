@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f2ec" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>Tjorven Florin — Visual Designer &amp; Creative Developer</title>
+  <meta name="description" content="Portfolio of Tjorven Florin, Devine student at Howest: creative development, visual and motion design." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="index.html" class="nav__logo">tjorven<span>.</span></a>
+
+    <nav class="nav__links" id="nav-links">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+    </nav>
+  </header>
+
+  <!-- Fixed top-right corner: menu (mobile) + contact -->
+  <div class="corner">
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+    <a href="#contact" class="corner__cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <p class="eyebrow reveal">
+        <span class="status-dot"></span> Devine @ Howest · open to internships
+      </p>
+
+      <h1 class="hero__title">
+        <span class="hero__first">Tjorven</span>
+        <span class="hero__last">Florin<span class="accent">.<span class="hero__nail" aria-hidden="true"></span></span></span>
+      </h1>
+
+      <!-- Projects hang from a line that runs to the dot of "Florin." (hero3d.js).
+           Without WebGL, this list shows as plain cards instead. -->
+      <div class="hero__stage">
+        <ol class="hero__projects" aria-label="Selected work">
+          <li><a href="thresholds.html" data-bg="#0c0c0f"><img src="images/thresholds/cover-square.jpg" alt="" /><strong>Thresholds</strong><span>WebGPU · 2026</span></a></li>
+          <li><a href="myst.html" data-bg="#ecebe6"><img src="images/myst/cover.webp" alt="" /><strong>Myst</strong><span>Development · 2026</span></a></li>
+          <li><a href="walter.html" data-bg="#e0e0e0"><img src="images/walter/icon.png" alt="" /><strong>Designing Without a Name</strong><span>Design &amp; dev · 2026</span></a></li>
+          <li><a href="milesmeals.html" data-bg="#fefbf3"><img src="images/miles-meals/window.jpg" alt="" /><strong>Miles &amp; Meals</strong><span>Identity · 2026</span></a></li>
+          <li><a href="revinyl.html" data-bg="#fefbee"><img src="images/revinyl/cover-square.jpg" alt="" /><strong>Revinyl</strong><span>Motion · 2026</span></a></li>
+        </ol>
+        <p class="hero__hint" aria-hidden="true">Give them a shove · click a print to open it</p>
+      </div>
+
+      <div class="hero__bottom reveal">
+        <p class="hero__role">Visual designer &amp; creative developer</p>
+        <div class="hero__buttons">
+          <a href="work.html" class="btn btn--primary">
+            All work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </a>
+          <a href="#contact" class="btn btn--ghost">Get in touch</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MARQUEE ============ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>JavaScript</span><i>✦</i><span>Three.js</span><i>✦</i><span>WebGPU</span><i>✦</i><span>GSAP</span><i>✦</i><span>React</span><i>✦</i><span>Branding</span><i>✦</i><span>Typography</span><i>✦</i><span>Motion Design</span><i>✦</i><span>Figma</span><i>✦</i><span>Illustrator</span><i>✦</i><span>After Effects</span><i>✦</i><span>Blender</span><i>✦</i>
+        <!-- duplicate for seamless loop -->
+        <span>JavaScript</span><i>✦</i><span>Three.js</span><i>✦</i><span>WebGPU</span><i>✦</i><span>GSAP</span><i>✦</i><span>React</span><i>✦</i><span>Branding</span><i>✦</i><span>Typography</span><i>✦</i><span>Motion Design</span><i>✦</i><span>Figma</span><i>✦</i><span>Illustrator</span><i>✦</i><span>After Effects</span><i>✦</i><span>Blender</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT TEASER ============ -->
+    <section class="section section--band teaser" data-cursor="light">
+      <p class="teaser__text reveal">
+        I'm a Devine student at Howest who designs <em>and</em> codes: identities, films and interactive things for the web.
+      </p>
+      <a href="about.html" class="teaser__link reveal">
+        More about me
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--band contact" id="contact">
+      <p class="eyebrow reveal">Got a project, internship or just want to say hi?</p>
+      <h2 class="contact__title reveal">
+        <a href="mailto:florintjorven@gmail.com" class="contact__mail">
+          Let's work<br />together <span class="arrow">↗</span>
+        </a>
+      </h2>
+
+      <ul class="socials reveal">
+        <li><a href="mailto:florintjorven@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/tjorven-florin-8a57a91aa/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://github.com/FTjorven/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.behance.net/tjorvenflorin1" target="_blank" rel="noopener">Behance</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer section--band">
+    <div class="footer__row">
+      <span>© <span id="year"></span> Tjorven Florin · Visual Designer &amp; Creative Developer</span>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+      </nav>
+      <a href="#top" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

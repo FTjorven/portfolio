@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --mode visual",
+    "dev": "npm run dev:all",
+    "dev:all": "node scripts/sync-all.mjs && vite --mode all",
     "dev:visual": "vite --mode visual",
     "dev:creative": "vite --mode creative",
-    "build": "npm run build:visual && npm run build:creative",
+    "build": "npm run build:all && npm run build:visual && npm run build:creative",
+    "build:all": "node scripts/sync-all.mjs && vite build --mode all",
     "build:visual": "vite build --mode visual",
     "build:creative": "vite build --mode creative",
+    "preview:all": "vite preview --mode all",
     "preview:visual": "vite preview --mode visual",
     "preview:creative": "vite preview --mode creative"
   },

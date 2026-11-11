@@ -1,5 +1,11 @@
 node_modules
 dist
+
+# Case pages of the combined site, copied in by scripts/sync-all.mjs
+/all/*.html
+!/all/index.html
+!/all/about.html
+!/all/work.html
 .DS_Store
 
 # Source files and old screenshots that the site doesn't use (kept locally, not deployed)

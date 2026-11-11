@@ -1,9 +1,10 @@
 name: Deploy to GitHub Pages
 
-# The same code lives in two repos, and each one publishes a different site:
-#   FTjorven/portfolio -> visual design site     (ftjorven.github.io/portfolio/)
+# The same code lives in three repos, and each one publishes a different site:
+#   FTjorven/portfolio -> combined site             (ftjorven.github.io/portfolio/)
 #   FTjorven/work      -> creative development site (ftjorven.github.io/work/)
-# Push to both remotes to update both sites.
+#   FTjorven/projects  -> visual design site        (ftjorven.github.io/projects/)
+# Push to all three remotes to update all sites.
 
 on:
   # Deploy every time you push to main
@@ -22,7 +23,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SITE: ${{ github.event.repository.name == 'work' && 'creative' || 'visual' }}
+  SITE: ${{ github.event.repository.name == 'work' && 'creative' || github.event.repository.name == 'projects' && 'visual' || 'all' }}
 
 jobs:
   build:
