@@ -5,7 +5,7 @@
 //   - points "Next project" along the combined order below
 // Runs before `npm run dev:all` / `build:all`. The copies are gitignored: edit visual/ or creative/.
 
-import { readFileSync, writeFileSync } from 'node:fs';
+import { readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const root = resolve(import.meta.dirname, '..');
@@ -18,7 +18,6 @@ const PAGES = [
   { file: 'walter.html', from: 'visual', title: 'Designing without a name' },
   { file: 'milesmeals.html', from: 'visual', title: 'Miles &amp; Meals' },
   { file: 'revinyl.html', from: 'visual', title: 'Revinyl' },
-  { file: 'houseremembers.html', from: 'visual', title: 'The House Remembers' },
 ];
 
 const SOCIALS = `      <ul class="socials reveal">
@@ -53,5 +52,11 @@ PAGES.forEach((page, i) => {
 
   writeFileSync(resolve(root, 'all', page.file), html);
 });
+
+// Remove copies of case pages that are no longer in the list, so they don't get built
+const keep = new Set(['index.html', 'about.html', 'work.html', ...PAGES.map((page) => page.file)]);
+for (const file of readdirSync(resolve(root, 'all'))) {
+  if (file.endsWith('.html') && !keep.has(file)) rmSync(resolve(root, 'all', file));
+}
 
 console.log(`sync-all: ${PAGES.length} case pages copied into all/`);
