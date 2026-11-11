@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0c0c0f" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <title>Thresholds — Tjorven Florin</title>
+  <meta name="description" content="Thresholds: a first-person WebGPU walk through Shadertoy worlds, with WGSL shaders, compute-shader particles, Rapier physics and a Blender-built ruin. By Tjorven Florin." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <a href="index.html" class="nav__logo">tjorven<span>.</span></a>
+
+    <nav class="nav__links" id="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html" aria-current="page">Work</a>
+    </nav>
+  </header>
+
+  <!-- Fixed top-right corner: menu (mobile) + contact -->
+  <div class="corner">
+    <button class="nav__burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span>
+    </button>
+    <a href="#contact" class="corner__cta">
+      Contact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+    </a>
+  </div>
+
+  <main id="top">
+    <!-- ============ CASE HEADER ============ -->
+    <section class="page-head case-head">
+      <a href="work.html" class="case-back reveal">← All work</a>
+      <p class="eyebrow reveal">Case study · WebGPU &amp; shaders</p>
+      <h1 class="page-head__title case-head__title case-head__title--long reveal">Thresholds<span class="accent">.</span></h1>
+      <p class="case-head__sub reveal">
+        A first-person walk through Shadertoy worlds. Stone archways on a floating ruin are
+        doorways into shaders you can step inside and fly through.
+      </p>
+
+      <!-- 👉 Check role and context (course name?) -->
+      <dl class="case-meta reveal">
+        <div><dt>My role</dt><dd>Concept, 3D, shaders, development &amp; sound</dd></div>
+        <div><dt>Stack</dt><dd>Three.js WebGPU, TSL / WGSL, Rapier, Blender</dd></div>
+        <div><dt>Context</dt><dd>Devine · 2026</dd></div>
+        <div><dt>Live</dt><dd><a class="case-link" href="https://ftjorven.github.io/thresholds/" target="_blank" rel="noopener">ftjorven.github.io/thresholds ↗</a></dd></div>
+      </dl>
+    </section>
+
+    <section class="case-hero-shot reveal">
+      <figure class="case-browser">
+        <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/thresholds</span></div>
+        <img src="images/thresholds/star-arch.jpg" alt="A stone archway on a dark floating ruin, with the Star Nest nebula visible through the opening" />
+      </figure>
+    </section>
+
+    <!-- ============ THE IDEA ============ -->
+    <section class="section section--tight case-split">
+      <div class="section__label reveal">The idea</div>
+      <div>
+        <p class="case-lead reveal">
+          What if a shader wasn't a flat picture, but a place you could walk into?
+        </p>
+        <p class="case-body reveal">
+          Shadertoy is full of whole worlds that only ever live on a flat canvas. In
+          Thresholds each one sits behind an archway. The shader doesn't paint the doorway
+          like a poster: every pixel gets the real ray from your eye, so the world behind it
+          has depth and shifts as you move. Walk through and you're inside it, weightless,
+          flying where you look.
+        </p>
+        <p class="case-body reveal">
+          Around that I built a small game. Three lights were lost to the worlds beyond the
+          arches: tune each world, find its light, carry it home and place it on the dais.
+          With all three home, a fourth archway rises and leads you out.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT PLAYS ============ -->
+    <section class="section section--tight">
+      <div class="section__label reveal">How it plays</div>
+      <h2 class="case-h2 reveal">Three worlds, <em>one way home</em>.</h2>
+
+      <ol class="case-journey">
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>01 · Tune</span>
+            <h3>Turn the dial</h3>
+            <p>Each world hides its light until it's tuned right. The dial beside the archway changes a value in its shader: the fractal formula of Star Nest, the time of day over the sea, the size of Creation's light. The carving on the arch shows where it has to point.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/thresholds</span></div>
+            <img src="images/thresholds/cre-arch.jpg" alt="The Creation archway, a bright cross of light inside, with its dial standing beside it" loading="lazy" />
+          </figure>
+        </li>
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>02 · Enter</span>
+            <h3>Step through</h3>
+            <p>Walking through the opening puts you inside the world: a big sphere follows you, painted from the inside with the same shader, now with the rays starting at your eye.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/thresholds</span></div>
+            <img src="images/thresholds/sea-in.jpg" alt="Inside the Seascape world: open sea under a blue sky" loading="lazy" />
+          </figure>
+        </li>
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>03 · Return</span>
+            <h3>Look back</h3>
+            <p>The doorway home shows the ruin from your exact viewpoint: it's rendered into a texture and mapped back onto the doorway in screen space, so it lines up perfectly, even out at sea.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/thresholds</span></div>
+            <img src="images/thresholds/sea-back.jpg" alt="The archway standing in the sea, with the ruin and its other archways visible through it" loading="lazy" />
+          </figure>
+        </li>
+        <li class="case-journey__item reveal">
+          <div class="case-journey__text">
+            <span>04 · Bring it home</span>
+            <h3>Wake the dais</h3>
+            <p>Each light has its own socket. Placing it plays a Blender animation: a stone ring rises, turns and hangs tilted above the dais, and the ruin brightens. The third one raises the final archway.</p>
+          </div>
+          <figure class="case-browser">
+            <div class="case-browser__bar" aria-hidden="true"><i></i><i></i><i></i><span>ftjorven.github.io/thresholds</span></div>
+            <img src="images/thresholds/dais.jpg" alt="The dais with its stone rings and sockets in front of the Star Nest archway" loading="lazy" />
+          </figure>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ============ THE WORLDS ============ -->
+    <section class="section section--tight">
+      <div class="section__label reveal">The worlds</div>
+      <h2 class="case-h2 reveal">Shadertoy classics, <em>ported to WGSL</em>.</h2>
+      <div class="case-gallery reveal">
+        <figure>
+          <img src="images/thresholds/star-in.jpg" alt="Inside Star Nest: a deep field of stars and nebula" loading="lazy" />
+          <figcaption><strong>Star Nest</strong>A nebula to float through. Original shader by Kali.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/thresholds/sea-arch.jpg" alt="The Seascape archway on the ruin, the sea visible through it" loading="lazy" />
+          <figcaption><strong>Seascape</strong>An open sea to skim over. Original shader by Alexander Alekseev (TDM).</figcaption>
+        </figure>
+        <figure>
+          <img src="images/thresholds/cre-in.jpg" alt="Inside Creation: a huge pulsing light with coloured rays" loading="lazy" />
+          <figcaption><strong>Creation</strong>A 2D shader turned into a giant light around you. Original by Silexars.</figcaption>
+        </figure>
+      </div>
+      <p class="case-credit reveal">The way home uses Heartfelt by Martijn Steinrucken (BigWings). The ports, the 3D ray setup and everything around them are mine.</p>
+    </section>
+
+    <!-- ============ WHAT'S INSIDE ============ -->
+    <section class="section section--band case-brief" data-cursor="light">
+      <div class="section__label reveal">What's inside</div>
+      <h2 class="case-h2 reveal">Built for the GPU, <em>down to the dust</em>.</h2>
+
+      <div class="case-brief__grid">
+        <article class="reveal">
+          <span class="case-brief__req">WebGPU · TSL / WGSL</span>
+          <h3>Shaders with depth</h3>
+          <p>Three.js <code>WebGPURenderer</code>. Each shader gets a ray origin and direction from the 3D scene instead of a pixel position.</p>
+        </article>
+        <article class="reveal">
+          <span class="case-brief__req">Compute shader</span>
+          <h3>450 motes of dust</h3>
+          <p>Drift into the doorways, simulated entirely on the GPU in a storage buffer. Something WebGL can't do.</p>
+        </article>
+        <article class="reveal">
+          <span class="case-brief__req">Rapier physics</span>
+          <h3>Things to throw</h3>
+          <p>Crystals, urns and stones to pick up and throw. Throw one through a doorway to energize that world; hit something hard and it shatters.</p>
+        </article>
+        <article class="reveal">
+          <span class="case-brief__req">Blender</span>
+          <h3>Baked and animated</h3>
+          <p>The archways and dais are modelled by a Python script, with stone colour and ambient occlusion baked into one texture, and four animations driven by the game.</p>
+        </article>
+        <article class="reveal">
+          <span class="case-brief__req">Web Audio</span>
+          <h3>No sound files</h3>
+          <p>Music, humming doorways, footsteps and shattering, all generated in code, with positional audio from where it happens.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ UNDER THE HOOD ============ -->
+    <section class="section section--tight case-split">
+      <div class="section__label reveal">Under the hood</div>
+      <div class="case-code-notes">
+        <p class="case-lead reveal">The trick: give every pixel a real ray.</p>
+        <div class="code-window reveal" aria-label="Code excerpt">
+          <div class="code-window__bar"><i></i><i></i><i></i><span>script.js (simplified)</span></div>
+<pre><code><span class="k">const</span> <span class="p">createWorldMaterial</span> = (world, rayOrigin) =&gt; {
+  <span class="k">const</span> shader = <span class="p">wgslFn</span>(world.shader);
+  <span class="k">const</span> material = <span class="k">new</span> <span class="p">MeshBasicNodeMaterial</span>();
+  material.colorNode = <span class="p">shader</span>({
+    rayOrigin,
+    rayDir: positionWorld.<span class="p">sub</span>(cameraPosition).<span class="p">normalize</span>(),
+    iTime: world.time,
+    tuning: world.tuning, <span class="c">// the dial</span>
+  });
+  <span class="k">return</span> material;
+};
+
+<span class="c">// seen through the doorway: rays start on the doorway</span>
+world.doorwayMaterial = <span class="p">createWorldMaterial</span>(world, positionWorld);
+<span class="c">// inside the world: rays start at your eye</span>
+world.insideMaterial = <span class="p">createWorldMaterial</span>(world, cameraPosition);</code></pre>
+        </div>
+        <p class="case-body reveal">
+          The same shader runs twice: on the doorway, and on the inside of a sphere that
+          follows you once you've walked through. Only the ray's starting point changes, which
+          is what makes stepping through feel continuous.
+        </p>
+
+        <div class="code-window reveal" aria-label="Code excerpt">
+          <div class="code-window__bar"><i></i><i></i><i></i><span>dust.js (simplified)</span></div>
+<pre><code><span class="c">// runs on the GPU for all 450 motes, every frame</span>
+<span class="k">const</span> update = <span class="p">Fn</span>(() =&gt; {
+  <span class="k">const</span> position = positions.<span class="p">element</span>(instanceIndex);
+  <span class="k">const</span> energy = <span class="p">energyOf</span>(<span class="p">doorwayOf</span>(instanceIndex));
+
+  <span class="c">// drawn in slowly, much faster when the world is energized</span>
+  <span class="k">const</span> pull = <span class="p">float</span>(<span class="n">0.2</span>).<span class="p">add</span>(energy.<span class="p">mul</span>(<span class="n">1.5</span>));
+  position.<span class="p">addAssign</span>(<span class="p">vec3</span>(<span class="n">0</span>, <span class="n">0</span>, pull.<span class="p">negate</span>()).<span class="p">add</span>(steer).<span class="p">add</span>(wander).<span class="p">mul</span>(delta));
+
+  <span class="c">// through the doorway: start over, out in front</span>
+  <span class="p">If</span>(position.z.<span class="p">lessThan</span>(<span class="n">0.02</span>), () =&gt; {
+    position.<span class="p">assign</span>(<span class="p">spawn</span>(instanceIndex, elapsed.<span class="p">mul</span>(<span class="n">60</span>).<span class="p">toUint</span>(), SPAWN_NEAR));
+  });
+})().<span class="p">compute</span>(count);</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REFLECTION ============ -->
+    <!-- 👉 Write these in your own words -->
+    <section class="section section--tight case-reflect">
+      <div class="reveal">
+        <div class="section__label">Hardest part</div>
+        <p>Making the step through a doorway seamless: the world behind it, the sphere around you and the view of the ruin behind you all have to agree on the same rays, every frame.</p>
+      </div>
+      <div class="reveal">
+        <div class="section__label">What I took away</div>
+        <p>Working with WebGPU and TSL from the ground up: porting shaders to WGSL, writing compute passes, and fitting Blender, physics and generated sound into one experience.</p>
+      </div>
+    </section>
+
+    <div class="case-actions reveal">
+      <a href="https://ftjorven.github.io/thresholds/" target="_blank" rel="noopener" class="btn btn--primary">
+        Step inside
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg>
+      </a>
+      <span class="case-actions__note">Needs WebGPU: a recent Chrome, Edge or Safari on desktop.</span>
+    </div>
+
+    <a href="myst.html" class="case-next">
+      <span class="eyebrow">Next project</span>
+      <span class="case-next__title">Myst <span class="accent">→</span></span>
+    </a>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--band contact" id="contact">
+      <p class="eyebrow reveal">Got a project, internship or just want to say hi?</p>
+      <h2 class="contact__title reveal">
+        <a href="mailto:florintjorven@gmail.com" class="contact__mail">
+          Let's work<br />together <span class="arrow">↗</span>
+        </a>
+      </h2>
+
+      <ul class="socials reveal">
+        <li><a href="https://github.com/FTjorven/" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/tjorven-florin-8a57a91aa/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:florintjorven@gmail.com">Email</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer section--band">
+    <div class="footer__row">
+      <span>© <span id="year"></span> Tjorven Florin</span>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="work.html">Work</a>
+      </nav>
+      <a href="#top" class="footer__top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
